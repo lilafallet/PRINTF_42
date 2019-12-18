@@ -4,25 +4,6 @@
 
 int	main(void)
 {
-	int	n = 42;
-	char *str = "est-ce que ca marche ?";
-	printf("\033[32;01m%hp\033[00m", main); //MYPRINTF
-
-	//ENTIERS
-	printf("\n"); //SAUT DE LIGNE
-	printf("\033[34;01m           [!] ENTIERS [!]\033[00m\n"); //TITRE
-	printf("\033[34;01m///////////////////////////////////////\033[00m\n"); //LIGNE
-	printf("\033[31;01mNUMERO 1\033[00m\n"); //NUMERO
-	printf("%d %d %d %d %d %d %d %d\n", 0, 1, 9, 10, 11, 9999, 10000, 100001);
-	printf("\033[32;01m%d %d %d %d %d %d %d %d\033[00m\n", 0, 1, 9, 10, 11, 9999, 10000, 100001); //MYPRINTF
-	printf("\033[31;01mNUMERO 2\033[00m\n"); //NUMERO
-	printf("%d %d %d %d %d %d %d %d", 0, -1, -9, -10, -11, -9999, -10000, -100001);
-	printf("\n"); //SAUT DE LIGNE
-	printf("\033[32;01m%d %d %d %d %d %d %d %d\033[00m", 0, -1, -9, -10, -11, -9999, -10000, -100001); //MYPRINTF
-	printf("\n"); //SAUT DE LIGNE
-	printf("\033[31;01mNUMERO 3\033[00m\n"); //NUMERO
-	printf("%d\n", 12345);
-	printf("\033[32;01m%d\033[00m\n", 12345); //MYPRINTF
 	printf("\033[31;01mNUMERO 4\033[00m\n"); //NUMERO
 	printf("%d\n", -12345);
 	printf("\033[32;01m%d\033[00m\n", -12345); //MYPRINTF
@@ -400,11 +381,6 @@ int	main(void)
 	printf("\n"); //SAUT DE LIGNE
   	printf("\033[32;01m%02k\033[00m", 7); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
-	printf("\033[31;01mNUMERO 7\033[00m\n"); //NUMERO
-  	printf("%2");	
-	printf("\n"); //SAUT DE LIGNE
-  	printf("\033[32;01m%2\033[00m"); //MYPRINTF	
-	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 8\033[00m\n"); //NUMERO
 	printf("%?d", 7);
 	printf("\n"); //SAUT DE LIGNE
@@ -543,17 +519,17 @@ int	main(void)
 	printf("\033[31;01mNUMERO 35\033[00m\n"); //NUMERO
   	printf("%.5s", NULL);
 	printf("\n"); //SAUT DE LIGNE
-  	printf("\033[31;01%.5s", NULL); //MYPRINTF
+  	printf("\033[32;01m%.5s\033[00m", NULL); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 36\033[00m\n"); //NUMERO
   	printf("%.6s", NULL);
 	printf("\n"); //SAUT DE LIGNE
-  	printf("\033[31;01%.6s", NULL); //MYPRINTF
+  	printf("\033[32;01m%.6s\033[00m", NULL); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 37\033[00m\n"); //NUMERO
   	printf("%zy");
 	printf("\n"); //SAUT DE LIGNE
-  	printf("\033[31;01%zy"); //MYPRINTF
+  	printf("\033[32;01m%zy\033[00m"); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 
 	//BONUS//
@@ -561,59 +537,59 @@ int	main(void)
  	printf("\033[34;01m///////////////////////////////////////\033[00m\n"); //LIGNE
 	printf("\033[31;01mNUMERO 1\033[00m\n"); //NUMERO
 	printf("%+d\n", 12345);
-	printf("\033[31;01%+d\n", 12345); //MYPRINTF
+	printf("\033[32;01m%+d\033[00m\n", 12345); //MYPRINTF
 	printf("\033[31;01mNUMERO 2\033[00m\n"); //NUMERO
 	printf("%d %d %+d %+d % d % d %+ d %+ d % +d % +d\n", 7, -7, 7, -7, 7, -7, 7, -7, 7, -7);
 	printf("%d %d %+d %+d % d % d %+ d %+ d % +d % +d\n", 7, -7, 7, -7, 7, -7, 7, -7, 7, -7); //MYPRINTF
 	printf("\033[31;01mNUMERO 3\033[00m\n"); //NUMERO
 	printf("%d %hd %d\n", 123456, 123456, 123456);
-	printf("\033[31;01%d %hd %d\n", 123456, 123456, 123456); //MYPRINTF
+	printf("\033[32;01m%d %hd %d\033[00m\n", 123456, 123456, 123456); //MYPRINTF
 	printf("\033[31;01mNUMERO 4\033[00m\n"); //NUMERO
   	printf("%u %hu %u\n", 123456U, 123456U, 123456U);
-  	printf("\033[31;01%u %hu %u\n", 123456U, 123456U, 123456U); //MYPRINTF
+  	printf("\033[32;01m%u %hu %u\033[00m\n", 123456U, 123456U, 123456U); //MYPRINTF
 	printf("\033[31;01mNUMERO 5\033[00m\n"); //NUMERO
   	printf("%d %ld %d\n", 123456, 123456, 123456);
-  	printf("\033[31;01%d %ld %d\n", 123456, 123456, 123456); //MYPRINTF
+  	printf("\033[32;01m%d %ld %d\033[00m\n", 123456, 123456, 123456); //MYPRINTF
 	printf("\033[31;01mNUMERO 6\033[00m\n"); //NUMERO
 	printf("%#012x\n", 3735928559U);
-	printf("\033[31;01%#012x\n", 3735928559U); //MYPRINTF
+	printf("\033[32;01m%#012x\033[00m\n", 3735928559U); //MYPRINTF
 	printf("\033[31;01mNUMERO 7\033[00m\n"); //NUMERO
   	printf("%#-*.*lX\n", 16, 12, 3735928559UL);
-  	printf("\033[31;01%#-*.*lX\n", 16, 12, 3735928559UL); //MYPRINTF
+  	printf("\033[32;01m%#-*.*lX\033[00m\n", 16, 12, 3735928559UL); //MYPRINTF
 	printf("\033[31;01mNUMERO 8\033[00m\n"); //NUMERO
 	printf("-%+-+4d-", 1);
 	printf("\n"); //SAUT DE LIGNE
-	printf("\033[31;01-%+-+4d-", 1); //MYPRINTF
+	printf("\033[32;01m-%+-+4d\033[00m-", 1); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 9\033[00m\n"); //NUMERO
 	printf("-%+3d-%+.3d", 12, 12);
 	printf("\n"); //SAUT DE LIGNE
-	printf("\033[31;01-%+3d-%+.3d", 12, 12); //MYPRINTF
+	printf("\033[32;01m-%+3d-%+.3d\033[00m", 12, 12); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 10\033[00m\n"); //NUMERO
   	printf("-%+8.4d-%8.0d-%+8.0d-", 13, 0, 0);	
 	printf("\n"); //SAUT DE LIGNE
-  	printf("\033[31;01-%+8.4d-%8.0d-%+8.0d-", 13, 0, 0); //MYPRINTF	
+  	printf("\033[32;01m-%+8.4d-%8.0d-%+8.0d\033[00m-", 13, 0, 0); //MYPRINTF	
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 11\033[00m\n"); //NUMERO
  	printf("%+010d", 543);
 	printf("\n"); //SAUT DE LIGNE
- 	printf("\033[31;01%+010d", 543); //MYPRINTF
+ 	printf("\033[32;01m%+010d\033[00m", 543); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 12\033[00m\n"); //NUMERO
   	printf("%-+10d", 543);
 	printf("\n"); //SAUT DE LIGNE
-  	printf("\033[31;01%-+10d", 543); //MYPRINTF
+  	printf("\033[32;01m%-+10d\033[00m", 543); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 13\033[00m\n"); //NUMERO
   	printf("%-+10d", 1234567890);
 	printf("\n"); //SAUT DE LIGNE
-  	printf("%-+10d", 1234567890); //MYPRINTF
+  	printf("\033[32;01m%-+10d\033[00m", 1234567890); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 14\033[00m\n"); //NUMERO
   	printf("%-+10.10d", 1234567890);	
 	printf("\n"); //SAUT DE LIGNE
-  	printf("%-+10.10d", 1234567890); //MYPRINTF	
+  	printf("\033[32;01m%-+10.10d\033[00m", 1234567890); //MYPRINTF	
 	printf("\n"); //SAUT DE LIGNE
 
 	//ERREURS BONUS//
@@ -622,52 +598,50 @@ int	main(void)
 	printf("\033[31;01mNUMERO 1\033[00m\n"); //NUMERO
 	printf("%+s %0-s", "ABC", "ABC");
 	printf("\n"); //SAUT DE LIGNE
-	printf("%+s %0-s", "ABC", "ABC"); //MYPRINTF
+	printf("\033[32;01m%+s %0-s\033[00m", "ABC", "ABC"); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 2\033[00m\n"); //NUMERO
   	printf("%+c %0-c %.2c", 'a', 'b', 'c');
 	printf("\n"); //SAUT DE LIGNE
-  	printf("%+c %0-c %.2c", 'a', 'b', 'c'); //MYPRINTF
+  	printf("\033[32;01m%+c %0-c %.2c\033[00m", 'a', 'b', 'c'); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 3\033[00m\n"); //NUMERO
   	printf("%d %2n", 1, &n);
 	printf("\n"); //SAUT DE LIGNE
-  	printf("%d %2n", 1, &n); //MYPRINTF
+  	printf("\033[32;01m%d %2n\033[00m", 1, &n); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 4\033[00m\n"); //NUMERO
   	printf("%d %.2n", 1, &n);
 	printf("\n"); //SAUT DE LIGNE
-  	printf("%d %.2n", 1, &n); //MYPRINTF
+  	printf("\033[32;01m%d %.2n\033[00m", 1, &n); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 5\033[00m\n"); //NUMERO
   	printf("%d %02n", 1, &n);
 	printf("\n"); //SAUT DE LIGNE
-  	printf("%d %02n", 1, &n); //MYPRINTF
+  	printf("\033[32;01m%d %02n\033[00m", 1, &n); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 6\033[00m\n"); //NUMERO
   	printf("%d %+n", 1, &n);
 	printf("\n"); //SAUT DE LIGNE
-  	printf("%d %+n", 1, &n); //MYPRINTF
+  	printf("\033[32;01m%d %+n\033[00m", 1, &n); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 7\033[00m\n"); //NUMERO
   	printf("%d %-2n", 1, &n);
 	printf("\n"); //SAUT DE LIGNE
-  	printf("%d %-2n", 1, &n); //MYPRINTF
+  	printf("\033[32;01m%d %-2n\033[00m", 1, &n); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 8\033[00m\n"); //NUMERO
  	printf("%+0# -2.k");	
 	printf("\n"); //SAUT DE LIGNE
- 	printf("%+0# -2.k"); //MYPRINTF	
+ 	printf("\033[32;01m%+0# -2.k\033[00m"); //MYPRINTF	
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 9\033[00m\n"); //NUMERO
 	printf("%+ *.*k", -32, 5);	
 	printf("\n"); //SAUT DE LIGNE
-	printf("%+ *.*k", -32, 5); //MYPRINTF	
+	printf("\033[32;01m%+ *.*k\033[00m", -32, 5); //MYPRINTF	
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[31;01mNUMERO 10\033[00m\n"); //NUMERO
 	printf("%hp", main);
-	printf("\n"); //SAUT DE LIGNE
-	printf("%hp", main); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
 	printf("\033[32;01m%hp\033[00m", main); //MYPRINTF
 	printf("\n"); //SAUT DE LIGNE
