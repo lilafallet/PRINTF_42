@@ -18,7 +18,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%d %d %d %d %d %d %d %d\n", 0, 1, 9, 10, 11, 9999, 10000, 100001); //MYPRINTF
+	ret = ft_printf("%d %d %d %d %d %d %d %d\n", 0, 1, 9, 10, 11, 9999, 10000, 100001); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -30,7 +30,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%d %d %d %d %d %d %d %d", 0, -1, -9, -10, -11, -9999, -10000, -100001); //MYPRINTF
+	ret = ft_printf("%d %d %d %d %d %d %d %d", 0, -1, -9, -10, -11, -9999, -10000, -100001); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -42,7 +42,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%d\n", 12345); //MYPRINTF
+	ret = ft_printf("%d\n", 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -54,7 +54,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%d\n", -12345); //MYPRINTF
+	ret = ft_printf("%d\n", -12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -66,7 +66,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("% d\n", 12345); //MYPRINTF
+	ret = ft_printf("% d\n", 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -78,7 +78,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("% d\n", -12345); //MYPRINTF
+	ret = ft_printf("% d\n", -12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -90,7 +90,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%3d %3d\n", 15, 3); //MYPRINTF
+	ret = ft_printf("%3d %3d\n", 15, 3); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -102,7 +102,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%.8d\n", 12345); //MYPRINTF
+	ret = ft_printf("%.8d\n", 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -114,7 +114,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%08d\n", 12345); //MYPRINTF
+	ret = ft_printf("%08d\n", 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -126,7 +126,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
- 	//ret = ft_printf("%12.8d\n", 12345); //MYPRINTF
+ 	ret = ft_printf("%12.8d\n", 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -138,7 +138,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%8.12d\n", 12345); //MYPRINTF
+  	ret = ft_printf("%8.12d\n", 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -150,7 +150,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%-12d\n", 12345); //MYPRINTF
+  	ret = ft_printf("%-12d\n", 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -162,7 +162,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%-12.8d\n", 12345); //MYPRINTF
+  	ret = ft_printf("%-12.8d\n", 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -174,7 +174,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%012.8d\n", 12345); //MYPRINTF
+  	ret = ft_printf("%012.8d\n", 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -186,7 +186,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%012.d\n", 12345); //MYPRINTF
+  	ret = ft_printf("%012.d\n", 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -198,7 +198,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%012.0d\n", 12345); //MYPRINTF
+  	ret = ft_printf("%012.0d\n", 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -210,7 +210,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%-.12d\n", 12345); //MYPRINTF
+  	ret = ft_printf("%-.12d\n", 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -222,7 +222,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("% .0d\n", 0); //MYPRINTF
+  	ret = ft_printf("% .0d\n", 0); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -234,7 +234,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("-%4d-%-4d-\n", 7, 7); //MYPRINTF
+	ret = ft_printf("-%4d-%-4d-\n", 7, 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -246,7 +246,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%04d %-04d %0-4d\n", 7, 7, 7); //MYPRINTF
+  	ret = ft_printf("%04d %-04d %0-4d\n", 7, 7, 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -258,7 +258,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%0-4d\n", 7); //MYPRINTF
+  	ret = ft_printf("%0-4d\n", 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -270,7 +270,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%0d-\n", 7); //MYPRINTF
+  	ret = ft_printf("-%0d-\n", 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -282,7 +282,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%012d-\n", -1234); //MYPRINTF
+  	ret = ft_printf("-%012d-\n", -1234); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -294,7 +294,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%04d %0.4d\n", -12, -12); //MYPRINTF
+  	ret = ft_printf("%04d %0.4d\n", -12, -12); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -306,7 +306,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%d\n", 258733); //MYPRINTF
+  	ret = ft_printf("%d\n", 258733); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -318,7 +318,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%i\n", 258733); //MYPRINTF
+  	ret = ft_printf("%i\n", 258733); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -330,7 +330,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%u\n", 258733U); //MYPRINTF
+  	ret = ft_printf("%u\n", 258733U); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -342,7 +342,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%x\n", 258733U); //MYPRINTF
+  	ret = ft_printf("%x\n", 258733U); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -354,7 +354,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%X\n", 258733U); //MYPRINTF
+  	ret = ft_printf("%X\n", 258733U); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -366,7 +366,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%d\n", 0); //MYPRINTF
+  	ret = ft_printf("%d\n", 0); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -378,7 +378,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%i\n", 0); //MYPRINTF
+  	ret = ft_printf("%i\n", 0); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -390,7 +390,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%u\n", 0); //MYPRINTF
+  	ret = ft_printf("%u\n", 0); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -402,7 +402,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%x\n", 0); //MYPRINTF
+  	ret = ft_printf("%x\n", 0); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -414,7 +414,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%X\n", 0); //MYPRINTF
+  	ret = ft_printf("%X\n", 0); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -426,7 +426,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%d\n", -258733); //MYPRINTF
+  	ret = ft_printf("%d\n", -258733); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -438,7 +438,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%d\n", INT_MAX); //MYPRINTF
+  	ret = ft_printf("%d\n", INT_MAX); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -450,7 +450,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%d\n", INT_MIN); //MYPRINTF
+  	ret = ft_printf("%d\n", INT_MIN); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -462,7 +462,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%u\n", UINT_MAX); //MYPRINTF
+  	ret = ft_printf("%u\n", UINT_MAX); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -474,7 +474,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%x\n", UINT_MAX); //MYPRINTF
+  	ret = ft_printf("%x\n", UINT_MAX); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -486,7 +486,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%d %hd %d", 7, 7, 7); //MYPRINTF
+	ret = ft_printf("%d %hd %d", 7, 7, 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -498,7 +498,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%000012x", 3735928559U); //MYPRINTF
+	ret = ft_printf("%000012x", 3735928559U); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -510,7 +510,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%3d-%3d-%3d-", -1, -12, -123); //MYPRINTF
+  	ret = ft_printf("-%3d-%3d-%3d-", -1, -12, -123); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -522,7 +522,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%.3d-%.3d-%.3d-", 12, 123, 1234); //MYPRINTF
+  	ret = ft_printf("-%.3d-%.3d-%.3d-", 12, 123, 1234); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -534,7 +534,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
- 	//ret = ft_printf("-%08.0d-", 0); //MYPRINTF
+ 	ret = ft_printf("-%08.0d-", 0); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -546,7 +546,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%2.0d-\n", 7); //MYPRINTF
+  	ret = ft_printf("-%2.0d-\n", 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -558,7 +558,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%2.0d-\n", 0); //MYPRINTF
+  	ret = ft_printf("-%2.0d-\n", 0); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -570,7 +570,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%.3d-%.3d-%.3d-", -12, -123, -1234); //MYPRINTF	
+  	ret = ft_printf("-%.3d-%.3d-%.3d-", -12, -123, -1234); //MYPRINTF	
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -582,7 +582,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("-%d-%.0d-%.8d-%8.0d-%8.8d-", 0, 0, 0, 0, 0); //MYPRINTF
+	ret = ft_printf("-%d-%.0d-%.8d-%8.0d-%8.8d-", 0, 0, 0, 0, 0); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -594,7 +594,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%.3d %.-3d", 21, 21); //MYPRINTF
+  	ret = ft_printf("%.3d %.-3d", 21, 21); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -606,7 +606,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%*d",  10, 1234); //MYPRINTF
+  	ret = ft_printf("%*d",  10, 1234); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -618,7 +618,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%08x", 543); //MYPRINTF
+	ret = ft_printf("%08x", 543); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -630,7 +630,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
- 	//ret = ft_printf("%x", 0x12345); //MYPRINTF	
+ 	ret = ft_printf("%x", 0x12345); //MYPRINTF	
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -642,7 +642,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%X", 0x12345); //MYPRINTF	
+	ret = ft_printf("%X", 0x12345); //MYPRINTF	
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -654,7 +654,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%d %d %d", 0, 42, 2147483647); //MYPRINTF
+	ret = ft_printf("%d %d %d", 0, 42, 2147483647); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -666,7 +666,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%d %d %d", -0, -42, -2147483647); //MYPRINTF
+	ret = ft_printf("%d %d %d", -0, -42, -2147483647); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -678,7 +678,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%d %d %d %d %d %d %d %d %d %d %d %d", 1, 2, 3, 4, 5, 6, 7, 8, 9, 0xA, 0xB, 0xC); //MYPRINTF	
+	ret = ft_printf("%d %d %d %d %d %d %d %d %d %d %d %d", 1, 2, 3, 4, 5, 6, 7, 8, 9, 0xA, 0xB, 0xC); //MYPRINTF	
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -693,7 +693,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("some text\n"); //MYPRINTF
+	ret = ft_printf("some text\n"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -705,7 +705,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("abcdefghijklmnopqrstuvwxyz0123\n"); //MYPRINTF
+  	ret = ft_printf("abcdefghijklmnopqrstuvwxyz0123\n"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -717,7 +717,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("abcdefghijklmnopqrstuvwxyz01234\n"); //MYPRINTF
+  	ret = ft_printf("abcdefghijklmnopqrstuvwxyz01234\n"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -729,7 +729,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("abcdefghijklmnopqrstuvwxyz012345\n"); //MYPRINTF
+  	ret = ft_printf("abcdefghijklmnopqrstuvwxyz012345\n"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -741,7 +741,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%s\n", ""); //MYPRINTF
+	ret = ft_printf("%s\n", ""); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -753,7 +753,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%s\n", "ABCDEF"); //MYPRINTF
+	ret = ft_printf("%s\n", "ABCDEF"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -765,7 +765,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%10s", "Salut"); //MYPRINTF
+	ret = ft_printf("%10s", "Salut"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -777,7 +777,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%10s", "Salut tout le monde"); //MYPRINTF
+  	ret = ft_printf("%10s", "Salut tout le monde"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -789,7 +789,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%10.10s", "Salut tout le monde"); //MYPRINTF
+  	ret = ft_printf("%10.10s", "Salut tout le monde"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -804,7 +804,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
- 	//ret = ft_printf("%c %c\n", 'a', '&'); //MYPRINTF
+ 	ret = ft_printf("%c %c\n", 'a', '&'); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -819,7 +819,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%p\n", NULL); //MYPRINTF
+	ret = ft_printf("%p\n", NULL); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -831,7 +831,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%p\n", 0x123); //MYPRINTF
+	ret = ft_printf("%p\n", 0x123); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -843,7 +843,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%p\n", main); //MYPRINTF
+	ret = ft_printf("%p\n", main); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -871,7 +871,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%d %% %d\n", 1, 2); //MYPRINTF
+	ret = ft_printf("%d %% %d\n", 1, 2); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -886,7 +886,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("-%4d-%-4d-%4d-\n", 7, 54, 12345); //MYPRINTF
+	ret = ft_printf("-%4d-%-4d-%4d-\n", 7, 54, 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -898,7 +898,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%4s-%4s-\n", "A", "ABCDEF"); //MYPRINTF
+  	ret = ft_printf("-%4s-%4s-\n", "A", "ABCDEF"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -910,7 +910,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%-4d-\n", 7); //MYPRINTF
+  	ret = ft_printf("-%-4d-\n", 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -922,7 +922,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%4p-\n", main); //MYPRINTF
+  	ret = ft_printf("-%4p-\n", main); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -934,7 +934,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%*d-\n", 4, 7); //MYPRINTF
+  	ret = ft_printf("-%*d-\n", 4, 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -946,7 +946,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%*d-\n", -4, 7); //MYPRINTF
+  	ret = ft_printf("-%*d-\n", -4, 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -958,7 +958,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%0*d-\n", 4, 7); //MYPRINTF
+  	ret = ft_printf("-%0*d-\n", 4, 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -970,7 +970,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%3c-%-3c-\n", 'a', 'b'); //MYPRINTF
+  	ret = ft_printf("-%3c-%-3c-\n", 'a', 'b'); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -982,7 +982,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%3s-%-3s-\n", "A", "B"); //MYPRINTF
+  	ret = ft_printf("-%3s-%-3s-\n", "A", "B"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -994,7 +994,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%.4d-%.4d-%.d-%.0d-\n", 7, 12345, 1, 9); //MYPRINTF
+  	ret = ft_printf("-%.4d-%.4d-%.d-%.0d-\n", 7, 12345, 1, 9); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1006,7 +1006,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%.4s-%.4s-%.s-\n", "A", "ABCDEF", "ABC"); //MYPRINTF
+  	ret = ft_printf("-%.4s-%.4s-%.s-\n", "A", "ABCDEF", "ABC"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1018,7 +1018,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%.*d-\n", 4, 7); //MYPRINTF
+  	ret = ft_printf("-%.*d-\n", 4, 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1030,7 +1030,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%.*d-\n", -4, 7); //MYPRINTF
+  	ret = ft_printf("-%.*d-\n", -4, 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1042,7 +1042,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%.1d %.0d %.1u %.0u %.1o %.0o %.1x %.0x\n", 0, 0, 0, 0, 0, 0, 0, 0); //MYPRINTF
+  	ret = ft_printf("%.1d %.0d %.1u %.0u %.1o %.0o %.1x %.0x\n", 0, 0, 0, 0, 0, 0, 0, 0); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1054,7 +1054,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%.5d\n", -17); //MYPRINTF
+  	ret = ft_printf("%.5d\n", -17); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1066,7 +1066,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%6.4d-%4.6d-\n", 12345, 12345); //MYPRINTF
+  	ret = ft_printf("-%6.4d-%4.6d-\n", 12345, 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1078,7 +1078,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%*.*d-%*.*d-\n", 6, 4, 12345, 4, 6, 12345); //MYPRINTF
+  	ret = ft_printf("-%*.*d-%*.*d-\n", 6, 4, 12345, 4, 6, 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1090,7 +1090,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%.012d-\n", -1234); //MYPRINTF
+  	ret = ft_printf("-%.012d-\n", -1234); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1102,7 +1102,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%6.4s-%4.6s-\n", "ABCDE", "ABCDE"); //MYPRINTF
+  	ret = ft_printf("-%6.4s-%4.6s-\n", "ABCDE", "ABCDE"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1116,7 +1116,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%c %d %s", 42, 42, str); //MYPRINTF
+	ret = ft_printf("%c %d %s", 42, 42, str); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1128,7 +1128,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%X %p %d", 0x12345, str, 42); //MYPRINTF
+	ret = ft_printf("%X %p %d", 0x12345, str, 42); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1143,7 +1143,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
- 	//ret = ft_printf("-%.4p-", main); //MYPRINTF
+ 	ret = ft_printf("-%.4p-", main); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1155,7 +1155,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%.-4d-", 7); //MYPRINTF
+  	ret = ft_printf("-%.-4d-", 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1167,7 +1167,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%#s %0s", "ABC", "ABC"); //MYPRINTF
+  	ret = ft_printf("%#s %0s", "ABC", "ABC"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1179,7 +1179,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%%-%-%-%0%-%1%-%2%-%.2%-%.%-%-2%-"); //MYPRINTF
+  	ret = ft_printf("-%%-%-%-%0%-%1%-%2%-%.2%-%.%-%-2%-"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1191,7 +1191,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%k", 7); //MYPRINTF
+  	ret = ft_printf("%k", 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1204,7 +1204,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%02k", 7); //MYPRINTF
+  	ret = ft_printf("%02k", 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1216,7 +1216,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%?d", 7); //MYPRINTF
+	ret = ft_printf("%?d", 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1228,7 +1228,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%2*d", 4, 7); //MYPRINTF
+  	ret = ft_printf("%2*d", 4, 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1240,7 +1240,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%.0*d", 4, 7); //MYPRINTF
+  	ret = ft_printf("%.0*d", 4, 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1252,7 +1252,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%*2d", 4, 7); //MYPRINTF
+  	ret = ft_printf("%*2d", 4, 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1264,7 +1264,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%.*2d", 4, 7); //MYPRINTF
+  	ret = ft_printf("%.*2d", 4, 7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1276,7 +1276,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%*.*k", -32, 5); //MYPRINTF
+	ret = ft_printf("%*.*k", -32, 5); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1288,7 +1288,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%16k"); //MYPRINTF
+	ret = ft_printf("%16k"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1300,7 +1300,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%0k %0.1k"); //MYPRINTF
+  	ret = ft_printf("%0k %0.1k"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1312,7 +1312,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%%d", 17); //MYPRINTF
+  	ret = ft_printf("%%d", 17); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1324,7 +1324,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%%%d", 17); //MYPRINTF
+  	ret = ft_printf("%%%d", 17); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1336,7 +1336,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%*.*k %0*.*k", 0, 0, 0, 0); //MYPRINTF
+  	ret = ft_printf("%*.*k %0*.*k", 0, 0, 0, 0); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1348,7 +1348,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%.2p", main); //MYPRINTF
+  	ret = ft_printf("%.2p", main); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1360,7 +1360,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%.12p", main); //MYPRINTF
+  	ret = ft_printf("%.12p", main); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1372,7 +1372,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%2p", main); //MYPRINTF
+  	ret = ft_printf("%2p", main); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1384,7 +1384,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%12p", main); //MYPRINTF
+  	ret = ft_printf("%12p", main); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1396,7 +1396,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%012p", main); //MYPRINTF
+  	ret = ft_printf("%012p", main); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1408,7 +1408,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("% 12p", main); //MYPRINTF
+  	ret = ft_printf("% 12p", main); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1420,7 +1420,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%-12p", main); //MYPRINTF
+  	ret = ft_printf("%-12p", main); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1432,7 +1432,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%.2p", NULL); //MYPRINTF
+  	ret = ft_printf("%.2p", NULL); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1444,7 +1444,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%.12p", NULL); //MYPRINTF
+  	ret = ft_printf("%.12p", NULL); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1456,7 +1456,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%2p", NULL); //MYPRINTF
+  	ret = ft_printf("%2p", NULL); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1468,7 +1468,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%12p", NULL); //MYPRINTF
+  	ret = ft_printf("%12p", NULL); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1480,7 +1480,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%012p", NULL); //MYPRINTF
+  	ret = ft_printf("%012p", NULL); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1492,7 +1492,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("% 12p", NULL); //MYPRINTF
+  	ret = ft_printf("% 12p", NULL); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1504,7 +1504,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%-12p", NULL); //MYPRINTF
+  	ret = ft_printf("%-12p", NULL); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1516,7 +1516,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%2s", NULL); //MYPRINTF
+	ret = ft_printf("%2s", NULL); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1528,7 +1528,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%10s", NULL); //MYPRINTF
+  	ret = ft_printf("%10s", NULL); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1540,7 +1540,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%.5s", NULL); //MYPRINTF
+  	ret = ft_printf("%.5s", NULL); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1552,7 +1552,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%.6s", NULL); //MYPRINTF
+  	ret = ft_printf("%.6s", NULL); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1564,7 +1564,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%zy"); //MYPRINTF
+  	ret = ft_printf("%zy"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1579,7 +1579,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%+d\n", 12345); //MYPRINTF
+	ret = ft_printf("%+d\n", 12345); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1591,7 +1591,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%d %d %+d %+d % d % d %+ d %+ d % +d % +d\n", 7, -7, 7, -7, 7, -7, 7, -7, 7, -7); //MYPRINTF
+	ret = ft_printf("%d %d %+d %+d % d % d %+ d %+ d % +d % +d\n", 7, -7, 7, -7, 7, -7, 7, -7, 7, -7); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1603,7 +1603,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%d %hd %d\n", 123456, 123456, 123456); //MYPRINTF
+	ret = ft_printf("%d %hd %d\n", 123456, 123456, 123456); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1615,7 +1615,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%u %hu %u\n", 123456U, 123456U, 123456U); //MYPRINTF
+  	ret = ft_printf("%u %hu %u\n", 123456U, 123456U, 123456U); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1627,7 +1627,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%d %ld %d\n", 123456, 123456, 123456); //MYPRINTF
+  	ret = ft_printf("%d %ld %d\n", 123456, 123456, 123456); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1639,7 +1639,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%#012x\n", 3735928559U); //MYPRINTF
+	ret = ft_printf("%#012x\n", 3735928559U); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1651,7 +1651,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%#-*.*lX\n", 16, 12, 3735928559UL); //MYPRINTF
+  	ret = ft_printf("%#-*.*lX\n", 16, 12, 3735928559UL); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1663,7 +1663,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("-%+-+4d-", 1); //MYPRINTF
+	ret = ft_printf("-%+-+4d-", 1); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1675,7 +1675,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("-%+3d-%+.3d", 12, 12); //MYPRINTF
+	ret = ft_printf("-%+3d-%+.3d", 12, 12); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1687,7 +1687,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("-%+8.4d-%8.0d-%+8.0d-", 13, 0, 0); //MYPRINTF	
+  	ret = ft_printf("-%+8.4d-%8.0d-%+8.0d-", 13, 0, 0); //MYPRINTF	
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1699,7 +1699,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
- 	//ret = ft_printf("%+010d", 543); //MYPRINTF
+ 	ret = ft_printf("%+010d", 543); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1711,7 +1711,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%-+10d", 543); //MYPRINTF
+  	ret = ft_printf("%-+10d", 543); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1723,7 +1723,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%-+10d", 1234567890); //MYPRINTF
+  	ret = ft_printf("%-+10d", 1234567890); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1735,7 +1735,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%-+10.10d", 1234567890); //MYPRINTF	
+  	ret = ft_printf("%-+10.10d", 1234567890); //MYPRINTF	
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1750,7 +1750,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%+s %0-s", "ABC", "ABC"); //MYPRINTF
+	ret = ft_printf("%+s %0-s", "ABC", "ABC"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1762,7 +1762,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%+c %0-c %.2c", 'a', 'b', 'c'); //MYPRINTF
+  	ret = ft_printf("%+c %0-c %.2c", 'a', 'b', 'c'); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1774,7 +1774,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%d %2n", 1, &n); //MYPRINTF
+  	ret = ft_printf("%d %2n", 1, &n); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1786,7 +1786,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%d %.2n", 1, &n); //MYPRINTF
+  	ret = ft_printf("%d %.2n", 1, &n); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1798,7 +1798,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%d %02n", 1, &n); //MYPRINTF
+  	ret = ft_printf("%d %02n", 1, &n); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1810,7 +1810,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%d %+n", 1, &n); //MYPRINTF
+  	ret = ft_printf("%d %+n", 1, &n); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1822,7 +1822,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-  	//ret = ft_printf("%d %-2n", 1, &n); //MYPRINTF
+  	ret = ft_printf("%d %-2n", 1, &n); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1834,7 +1834,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
- 	//ret = ft_printf("%+0# -2.k"); //MYPRINTF	
+ 	ret = ft_printf("%+0# -2.k"); //MYPRINTF	
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1846,7 +1846,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%+ *.*k", -32, 5); //MYPRINTF	
+	ret = ft_printf("%+ *.*k", -32, 5); //MYPRINTF	
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
@@ -1858,7 +1858,7 @@ int	main(void)
 	printf("\n");
 	printf("ret : %d\n");
 	printf("\033[32;01m");
-	//ret = ft_printf("%hp", main); //MYPRINTF
+	ret = ft_printf("%hp", main); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
