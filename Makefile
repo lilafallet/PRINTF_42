@@ -1,4 +1,4 @@
-NAME = printf.a
+NAME = libftprintf.a
 
 CFLAGS += -Wall
 CFLAGS += -Wextra
@@ -8,7 +8,7 @@ CC = clang
 
 INCLUDES = ./
 
-HEADER = $(INCLUDES)printf.h
+HEADER = $(INCLUDES)libftprintf.h
 
 SRCS += ft_atoi.c #A AJPOUTER AU FUR ET A MESURE
 
