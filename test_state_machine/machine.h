@@ -27,18 +27,23 @@
 
 enum	e_state
 {
-	BONJOUR,
-	CAVA,
-	AUREVOIR,
-	EXIT
+	BONJOUR,	//0
+	CAVA,		//1
+	AUREVOIR,	//2
+	EXIT		//3
 };
 
 typedef struct s_state_machine
 {
-	enum e_state state;
+	enum e_state state; 
 	
-}				t_state_machine;
+}				t_state_machine; /*structure t_state_machine contenant
+								  l'enum e_state et donc les differents etats*/
 
 
 typedef	void	(*t_function)(char *, t_state_machine *);
+/*typedef de pointeur sur fonction qui prend en parametre un char * (la ligne)
+et aussi la structure t_state machine contenant l'enum e_state et donc les
+differents etats*/
+
 #endif
