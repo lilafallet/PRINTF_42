@@ -13,6 +13,7 @@
 # define FLAG_ZERO 0x0002
 # define FLAG_DOT 0x0004
 # define FLAG_STAR 0x0008
+# define NB_FLAG 4
 
 # define CONV_C 0x0010
 # define CONV_S 0x0020
@@ -23,6 +24,7 @@
 # define CONV_x 0x0400
 # define CONV_X 0x0800
 # define CONV_PERCENT 0x1000
+# define NB_CONV 9
 # define STR_CONV "cspdiuxX%"
 
 # define STR_MINUS '-'
@@ -43,6 +45,6 @@ typedef struct s_state_machine
 	enum e_state state;
 }				t_state_machine;
 
-typedef	void	(*t_function)(char *, t_state_machine *);
+typedef	int	(*t_function)(char *, t_state_machine *);
 
 #endif
