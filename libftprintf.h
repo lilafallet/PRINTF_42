@@ -23,12 +23,12 @@
 # define CONV_x 0x0400
 # define CONV_X 0x0800
 # define CONV_PERCENT 0x1000
-# define CONV_ALL "cspdiuxX%"
+# define STR_CONV "cspdiuxX%"
 
-# define STR_MINUS "-"
-# define STR_ZERO "0"
-# define STR_DOT "."
-# define STR_STAR "*"
+# define STR_MINUS '-'
+# define STR_ZERO '0'
+# define STR_DOT '.'
+# define STR_STAR '*'
 
 enum	e_state
 {
