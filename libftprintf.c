@@ -4,51 +4,44 @@
 //#include "libft.h"
 #include "libftprintf.h"
 
-int	letter_or_flag(char *str, int i)
+void	letter_function(char *str, t_state_machine *machine)
 {
-	if (str[i] == STR_MINUS || str[i] == STR_ZERO || str[i] == STR_DOT ||
-		str[i] == STR_STAR)
-			return (i + 1);
-	return (i);
+
 }
 
-char 	*ex_printf(char *str, t_state_machine *machine)
+void	flag_function(char *str, t_state_machine *machine)
 {
-	int	i;
-	int	pourcent;
 
-	i = 0;
-	pourcent = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] != '%')
-		{
-			printf("%c = ", str[i]); //DEBUG
-			printf("letter\n"); //DEBUG
-		}
-		if (str[i] == '%')
-		{
-			pourcent = letter_or_flag(str, i + 1);
-			if (i + 1 != pourcent)
-				printf("c'est un flag\n"); //DEBUG
-			printf("c'est une lettre\n"); //DEBUG
-		}
-		i++;
-	}
-	return (str);
+}
+
+void	conversion_function(char *str, t_state_machine *machine)
+{
+
+}
+
+void	error_function(char *str, t_state_machine *machine)
+{
+
 }
 
 int		main(int ac, char **av)
 {
-	char *result;
-	t_state_machine	machine;
+	t_state_machine		machine;
+	int					i;
+	static	t_function	function[4] = {letter_function, flag_function,
+										conversion_function,
+										error_function};
 
-	result = 0;
 	machine.state = LETTER;
+	i = 0;
+	printf("%s\n",av[1]); //DEBUG
 	if (ac == 2)
 	{
-		result = ex_printf(av[1], &machine);
-		printf("%s\n", result); //DEBUG
+		while (av[1][i] != '\0')
+		{
+			function[machine.state](av[1] + i, &machine);
+			i++;
+		}
 	}
 	else
 		return (EXIT_FAILURE);
