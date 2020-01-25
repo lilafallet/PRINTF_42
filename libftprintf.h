@@ -9,28 +9,33 @@
 #  define FALSE 0
 # endif
 
-/*
-# define STR_BONJOUR1	"bonjour"
-# define STR_BONJOUR2	"hello"
-# define STR_BONJOUR3 	"coucou"
-# define NB_BONJOUR 	3
+# define FLAG_MINUS 0x0001
+# define FLAG_ZERO 0x0002
+# define FLAG_DOT 0x0004
+# define FLAG_STAR 0x0008
 
-# define STR_CAVA1	"ca va ?"
-# define STR_CAVA2	"comment tu vas ?"
-# define STR_CAVA3 	"bien ou quoi ?"
-# define STR_CAVA4 	"bien la mif ?"
-# define NB_CAVA 	4
+# define CONV_C 0x0010
+# define CONV_S 0x0020
+# define CONV_P 0x0040
+# define CONV_D 0x0080
+# define CONV_I 0x0100
+# define CONV_U 0x0200
+# define CONV_x 0x0400
+# define CONV_X 0x0800
+# define CONV_PERCENT 0x1000
+# define CONV_ALL "cspdiuxX%"
 
-# define STR_AUREVOIR	"salut"
-# define NB_AUREVOIR 1*/
+# define STR_MINUS "-"
+# define STR_ZERO "0"
+# define STR_DOT "."
+# define STR_STAR "*"
 
 enum	e_state
 {
 	LETTER, //0
-	FORMAT, //1
-	FLAG, //2
-	CONVERSION, //3
-	ERROR //4
+	FLAG, //1
+	CONVERSION, //2
+	ERROR //3
 };
 
 typedef struct s_state_machine

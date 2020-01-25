@@ -1,15 +1,24 @@
 #include <stdlib.h>
 #include <stdarg.h>
-#include "libft.h"
+#include <stdio.h>
+//#include "libft.h"
 #include "libftprintf.h"
 
-int	printf(const char *format, ...)
+char *ex_printf(char *str)
 {
-	va_list	args;
-	int	result;
+	return (str);
+}
 
-	va_start(args, format);
-	result = /*fonction(format, args) ?*/
-	va_end(args);
+int	main(int ac, char **av)
+{
+	char *result;
+
+	if (ac == 2)
+	{
+		result = ex_printf(av[1]);
+		printf("%s\n", result);
+	}
+	else
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
