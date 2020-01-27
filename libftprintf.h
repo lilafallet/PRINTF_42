@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/27 12:33:13 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/27 15:15:29 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,10 @@ enum	e_state
 
 typedef struct	s_state_machine
 {
-	enum e_state state;
+	enum e_state 	state;
+	char			buffer[4096];
 }				t_state_machine;
 
-typedef	int		(*t_function)(char *, t_state_machine *);
+typedef	int		(*t_function)(char *, t_state_machine *, t_state_machine *);
 
 #endif
