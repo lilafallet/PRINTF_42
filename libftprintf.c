@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/27 19:02:47 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/27 19:06:55 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	conversion_function(char *str, t_state_machine *machine,
 	{
 		calc_flag->flag |= (1 << what_conv) << 8;
 		printf("%c = conversion\n", *str); //DEBUG
+		printf("calc_flag = %d\n", calc_flag->flag); //DEBUG
 		machine->state = LETTER;
 		return (1);
 	}
