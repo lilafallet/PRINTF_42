@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/27 17:40:23 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/27 18:42:21 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,11 @@ int	flag_function(char *str, t_state_machine *machine, t_state_machine *string)
 	}
 	else
 	{
-		printf("%c = ", *str); //DEBUG
+		printf("%c = flag\n", *str); //DEBUG
 		what_flag = is_flag(*str);
 		printf("what flag = %d\n", what_flag); //DEBUG
+		calc_flag |= what_flag;
+		printf("calc_flag = %d\n\n", calc_flag); //DEBUG
 		return (1);
 	}
 }
@@ -62,10 +64,12 @@ int	flag_function(char *str, t_state_machine *machine, t_state_machine *string)
 int	conversion_function(char *str, t_state_machine *machine,
 							t_state_machine *string)
 {
-	if (is_conversion(*str) == TRUE)
+	int		what_conv;
+
+	if ((what_conv = is_conversion(*str)) != -1)
 	{
-		printf("%c = ", *str); //DEBUG
-		printf("conversion\n"); //DEBUG
+		calc_flag |= (1 << what_conv) << 8;
+		printf("%c = conversion\n", *str); //DEBUG
 		machine->state = LETTER;
 		return (1);
 	}
@@ -76,7 +80,7 @@ int	conversion_function(char *str, t_state_machine *machine,
 int	error_function(char *str, t_state_machine *machine, t_state_machine *string)
 {
 	machine->state = LETTER;
-	printf("%c = ", *str);
+	printf("%c = ", *str); //DEBUG
 	printf("error\n"); //DEBUG
 	return (1);
 }
@@ -93,6 +97,7 @@ int	main(int ac, char **av)
 
 	ft_bzero(string.buffer, 4096);
 	machine.state = LETTER;
+	machine.calc_flag = 0;
 	i = 0;
 	ret = 0;
 	printf("%s\n", av[1]); //DEBUG

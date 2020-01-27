@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:44 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/27 17:43:02 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/27 18:39:29 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int		is_conversion(char c)
 	while (STR_CONV[i] != '\0')
 	{
 		if (c == STR_CONV[i])
-			return (TRUE);
+			return (i);
 		i++;
 	}
-	return (FALSE);
+	return (-1);
 }
 
 void	*ft_memset(void *s, int c, size_t n)
