@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/27 15:17:12 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/27 16:10:29 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	letter_function(char *str, t_state_machine *machine,
 						t_state_machine *string)
 {
 	static	int		i = 0;
+	size_t	len;
 
 	printf("%c = ", *str); //DEBUG
 	if (*str == '%')
@@ -86,7 +87,9 @@ int	main(int ac, char **av)
 										error_function};
 	int					ret;
 	t_state_machine		string;
+	size_t				len;
 
+	ft_bzero(string.buffer, 4096);
 	machine.state = LETTER;
 	i = 0;
 	ret = 0;
@@ -103,6 +106,6 @@ int	main(int ac, char **av)
 		}
 	}
 	else
-		return (EXIT_FAILURE);
+		return (EXIT_FAILURE);	
 	return (EXIT_SUCCESS);
 }
