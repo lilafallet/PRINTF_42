@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/27 17:37:38 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/27 17:40:23 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,6 @@ int	main(int ac, char **av)
 		}
 	}
 	else
-		return (EXIT_FAILURE);	
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

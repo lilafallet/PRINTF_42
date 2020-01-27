@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/27 17:21:46 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/27 17:42:19 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@
 # define STR_DOT '.'
 # define STR_STAR '*'
 
-#include <stdlib.h>
-#include <unistd.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 int				is_conversion(char c);
-void	ft_bzero(void *s, size_t n);
-int	is_flag(char c);
+void			ft_bzero(void *s, size_t n);
+int				is_flag(char c);
 
 enum	e_state
 {
