@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/27 15:14:49 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/27 15:17:12 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	main(int ac, char **av)
 										conversion_function,
 										error_function};
 	int					ret;
-	t_state_machine	string;
+	t_state_machine		string;
 
 	machine.state = LETTER;
 	i = 0;
