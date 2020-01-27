@@ -1,22 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libftprintf.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
+/*   Updated: 2020/01/27 12:28:24 by lfallet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
-//#include "libft.h"
 #include "libftprintf.h"
-
-int		is_conversion(char c)
-{
-	int	i;
-	
-	i = 0;
-	while (STR_CONV[i] != '\0')
-	{
-		if (c == STR_CONV[i])
-			return (TRUE);
-		i++;
-	}
-	return (FALSE);
-}
 
 int	letter_function(char *str, t_state_machine *machine)
 {
@@ -30,14 +27,14 @@ int	letter_function(char *str, t_state_machine *machine)
 		printf("letter\n"); //DEBUG
 	return (1);
 }
-		
+
 int	flag_function(char *str, t_state_machine *machine)
 {
 	if (*str != STR_MINUS && *str != STR_ZERO &&
 		*str != STR_DOT && *str != STR_STAR)
 	{
-			machine->state = CONVERSION;
-			return (0);
+		machine->state = CONVERSION;
+		return (0);
 	}
 	else
 	{
@@ -45,14 +42,12 @@ int	flag_function(char *str, t_state_machine *machine)
 		printf("flag\n"); //DEBUG
 		return (1);
 	}
-	
 }
 
 int	conversion_function(char *str, t_state_machine *machine)
 {
 	if (is_conversion(*str) == TRUE)
 	{
-			
 		printf("%c = ", *str); //DEBUG
 		printf("conversion\n"); //DEBUG
 		machine->state = LETTER;
@@ -70,7 +65,7 @@ int	error_function(char *str, t_state_machine *machine)
 	return (1);
 }
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_state_machine		machine;
 	int					i;
@@ -82,7 +77,7 @@ int		main(int ac, char **av)
 	machine.state = LETTER;
 	i = 0;
 	ret = 0;
-	printf("%s\n",av[1]); //DEBUG
+	printf("%s\n", av[1]); //DEBUG
 	if (ac == 2)
 	{
 		while (av[1][i] != '\0')
