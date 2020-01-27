@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/27 18:42:21 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/27 19:02:47 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libftprintf.h"
 
 int	letter_function(char *str, t_state_machine *machine,
-						t_state_machine *string)
+						t_state_machine *string, t_state_machine *calc_flag)
 {
 	static	int		i = 0;
 
@@ -39,7 +39,8 @@ int	letter_function(char *str, t_state_machine *machine,
 	return (1);
 }
 
-int	flag_function(char *str, t_state_machine *machine, t_state_machine *string)
+int	flag_function(char *str, t_state_machine *machine, t_state_machine *string,
+					t_state_machine *calc_flag)
 {
 	int			what_flag;
 
@@ -55,20 +56,20 @@ int	flag_function(char *str, t_state_machine *machine, t_state_machine *string)
 		printf("%c = flag\n", *str); //DEBUG
 		what_flag = is_flag(*str);
 		printf("what flag = %d\n", what_flag); //DEBUG
-		calc_flag |= what_flag;
-		printf("calc_flag = %d\n\n", calc_flag); //DEBUG
+		calc_flag->flag |= what_flag;
+		printf("calc_flag = %d\n\n", calc_flag->flag); //DEBUG
 		return (1);
 	}
 }
 
 int	conversion_function(char *str, t_state_machine *machine,
-							t_state_machine *string)
+							t_state_machine *string, t_state_machine *calc_flag)
 {
 	int		what_conv;
 
 	if ((what_conv = is_conversion(*str)) != -1)
 	{
-		calc_flag |= (1 << what_conv) << 8;
+		calc_flag->flag |= (1 << what_conv) << 8;
 		printf("%c = conversion\n", *str); //DEBUG
 		machine->state = LETTER;
 		return (1);
@@ -77,7 +78,8 @@ int	conversion_function(char *str, t_state_machine *machine,
 	return (0);
 }
 
-int	error_function(char *str, t_state_machine *machine, t_state_machine *string)
+int	error_function(char *str, t_state_machine *machine, t_state_machine *string,
+					t_state_machine *calc_flag)
 {
 	machine->state = LETTER;
 	printf("%c = ", *str); //DEBUG
@@ -94,10 +96,11 @@ int	main(int ac, char **av)
 										error_function};
 	int					ret;
 	t_state_machine		string;
+	t_state_machine		calc_flag;
 
 	ft_bzero(string.buffer, 4096);
 	machine.state = LETTER;
-	machine.calc_flag = 0;
+	calc_flag.flag = 0;
 	i = 0;
 	ret = 0;
 	printf("%s\n", av[1]); //DEBUG
@@ -105,7 +108,8 @@ int	main(int ac, char **av)
 	{
 		while (av[1][i] != '\0')
 		{
-			ret = function[machine.state](av[1] + i, &machine, &string);
+			ret = function[machine.state](av[1] + i, &machine, &string,
+											&calc_flag);
 			if (ret >= 0)
 				i += ret;
 			else
