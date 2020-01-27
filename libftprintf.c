@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/27 16:10:29 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/27 17:37:38 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	letter_function(char *str, t_state_machine *machine,
 						t_state_machine *string)
 {
 	static	int		i = 0;
-	size_t	len;
 
 	printf("%c = ", *str); //DEBUG
 	if (*str == '%')
@@ -42,6 +41,9 @@ int	letter_function(char *str, t_state_machine *machine,
 
 int	flag_function(char *str, t_state_machine *machine, t_state_machine *string)
 {
+	int			what_flag;
+
+	what_flag = 0;
 	if (*str != STR_MINUS && *str != STR_ZERO &&
 		*str != STR_DOT && *str != STR_STAR)
 	{
@@ -50,8 +52,9 @@ int	flag_function(char *str, t_state_machine *machine, t_state_machine *string)
 	}
 	else
 	{
-		printf("%c = ", *str);
-		printf("flag\n"); //DEBUG
+		printf("%c = ", *str); //DEBUG
+		what_flag = is_flag(*str);
+		printf("what flag = %d\n", what_flag); //DEBUG
 		return (1);
 	}
 }
@@ -87,7 +90,6 @@ int	main(int ac, char **av)
 										error_function};
 	int					ret;
 	t_state_machine		string;
-	size_t				len;
 
 	ft_bzero(string.buffer, 4096);
 	machine.state = LETTER;

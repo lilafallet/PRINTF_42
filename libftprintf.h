@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/27 16:10:19 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/27 17:21:46 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define FLAG_ZERO 0x0002
 # define FLAG_DOT 0x0004
 # define FLAG_STAR 0x0008
-# define NB_FLAG 4
+# define NB_FLAGS 4
 
 # define CONV_C 0x0010
 # define CONV_S 0x0020
@@ -49,6 +49,7 @@
 
 int				is_conversion(char c);
 void	ft_bzero(void *s, size_t n);
+int	is_flag(char c);
 
 enum	e_state
 {
