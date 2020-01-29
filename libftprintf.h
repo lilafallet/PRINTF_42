@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/29 12:23:02 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/29 19:02:57 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@
 
 # define BUFFER_SIZE 4096
 
+# define FREE_S1 1
+# define FREE_S2 2
+
 # include <stdlib.h>
 # include <unistd.h>
 # include "libft.h"
@@ -57,7 +60,7 @@ enum	e_state
 
 typedef struct	s_state_machine
 {
-	char			buffer[4096];
+	char			buffer[BUFFER_SIZE];
 	char			*out;
 	enum e_state	state;
 	int				flag;
@@ -70,5 +73,6 @@ int				is_conversion(char c);
 void			ft_bzero(void *s, size_t n);
 int				is_flag(char c);
 void			fill_buffer(t_state_machine *machine, char c);
+void			memjoin_free(char **dest, char *src, int len_dest, int len_src);
 
 #endif
