@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/29 11:26:11 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/29 12:23:02 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,13 @@
 # define NB_CONV 9
 # define STR_CONV "cspdiuxX%"
 
-# define STR_MINUS '-'
-# define STR_ZERO '0'
-# define STR_DOT '.'
-# define STR_STAR '*'
+# define STR_FLAG "-0.*"
+
+# define BUFFER_SIZE 4096
 
 # include <stdlib.h>
 # include <unistd.h>
 # include "libft.h"
-
-int				is_conversion(char c);
-void			ft_bzero(void *s, size_t n);
-int				is_flag(char c);
 
 enum	e_state
 {
@@ -62,12 +57,18 @@ enum	e_state
 
 typedef struct	s_state_machine
 {
-	enum e_state	state;
 	char			buffer[4096];
+	char			*out;
+	enum e_state	state;
 	int				flag;
+	int				len;
+	int				len_out;
 }				t_state_machine;
 
-typedef	int		(*t_function)(char *, t_state_machine *, t_state_machine *,
-					t_state_machine *);
+typedef	int		(*t_function)(char *, t_state_machine *);
+int				is_conversion(char c);
+void			ft_bzero(void *s, size_t n);
+int				is_flag(char c);
+void			fill_buffer(t_state_machine *machine, char c);
 
 #endif

@@ -6,27 +6,42 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:44 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/29 11:24:49 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/29 12:20:10 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft.h"
 
-int		is_flag(char c)
+void	fill_buffer(t_state_machine *machine, char c)
 {
-	if (c == STR_MINUS)
-		return (FLAG_MINUS);
-	if (c == STR_ZERO)
-		return (FLAG_ZERO);
-	if (c == STR_DOT)
-		return (FLAG_DOT);
-	if (c == STR_STAR)
-		return (FLAG_STAR);
-	else
-		return (FALSE);
+		if (machine->len == BUFFER_SIZE)
+		{
+			/// memjoin_free(machine->out, machine->buffer)
+			ft_bzero(machine->buffer, BUFFER_SIZE);
+			machine->len = 0;
+			machine->len_out += BUFFER_SIZE;
+		}
+		else
+		{
+			machine->buffer[machine->len] = c;
+			machine->len++;
+		}
 }
 
+int		is_flag(char c)
+{
+	int	i;
+
+	i = 0;
+	while (STR_FLAG[i] != '\0')
+	{
+		if (c == STR_FLAG[i])
+			return (i);
+		i++;
+	}
+	return (-1);
+}
 int		is_conversion(char c)
 {
 	int	i;
@@ -40,21 +55,3 @@ int		is_conversion(char c)
 	}
 	return (-1);
 }
-
-/*void	*ft_memset(void *s, int c, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < n)
-	{
-		((unsigned char *)s)[i] = (unsigned char)c;
-		i++;
-	}
-	return (s);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, 0, n);
-}*/

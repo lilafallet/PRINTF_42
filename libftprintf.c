@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/29 11:23:08 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/29 12:23:02 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,8 @@
 #include "libftprintf.h"
 #include "libft.h"
 
-int	letter_function(char *str, t_state_machine *machine,
-						t_state_machine *string, t_state_machine *calc_flag)
+int	letter_function(char *str, t_state_machine *machine)
 {
-	static	int		i = 0;
-
 	printf("%c = ", *str); //DEBUG
 	if (*str == '%')
 	{
@@ -30,49 +27,41 @@ int	letter_function(char *str, t_state_machine *machine,
 	if (*str != '%')
 	{
 		printf("letter\n"); //DEBUG
-		string->buffer[i] = *str;
-		printf("char = %c\n", string->buffer[i]); //DEBUG
-		printf("string = %s\n", string->buffer); //DEBUG
-		printf("int i = %d\n", i); //DEBUG
+		fill_buffer(machine, *str);
+		printf("char = %c\n", machine->buffer[machine->len]); //DEBUG
+		printf("string = %s\n", machine->buffer); //DEBUG
+		printf("int len = %d\n", machine->len); //DEBUG
 		printf("\n"); //DEBUG
-		i = i + 1;
 	}
 	return (1);
 }
 
-int	flag_function(char *str, t_state_machine *machine, t_state_machine *string,
-					t_state_machine *calc_flag)
+int	flag_function(char *str, t_state_machine *machine)
 {
-	int			what_flag;
+	int	what_flag;
 
-	what_flag = 0;
-	if (*str != STR_MINUS && *str != STR_ZERO &&
-		*str != STR_DOT && *str != STR_STAR)
+	what_flag = is_flag(*str);
+	if (what_flag != -1)
 	{
-		machine->state = CONVERSION;
-		return (0);
-	}
-	else
-	{
-		printf("%c = flag\n", *str); //DEBUG
-		what_flag = is_flag(*str);
+		printf("%c = flag \n", *str); //DEBUG
 		printf("what flag = %d\n", what_flag); //DEBUG
-		calc_flag->flag |= what_flag;
-		printf("calc_flag = %d\n\n", calc_flag->flag); //DEBUG
+		machine->flag |= 1 << what_flag;
+		printf("calc flag = %d\n\n", machine->flag); //DEBBUG
 		return (1);
 	}
+	machine->state = CONVERSION;
+	return (0);
 }
 
-int	conversion_function(char *str, t_state_machine *machine,
-							t_state_machine *string, t_state_machine *calc_flag)
+int	conversion_function(char *str, t_state_machine *machine)
 {
 	int		what_conv;
 
 	if ((what_conv = is_conversion(*str)) != -1)
 	{
-		calc_flag->flag |= (1 << what_conv) << 8;
+		machine->flag |= (1 << what_conv) << 8;
 		printf("%c = conversion\n", *str); //DEBUG
-		printf("calc_flag = %d\n", calc_flag->flag); //DEBUG
+		printf("calc_flag = %d\n", machine->flag); //DEBUG
 		machine->state = LETTER;
 		return (1);
 	}
@@ -80,8 +69,7 @@ int	conversion_function(char *str, t_state_machine *machine,
 	return (0);
 }
 
-int	error_function(char *str, t_state_machine *machine, t_state_machine *string,
-					t_state_machine *calc_flag)
+int	error_function(char *str, t_state_machine *machine)
 {
 	machine->state = LETTER;
 	printf("%c = ", *str); //DEBUG
@@ -97,12 +85,12 @@ int	main(int ac, char **av)
 										conversion_function,
 										error_function};
 	int					ret;
-	t_state_machine		string;
-	t_state_machine		calc_flag;
 
-	ft_bzero(string.buffer, 4096);
+	ft_bzero(machine.buffer, BUFFER_SIZE);
 	machine.state = LETTER;
-	calc_flag.flag = 0;
+	machine.flag = 0;
+	machine.len = 0;
+	machine.len_out = 0;
 	i = 0;
 	ret = 0;
 	printf("%s\n", av[1]); //DEBUG
@@ -110,8 +98,7 @@ int	main(int ac, char **av)
 	{
 		while (av[1][i] != '\0')
 		{
-			ret = function[machine.state](av[1] + i, &machine, &string,
-											&calc_flag);
+			ret = function[machine.state](av[1] + i, &machine);
 			if (ret >= 0)
 				i += ret;
 			else
@@ -120,5 +107,9 @@ int	main(int ac, char **av)
 	}
 	else
 		return (EXIT_FAILURE);
+	/// memjoin_free(machine.out, machine.buffer);
+	/// machine->len_out += machine->len;
+	/// write(1, machine.out, machine.len_out);
+	/// free(machine.out);
 	return (EXIT_SUCCESS);
 }
