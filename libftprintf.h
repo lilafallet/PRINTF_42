@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/27 18:58:02 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/29 11:26:11 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "libft.h"
 
 int				is_conversion(char c);
 void			ft_bzero(void *s, size_t n);

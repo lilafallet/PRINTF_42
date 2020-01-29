@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/27 19:06:55 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/29 11:23:08 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include "libftprintf.h"
+#include "libft.h"
 
 int	letter_function(char *str, t_state_machine *machine,
 						t_state_machine *string, t_state_machine *calc_flag)

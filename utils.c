@@ -6,11 +6,12 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:44 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/27 18:39:29 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/29 11:24:49 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include "libft.h"
 
 int		is_flag(char c)
 {
@@ -40,7 +41,7 @@ int		is_conversion(char c)
 	return (-1);
 }
 
-void	*ft_memset(void *s, int c, size_t n)
+/*void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
 
@@ -56,4 +57,4 @@ void	*ft_memset(void *s, int c, size_t n)
 void	ft_bzero(void *s, size_t n)
 {
 	ft_memset(s, 0, n);
-}
+}*/
