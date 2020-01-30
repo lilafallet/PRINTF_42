@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/29 19:02:57 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/30 10:55:18 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@
 
 # ifndef FALSE
 #  define FALSE 0
+# endif
+
+# ifndef SUCCESS
+#  define SUCCESS 0
+# endif
+
+# ifndef FAILURE
+#  define FAILURE -1
 # endif
 
 # define FLAG_MINUS 0x0001
@@ -74,5 +82,6 @@ void			ft_bzero(void *s, size_t n);
 int				is_flag(char c);
 void			fill_buffer(t_state_machine *machine, char c);
 void			memjoin_free(char **dest, char *src, int len_dest, int len_src);
+int				ft_printf(const char *format, ...);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/29 19:00:10 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/30 10:50:43 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdio.h> //DEBUG
 #include "libftprintf.h"
 #include "libft.h"
+#include <stdarg.h>
 
 int	letter_function(char *str, t_state_machine *machine)
 {
@@ -77,47 +78,40 @@ int	error_function(char *str, t_state_machine *machine)
 	return (1);
 }
 
-int	main(int ac, char **av)
+int	parser(char *format, va_list *argptr, t_state_machine *machine)
 {
-	t_state_machine		machine;
-	int					i;
 	static	t_function	function[4] = {letter_function, flag_function,
 										conversion_function,
 										error_function};
 	int					ret;
 
-	ft_bzero(machine.buffer, BUFFER_SIZE);
-	machine.state = LETTER;
-	machine.flag = 0;
-	machine.len = 0;
-	machine.len_out = 0;
-	machine.out = NULL;
-	i = 0;
-	ret = 0;
-	//printf("%s\n", av[1]); //DEBUG
-	if (ac == 2)
+	ret = SUCCESS;
+	if (format != NULL)
 	{
-		while (av[1][i] != '\0')
+		while (*format != '\0')
 		{
-			ret = function[machine.state](av[1] + i, &machine);
-			if (ret >= 0)
-				i += ret;
-			else
-				return (EXIT_FAILURE);
+			ret = function[machine->state](format, machine);
+			if (ret == FAILURE)
+				break ;
+			format += ret;
 		}
-		//printf("MACHINE.OUT = %s\n", machine.out); //DEBUG
-		//printf("MACHINE.BUFFER = %s\n", machine.buffer); //DEBUG
-		memjoin_free(&machine.out, machine.buffer, machine.len_out,
-				machine.len);
-		//printf("MACHINE.OUT = %s\n", machine.out); //DEBUG
-		//printf("MACHINE.BUFFER = %s\n", machine.buffer); //DEBUG
-		//printf("MACHINE.LEN_OUT = %d\n", machine.len_out); //DEBUG
-		machine.len_out += machine.len;
-		//printf("MACHINE.LEN_OUT = %d\n", machine.len_out); //DEBUG
-		write(1, machine.out, machine.len_out);
-		free(machine.out);
 	}
-	else
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+	return (ret == FAILURE ? FAILURE : SUCCESS);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	t_state_machine		machine;
+	va_list				argptr;
+	int					ret;
+
+	ft_bzero(&machine, sizeof(machine));
+	va_start(argptr, format);
+	ret = parser((char *)format, &argptr, &machine);
+	va_end(argptr);
+	memjoin_free(&machine.out, machine.buffer, machine.len_out, machine.len);
+	machine.len_out += machine.len;
+	write(1, machine.out, machine.len_out);
+	free(machine.out);
+	return (ret != FAILURE ? machine.len_out : FAILURE);
 }
