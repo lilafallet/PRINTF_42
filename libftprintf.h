@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/30 14:36:18 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/30 17:01:47 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,11 @@ int				letter_function(char *str, t_state_machine *machine);
 int				flag_function(char *str, t_state_machine *machine);
 int				conversion_function(char *str, t_state_machine *machine);
 int				error_function(char *str, t_state_machine *machine);
+int				di_conv(int di, int flag, char **output);
+int				xminxmaj_conv(int x, int flag, char **output);
+int				c_conv(int c, int flag, char **output);
+int				s_conv(char *s, int flag, char **output);
+int				p_conv(void *p, int flag, char **output);
+int				u_conv(unsigned long u, int flag, char **output);
 
 #endif

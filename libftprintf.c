@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/30 14:19:30 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/30 17:38:57 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,28 @@
 #include "libftprintf.h"
 #include "libft.h"
 
+
 int	do_conv(va_list *argptr, t_state_machine *machine)
 {
-	//
+	char	*output;
+	int		len;
 
+	output = NULL;
+	len = 0;
+	if (machine->flag & CONV_C)
+		len = c_conv(va_arg(*argptr, int), machine->flag, &output);
+	else if (machine->flag & CONV_S)
+		len = s_conv(va_arg(*argptr, char *), machine->flag, &output);
+	else if (machine->flag & CONV_P)
+		len = p_conv(va_arg(*argptr, void *), machine->flag, &output);
+	else if ((machine->flag & CONV_D) || (machine->flag & CONV_I))
+		len = di_conv(va_arg(*argptr, int), machine->flag, &output);
+	else if (machine->flag & CONV_U)
+		len = u_conv(va_arg(*argptr, unsigned long), machine->flag, &output);
+	else if ((machine->flag & CONV_XMIN) || (machine->flag & CONV_XMAJ))
+		len = xminxmaj_conv(va_arg(*argptr, long), machine->flag, &output);
+	memjoin_free(&machine->out, output, machine->len_out, len);
+	machine->len_out += len;
 	machine->state = LETTER;
 	machine->flag = 0;
 }
