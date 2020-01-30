@@ -60,18 +60,6 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 
-	printf("\033[31;01mNUMERO 5\033[00m\n"); //NUMERO 5
-	ret = printf("% d\n", 12345);
-	printf("||");
-	printf("\n");
-	printf("ret : %d\n");
-	printf("\033[32;01m");
-	ret = ft_printf("% d\n", 12345); //MYPRINTF
-	printf("||");
-	printf("\n");
-	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
-
 	printf("\033[31;01mNUMERO 6\033[00m\n"); //NUMERO 6
 	ret = printf("% d\n", -12345);
 	printf("||");
@@ -216,18 +204,6 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 	
-	printf("\033[31;01mNUMERO 18\033[00m\n"); //NUMERO 18
-  	ret = printf("% .0d\n", 0);
-	printf("||");
-	printf("\n");
-	printf("ret : %d\n");
-	printf("\033[32;01m");
-  	ret = ft_printf("% .0d\n", 0); //MYPRINTF
-	printf("||");
-	printf("\n");
-	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
-
 	printf("\033[31;01mNUMERO 19\033[00m\n"); //NUMERO 19
 	ret = printf("-%4d-%-4d-\n", 7, 7);
 	printf("||");
