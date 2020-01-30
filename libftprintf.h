@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/30 10:55:18 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/30 14:03:41 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,9 @@ int				is_flag(char c);
 void			fill_buffer(t_state_machine *machine, char c);
 void			memjoin_free(char **dest, char *src, int len_dest, int len_src);
 int				ft_printf(const char *format, ...);
+int				letter_function(char *str, t_state_machine *machine);
+int				flag_function(char *str, t_state_machine *machine);
+int				conversion_function(char *str, t_state_machine *machine);
+int				error_function(char *str, t_state_machine *machine);
 
 #endif
