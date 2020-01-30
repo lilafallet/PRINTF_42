@@ -10,7 +10,7 @@ int	main(int ac, char **av)
 	ret = 0;
 	if (ac == 1)
 	{
-		ret = ft_printf("hello ca va %d\n", 18);
+		ret = ft_printf("hello ca va %d", 18);
 		printf("RET MY PRINTF : %d\n", ret);
 	}
 	else

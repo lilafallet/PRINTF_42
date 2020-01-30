@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/30 14:01:07 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/30 14:19:30 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 #include <stdio.h> //DEBUG
 #include "libftprintf.h"
 #include "libft.h"
+
+int	do_conv(va_list *argptr, t_state_machine *machine)
+{
+	//
+
+	machine->state = LETTER;
+	machine->flag = 0;
+}
 
 int	parser(char *format, va_list *argptr, t_state_machine *machine)
 {
@@ -32,6 +40,8 @@ int	parser(char *format, va_list *argptr, t_state_machine *machine)
 			if (ret == FAILURE)
 				break ;
 			format += ret;
+			if (machine->state == DO_CONV)
+				do_conv(argptr, machine);
 		}
 	}
 	return (ret == FAILURE ? FAILURE : SUCCESS);

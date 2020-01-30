@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/30 14:03:41 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/30 14:36:18 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,22 @@
 #  define FAILURE -1
 # endif
 
-# define FLAG_MINUS 0x0001
-# define FLAG_ZERO 0x0002
-# define FLAG_DOT 0x0004
-# define FLAG_STAR 0x0008
 # define NB_FLAGS 4
 
-# define CONV_C 0x0010
-# define CONV_S 0x0020
-# define CONV_P 0x0040
-# define CONV_D 0x0080
-# define CONV_I 0x0100
-# define CONV_U 0x0200
-# define CONV_XMIN 0x0400
-# define CONV_XMAJ 0x0800
-# define CONV_PERCENT 0x1000
+# define FLAG_MINUS		0x000001
+# define FLAG_ZERO		0x000002
+# define FLAG_DOT		0x000004
+# define FLAG_STAR		0x000008
+
+# define CONV_C			0x000100
+# define CONV_S			0x000200
+# define CONV_P			0x000400
+# define CONV_D			0x000800
+# define CONV_I			0x001000
+# define CONV_U			0x002000
+# define CONV_XMIN		0x004000
+# define CONV_XMAJ		0x008000
+# define CONV_PERCENT	0x001000
 # define NB_CONV 9
 # define STR_CONV "cspdiuxX%"
 
@@ -63,7 +64,8 @@ enum	e_state
 	LETTER, //0
 	FLAG, //1
 	CONVERSION, //2
-	ERROR //3
+	ERROR, //3
+	DO_CONV //4
 };
 
 typedef struct	s_state_machine
