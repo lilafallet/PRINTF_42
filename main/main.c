@@ -14,10 +14,10 @@ int	main(int ac, char **av)
 	if (ac == 1)
 	{
 		printf("MY PRINTF\n");
-		ret = ft_printf("%3s", "hello");
+		ret = ft_printf("haha %3s", "hello");
 		printf("\n");
 		printf("PRINTF\n");
-		ret = printf("%3s", "hello");
+		ret = printf("haha %3s", "hello");
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		

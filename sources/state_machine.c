@@ -38,11 +38,10 @@ int	flag_function(char *str, t_state_machine *machine)
 	}
 	else if (*str >= '1' && *str <= '9')
 	{
-		machine->width[machine->len_width] = *str;	
-		if (machine->len_width == 0)
-			machine->index_width = machine->len;
-		machine->len_width++;
-		return (1);
+		//machine->index_width =
+		machine->state = CONVERSION;
+		machine->width = ft_atoi((const char *)str);	
+ 		return (len_width(machine->width));
 	}
 	machine->state = CONVERSION;
 	return (0);

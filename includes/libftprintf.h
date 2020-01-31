@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/31 18:08:39 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/01/31 20:03:10 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,7 @@ typedef struct	s_state_machine
 	int				flag;
 	int				len;
 	int				len_out;
-	char			*width;
-	int				len_width;
+	int				width;
 	int				index_width;
 }				t_state_machine;
 
@@ -101,5 +100,6 @@ int				d_conv(int d, int flag, char **output);
 int				i_conv(int i, int flag, char **output);
 int				diuxminxmaj_conv(long diux, t_state_machine *machine,
 									char **output);
+int				len_width(int width);
 
 #endif
