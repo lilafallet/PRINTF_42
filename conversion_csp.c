@@ -34,13 +34,19 @@ int		p_conv(void *p, int flag, char **output)
 	return (len);
 }
 
-int		u_conv(unsigned long u, int flag, char **output)
+int		diuxminxmaj_conv(long diux, t_state_machine *machine, char **output)
 {
 	int		len;
 
 	len = 0;
-	printf("ARGPTR CONV_U = %lu\n", u); //DEBUG
-	(void)u;
-	(void)flag;
+	if (machine->flag & CONV_D)
+		len = d_conv(diux, machine->flag, output);
+	else if (machine->flag & CONV_I)
+		len = i_conv(diux, machine->flag, output);
+	else if (machine->flag & CONV_U)
+		len = u_conv(diux, machine->flag, output);
+	else if ((machine->flag & CONV_XMIN) || (machine->flag & CONV_XMAJ))
+		len = xminxmaj_conv(diux, machine->flag, output);
+	(void)diux;
 	return (len);
 }
