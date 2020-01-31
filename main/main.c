@@ -14,6 +14,14 @@ int	main(int ac, char **av)
 	if (ac == 1)
 	{
 		printf("MY PRINTF\n");
+		ret = ft_printf("%3s", "hello");
+		printf("\n");
+		printf("PRINTF\n");
+		ret = printf("%3s", "hello");
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		/*printf("MY PRINTF\n");
 		ret = ft_printf("%.3s", "hello");
 		printf("\n");
 		printf("PRINTF\n");
@@ -115,7 +123,7 @@ int	main(int ac, char **av)
 		printf("PRINTF\n");
 		ret = printf("%15.3f", 15.965564);
 		printf("\n");
-		printf("RET MY PRINTF : %d\n\n", ret);
+		printf("RET MY PRINTF : %d\n\n", ret);*/
 	}
 	else
 		return (EXIT_FAILURE);

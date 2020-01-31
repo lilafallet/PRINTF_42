@@ -25,7 +25,7 @@ int	letter_function(char *str, t_state_machine *machine)
 
 int	flag_function(char *str, t_state_machine *machine)
 {
-	int	what_flag;
+	int			what_flag;
 
 	what_flag = is_flag(*str);
 	if (what_flag != -1)
@@ -35,6 +35,14 @@ int	flag_function(char *str, t_state_machine *machine)
 	machine->flag |= 1 << what_flag;
 	//printf("calc flag = %d\n\n", machine->flag); //DEBBUG
 	return (1);
+	}
+	else if (*str >= '1' && *str <= '9')
+	{
+		machine->width[machine->len_width] = *str;	
+		if (machine->len_width == 0)
+			machine->index_width = machine->len;
+		machine->len_width++;
+		return (1);
 	}
 	machine->state = CONVERSION;
 	return (0);
