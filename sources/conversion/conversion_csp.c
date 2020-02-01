@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 12:01:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/01 12:01:52 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/01 19:16:05 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,17 @@ int		c_conv(int c, int flag, char **output)
 	return (len);
 }
 
-int		s_conv(char *s, int flag, char **output)
+int		s_conv(char *str, int flag, char **output)
 {
 	int		len;
 
 	len = 0;
 	printf("ARGPTR CONV_S = %s\n", s); //DEBUG
-	(void)s;
+	if (machine->width != 0 || machine->precision != 0) //C'EST ICI ?//
+		*output = hub_strjoin_width_precision(machine->buffer, str,
+												machine->width,
+												machine->precision);
+	(void)str;
 	(void)flag;
 	return (len);
 }
