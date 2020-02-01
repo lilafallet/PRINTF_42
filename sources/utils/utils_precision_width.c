@@ -6,14 +6,14 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 12:04:23 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/01 18:08:22 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/01 18:59:09 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libftprintf.h"
 #include "libft.h"
-#include <stdio.h> //DEBUG
 
-int	len_width(int width)
+int		len_width(int width)
 {
 	int	i;
 
@@ -26,8 +26,8 @@ int	len_width(int width)
 	return (i);
 }
 
-void	strjoin_all(char **new_str, char *buffer, char *str, int len_str,
-						int nb_space)
+void	strjoin_all(char **new_str, char *buffer, char *str, size_t len_str,
+						size_t nb_space)
 {
 	size_t	i;
 	size_t	index;
@@ -35,65 +35,44 @@ void	strjoin_all(char **new_str, char *buffer, char *str, int len_str,
 	i = 0;
 	index = 0;
 	while (i < ft_strlen(buffer))
-	{
-		(*new_str)[index] = buffer[i];
-		printf("i = %zu\n", i); //DEBUG
-		printf("index = %zu\n", i); //DEBUG
-		index++;
-		i++;
-	}
+		(*new_str)[index++] = buffer[i++];
 	i = 0;
 	if (nb_space != 0)
 	{
 		while (i < nb_space)
 		{
-			(*new_str)[index] = '_'; //SPACE
-			index++;
+			(*new_str)[index++] = ' ';
 			i++;
 		}
 	}
 	i = 0;
 	while (i < len_str)
-	{
-		(*new_str)[index] = str[i];
-		index++;
-		i++;
-	}
+		(*new_str)[index++] = str[i++];
 	(*new_str)[index] = '\0';
-	printf("new_str de len_str = %s\n\n", *new_str); //DEBUG
+}
+
+size_t	check_nb_space(size_t width, size_t precision, size_t len_str)
+{
+	return ((width != 0 && precision == 0) ? width - len_str :
+				width - precision);
 }
 
 char	*strjoin_width_precision(char *buffer, char *str, int width,
-									int precision)
+									size_t precision)
 {
 	char	*new_str;
-	int		nb_space;
+	size_t	nb_space;
 	size_t	len_str;
 	size_t	len_new_str;
 
 	new_str = NULL;
 	nb_space = 0;
 	len_str = ft_strlen(str);
-	printf("len buffer = %zu\n", ft_strlen(buffer)); //DEBUG
-	printf("len str = %zu\n", len_str); //DEBUG
 	if (precision != 0)
-	{
 		len_str = precision;
-		printf("len_str si il y a une precision = %zu\n", len_str); //DEBUG
-	}
-	if (width != 0 && precision == 0)
-	{
-		nb_space = width - len_str;
-		printf("nb space si width et pas de precision = %d\n", nb_space); //DEBUG
-	}
-	if (width != 0 && precision != 0)
-	{
-		nb_space = width - precision;
-		printf("nb space si width et pas de precision = %d\n", nb_space); //DEBUG
-	}
-	printf("nb space = %d\n", nb_space); //DEBUG
+	if ((width != 0 && precision == 0) || (width != 0 && precision != 0))
+		nb_space = check_nb_space(width, precision, len_str);
 	len_new_str = ft_strlen(buffer) + len_str + nb_space;
-	printf("len_new_str = %zu\n", len_new_str); //DEBUG
 	new_str = (char *)malloc(sizeof(char) * (len_new_str + 1));
 	if (new_str != NULL)
 		strjoin_all(&new_str, buffer, str, len_str, nb_space);
@@ -101,14 +80,8 @@ char	*strjoin_width_precision(char *buffer, char *str, int width,
 }
 
 char	*hub_strjoin_width_precision(char *buffer, char *str, int width,
-										int precision)
+										size_t precision)
 {
-	//int width = machine->width
-	//int precision = machine->precision
-	/*char *str = argc (dans ce cas char * mais peut changer en fonction de la
-					conversion en question*/
-	//char *buffer = machine->buffer
-
 	char	*new_str;
 	size_t	len_buffer;
 	size_t	len_str;
