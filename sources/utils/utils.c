@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:44 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/29 19:11:31 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/01 12:12:39 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,24 +55,24 @@ void	memjoin_free(char **dest, char *src, int len_dest, int len_src)
 
 void	fill_buffer(t_state_machine *machine, char c)
 {
-		if (machine->len + 1 >= BUFFER_SIZE)
-		{
-			//printf("MACHINE->OUT = %s\n", machine->out); //DEBUG
-			//printf("MACHINE->BUFFER = %s\n", machine->buffer); //DEBUG
-			memjoin_free(&machine->out, machine->buffer,
-										machine->len_out, machine->len);
-			//printf("MACHINE->OUT = %s\n", machine->out); //DEBUG
-			//printf("MACHINE->BUFFER = %s\n\n", machine->buffer); //DEBUG
-			machine->len_out += machine->len;
-			machine->len = 0;
-			ft_bzero(machine->buffer, BUFFER_SIZE);
-			//printf("MACHINE->LEN_OUT = %d\n", machine->len_out); //DEBUG
-		}
-		else
-		{
-			machine->buffer[machine->len] = c;
-			machine->len++;
-		}
+	if (machine->len + 1 >= BUFFER_SIZE)
+	{
+		//printf("MACHINE->OUT = %s\n", machine->out); //DEBUG
+		//printf("MACHINE->BUFFER = %s\n", machine->buffer); //DEBUG
+		memjoin_free(&machine->out, machine->buffer, machine->len_out,
+						machine->len);
+		//printf("MACHINE->OUT = %s\n", machine->out); //DEBUG
+		//printf("MACHINE->BUFFER = %s\n\n", machine->buffer); //DEBUG
+		machine->len_out += machine->len;
+		machine->len = 0;
+		ft_bzero(machine->buffer, BUFFER_SIZE);
+		//printf("MACHINE->LEN_OUT = %d\n", machine->len_out); //DEBUG
+	}
+	else
+	{
+		machine->buffer[machine->len] = c;
+		machine->len++;
+	}
 }
 
 int		is_flag(char c)
@@ -88,6 +88,7 @@ int		is_flag(char c)
 	}
 	return (-1);
 }
+
 int		is_conversion(char c)
 {
 	int	i;

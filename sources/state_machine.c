@@ -9,16 +9,16 @@ int	letter_function(char *str, t_state_machine *machine)
 	if (*str == '%')
 	{
 		machine->state = FLAG;
-	//printf("pourcent\n"); //DEBUG
+		//printf("pourcent\n"); //DEBUG
 	}
 	if (*str != '%')
 	{
-	//printf("letter\n"); //DEBUG
-	fill_buffer(machine, *str);
-	//printf("char = %c\n", machine->buffer[machine->len]); //DEBUG
-	//printf("string = %s\n", machine->buffer); //DEBUG
-	//printf("int len = %d\n", machine->len); //DEBUG
-	//printf("\n"); //DEBUG
+		//printf("letter\n"); //DEBUG
+		fill_buffer(machine, *str);
+		//printf("char = %c\n", machine->buffer[machine->len]); //DEBUG
+		//printf("string = %s\n", machine->buffer); //DEBUG
+		//printf("int len = %d\n", machine->len); //DEBUG
+		//printf("\n"); //DEBUG
 	}
 	return (1);
 }
@@ -30,18 +30,18 @@ int	flag_function(char *str, t_state_machine *machine)
 	what_flag = is_flag(*str);
 	if (what_flag != -1)
 	{
-	//printf("%c = flag \n", *str); //DEBUG
-	//printf("what flag = %d\n", what_flag); //DEBUG
-	machine->flag |= 1 << what_flag;
-	//printf("calc flag = %d\n\n", machine->flag); //DEBBUG
-	return (1);
+		//printf("%c = flag \n", *str); //DEBUG
+		//printf("what flag = %d\n", what_flag); //DEBUG
+		machine->flag |= 1 << what_flag;
+		//printf("calc flag = %d\n\n", machine->flag); //DEBBUG
+		return (1);
 	}
 	else if (*str >= '1' && *str <= '9')
 	{
 		//machine->index_width =
 		machine->state = CONVERSION;
-		machine->width = ft_atoi((const char *)str);	
- 		return (len_width(machine->width));
+		machine->width = ft_atoi((const char *)str);
+		return (len_width(machine->width));
 	}
 	machine->state = CONVERSION;
 	return (0);
