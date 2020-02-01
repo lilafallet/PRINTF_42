@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/31 20:03:10 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/01 13:22:23 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ typedef struct	s_state_machine
 	int				len;
 	int				len_out;
 	int				width;
-	int				index_width;
+	int				precision;
 }				t_state_machine;
 
 typedef	int		(*t_function)(char *, t_state_machine *);

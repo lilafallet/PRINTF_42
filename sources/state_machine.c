@@ -26,6 +26,7 @@ int	letter_function(char *str, t_state_machine *machine)
 int	flag_function(char *str, t_state_machine *machine)
 {
 	int			what_flag;
+	int			nb;
 
 	what_flag = is_flag(*str);
 	if (what_flag != -1)
@@ -33,15 +34,18 @@ int	flag_function(char *str, t_state_machine *machine)
 		//printf("%c = flag \n", *str); //DEBUG
 		//printf("what flag = %d\n", what_flag); //DEBUG
 		machine->flag |= 1 << what_flag;
-		//printf("calc flag = %d\n\n", machine->flag); //DEBBUG
-		return (1);
+		if (*str != '.')
+			return (1);
+		str++;
 	}
-	else if (*str >= '1' && *str <= '9')
+	if (*str >= '1' && *str <= '9')
 	{
-		//machine->index_width =
-		machine->state = CONVERSION;
-		machine->width = ft_atoi((const char *)str);
-		return (len_width(machine->width));
+		nb = ft_atoi((const char *)str);
+		if (what_flag != -1)
+			machine->precision = nb;
+		else
+			machine->width = nb;
+		return (len_width(nb) + (what_flag != -1));
 	}
 	machine->state = CONVERSION;
 	return (0);

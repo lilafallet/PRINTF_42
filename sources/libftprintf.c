@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/01/31 18:11:52 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/01 13:24:02 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ int	do_conv(va_list *argptr, t_state_machine *machine)
 
 	output = NULL;
 	len = 0;
+	printf("machine->width : %d\n", machine->width); //DEBUG
+	printf("len_width = %d\n", len_width(machine->width)); //DEBUG
+	printf("machine->precision : %d\n", machine->precision); //DEBUG
+	printf("len_precision = %d\n", len_width(machine->precision)); //DEBUG
 	if (machine->flag & CONV_C)
 		len = c_conv(va_arg(*argptr, int), machine->flag, &output);
 	else if (machine->flag & CONV_S)
@@ -37,6 +41,7 @@ int	do_conv(va_list *argptr, t_state_machine *machine)
 	machine->len_out += len;
 	machine->state = LETTER;
 	machine->flag = 0;
+	return (0);
 }
 
 int	parser(char *format, va_list *argptr, t_state_machine *machine)

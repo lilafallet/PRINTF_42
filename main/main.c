@@ -17,112 +17,112 @@ int	main(int ac, char **av)
 		ret = ft_printf("haha %3s", "hello");
 		printf("\n");
 		printf("PRINTF\n");
-		ret = printf("haha %3s", "hello");
-		printf("\n");
+	//	ret = printf("haha %3s", "hello");
+	//	printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		/*printf("MY PRINTF\n");
+		printf("MY PRINTF\n");
 		ret = ft_printf("%.3s", "hello");
 		printf("\n");
 		printf("PRINTF\n");
-		ret = printf("%.3s", "hello");
-		printf("\n");
+	//	ret = printf("%.3s", "hello");
+	//	printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
 		printf("MY PRINTF\n");
 		ret = ft_printf("%6d", 42);
 		printf("\n");
 		printf("PRINTF\n");
-		ret = printf("%6d", 42);
-		printf("\n");
+	//	ret = printf("%6d", 42);
+	//	printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
 		printf("MY PRINTF\n");
 		ret = ft_printf("%.6d", 42);
 		printf("\n");
 		printf("PRINTF\n");
-		ret = printf("%.6d", 42);
-		printf("\n");
+	//	ret = printf("%.6d", 42);
+	//	printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
 		printf("MY PRINTF\n");
 		ret = ft_printf("%.6i", 42);
 		printf("\n");
 		printf("PRINT\n");
-		ret = printf("%.6i", 42);
-		printf("\n");
+	//	ret = printf("%.6i", 42);
+	//	printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 
 		printf("MY PRINTF\n");
 		ret = ft_printf("%6i", 42);
 		printf("\n");
 		printf("PRINTF\n");
-		ret = printf("%6i", 42);
-		printf("\n");
+	//	ret = printf("%6i", 42);
+	//	printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
 		printf("MY PRINTF\n");
 		ret = ft_printf("%6x", 4256);
 		printf("\n");
 		printf("PRINTF\n");
-		ret = printf("%6x", 42);
-		printf("\n");
+	//	ret = printf("%6x", 42);
+	//	printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
 		printf("MY PRINTF\n");
 		ret = ft_printf("%.6x", 4256);
 		printf("\n");
 		printf("PRINTF\n");
-		ret = printf("%.6x", 4256);
-		printf("\n");
+	//	ret = printf("%.6x", 4256);
+	//	printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
 		printf("MY PRINTF ///////////////////////////////////////////////\n");
 		ret = ft_printf("%.15s", "hello ca va");
 		printf("\n");
 		printf("PRINTF\n");
-		ret = printf("%.15s", "hello ca va");
-		printf("\n");
+	//	ret = printf("%.15s", "hello ca va");
+	//	printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
 		printf("MY PRINTF\n");
 		ret = ft_printf("%15s", "hello ca va");
 		printf("\n");
 		printf("PRINTF\n");
-		ret = printf("%15s", "hello ca va");
-		printf("\n");
+	//	ret = printf("%15s", "hello ca va");
+	//	printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
 		printf("MY PRINTF\n");
 		ret = ft_printf("%15.6s", "hello ca va");
 		printf("\n");
 		printf("PRINTF\n");
-		ret = printf("%15.2s", "hello ca va");
-		printf("\n");
+	//	ret = printf("%15.2s", "hello ca va");
+	//	printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		printf("MY PRINTF\n");
+		/*printf("MY PRINTF\n");
 		ret = ft_printf("%.3f", 15.965564);
 		printf("\n");
 		printf("PRINTF\n");
-		ret = printf("%.2f", 15.965564);
-		printf("\n");
+	//	ret = printf("%.2f", 15.965564);
+		//printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
 		printf("MY PRINTF\n");
 		ret = ft_printf("%15f", 15.965564);
 		printf("\n");
 		printf("PRINTF\n");
-		ret = printf("%15f", 15.965564);
-		printf("\n");
+	//	ret = printf("%15f", 15.965564);
+		//printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
 		printf("MY PRINTF\n");
-		ret = ft_printf("%15.3f", 15.965564);
+		ret = ft_printf("%1555.3f", 15.965564);
 		printf("\n");
 		printf("PRINTF\n");
-		ret = printf("%15.3f", 15.965564);
-		printf("\n");
+	//	ret = printf("%15.3f", 15.965564);
+		//printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);*/
 	}
 	else
