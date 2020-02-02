@@ -6,12 +6,13 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 19:06:51 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/01 19:07:06 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/02 17:06:17 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft.h"
+#include <stdio.h> //DEBUG
 
 int		len_width(int width)
 {
@@ -53,6 +54,8 @@ void	strjoin_all(char **new_str, char *buffer, char *str, size_t len_str,
 
 size_t	check_nb_space(size_t width, size_t precision, size_t len_str)
 {
+	if (width < len_str)
+		return (0);
 	return ((width != 0 && precision == 0) ? width - len_str :
 				width - precision);
 }
@@ -70,8 +73,9 @@ char	*strjoin_width_precision(char *buffer, char *str, int width,
 	len_str = ft_strlen(str);
 	if (precision != 0)
 		len_str = precision;
-	if ((width != 0 && precision == 0) || (width != 0 && precision != 0))
+	if (width != 0)
 		nb_space = check_nb_space(width, precision, len_str);
+	printf("nb of space = %zu\n", nb_space); //DEBUG
 	len_new_str = ft_strlen(buffer) + len_str + nb_space;
 	new_str = (char *)malloc(sizeof(char) * (len_new_str + 1));
 	if (new_str != NULL)
@@ -83,12 +87,10 @@ char	*hub_strjoin_width_precision(char *buffer, char *str, int width,
 										size_t precision)
 {
 	char	*new_str;
-	size_t	len_buffer;
 	size_t	len_str;
 
 	new_str = NULL;
 	len_str = ft_strlen(str);
-	len_buffer = ft_strlen(buffer);
 	if ((width == 0 && precision != 0) && len_str < precision)
 	{
 		new_str = ft_strjoin(buffer, str);

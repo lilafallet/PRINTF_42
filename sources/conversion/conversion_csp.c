@@ -6,40 +6,40 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 12:01:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/01 19:16:05 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/02 17:23:45 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdio.h> //PRINTF
 
-int		c_conv(int c, int flag, char **output)
+int		c_conv(int c, t_option *option, char **output)
 {
 	int		len;
 
 	len = 0;
 	printf("ARGPTR CONV_C = %d\n", c); //DEBUG
 	(void)c;
-	(void)flag;
+	(void)option;
 	return (len);
 }
 
-int		s_conv(char *str, int flag, char **output)
+int		s_conv(char *str, t_option *option, char **output)
 {
 	int		len;
 
 	len = 0;
-	printf("ARGPTR CONV_S = %s\n", s); //DEBUG
-	if (machine->width != 0 || machine->precision != 0) //C'EST ICI ?//
-		*output = hub_strjoin_width_precision(machine->buffer, str,
-												machine->width,
-												machine->precision);
+	printf("ARGPTR CONV_S = %s\n", str); //DEBUG
+	if (option->width != 0 || option->precision != 0) //C'EST ICI ?//
+		*output = hub_strjoin_width_precision(str, option->width,
+												option->precision);
 	(void)str;
 	(void)flag;
+printf("OUTPUT: %s\n", *output);
 	return (len);
 }
 
-int		p_conv(void *p, int flag, char **output)
+int		p_conv(char *str, t_option *option, char **output)
 {
 	int		len;
 
