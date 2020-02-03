@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 17:34:11 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 17:54:59 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,16 @@
 int		do_conv(va_list *argptr, t_state_machine *machine)
 {
 	char	*output;
-	int		len;
 
 	output = NULL;
-	len = 0;
 	preset_flag(machine);
-	len = process_conv(machine, &output);
+	output = process_conversion(argptr, machine);
 	memjoin_free(&machine->out, machine->buffer, machine->len_out,
 					machine->len);
 	machine->len_out += machine->len;
-	memjoin_free(&machine->out, output, machine->len_out, len);
-	initialisation(machine, len);
+	memjoin_free(&machine->out, output, machine->len_out,
+					machine->option.len_conversion); 
+	initialisation(machine, machine->option.len_conversion);
 	return (0);
 }
 

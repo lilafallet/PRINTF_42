@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 17:38:39 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 18:15:52 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "libft.h"
+# include <stdarg.h>
 
 enum	e_state
 {
@@ -73,6 +74,7 @@ typedef	struct	s_option
 	int				flag;
 	int				width;
 	int				precision;
+	int				len_conversion;
 }					t_option;
 
 typedef struct	s_state_machine
@@ -96,18 +98,19 @@ int				letter_function(char *str, t_state_machine *machine);
 int				flag_function(char *str, t_state_machine *machine);
 int				conversion_function(char *str, t_state_machine *machine);
 int				error_function(char *str, t_state_machine *machine);
-int				xminxmaj_conv(int x, int flag, char **output);
-int				c_conv(int c, t_option *option, char **output);
-int				s_conv(char *s, t_option *option, char **output,
-						t_state_machine *machine);
-int				p_conv(void *p, t_option *option, char **output);
-int				u_conv(unsigned long u, int flag, char **output);
-int				d_conv(int d, int flag, char **output);
-int				i_conv(int i, int flag, char **output);
-int				diuxminxmaj_conv(long diux, t_option *option, char **output);
+char			*xminxmaj_conv(int x, int flag);
+char			*c_conv(int c, t_option *option);
+char			*s_conv(char *str, t_option *option, t_state_machine *machine);
+char			*p_conv(void *p, t_option *option);
+char			*u_conv(unsigned long u, int flag);
+char			*d_conv(int d, int flag);
+char			*i_conv(int i, int flag);
+char			*diuxminxmaj_conv(long diux, t_option *option);
 int				len_width(int width);
 char			*hub_strjoin_width_precision(char *str, t_option *option);
 void			preset_flag(t_state_machine *machine);
 int				it_is_csp(int flag);
+char			*process_conversion(va_list *argptr, t_state_machine *machine);
+void			initialisation(t_state_machine *machine, int len);
 
 #endif

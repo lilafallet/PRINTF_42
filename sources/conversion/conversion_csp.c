@@ -6,60 +6,42 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 12:01:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 15:23:53 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 18:10:45 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int		c_conv(int c, t_option *option, char **output)
+char	*c_conv(int c, t_option *option)
 {
-	int		len;
+	char	*new_str;
 
-	len = 0;
+	new_str = NULL;
 	(void)c;
 	(void)option;
-	return (len);
+	return (new_str);
 }
 
-int		s_conv(char *str, t_option *option, char **output,
-				t_state_machine *machine)
+char	*s_conv(char *str, t_option *option, t_state_machine *machine)
 {
-	int		len;
+	char	*new_str;
 
-	len = 0;
+	new_str = NULL;
 	if (option->width != 0 || option->precision != 0)
-		*output = hub_strjoin_width_precision(str, option);
-	(void)str;
+		new_str = hub_strjoin_width_precision(str, option);
+	(void)new_str;
 	(void)option;
-	len = ft_strlen((const char *)*output);
-	return (len);
+	option->len_conversion = ft_strlen((const char *)new_str);
+	return (new_str);
 }
 
-int		p_conv(void *p, t_option *option, char **output)
+char	*p_conv(void *p, t_option *option)
 {
-	int		len;
+	char	*new_str;
 
-	len = 0;
+	new_str = NULL;
 	(void)p;
 	(void)option;
-	return (len);
+	return (new_str);
 }
 
-int		diuxminxmaj_conv(long diux, t_option *option, char **output)
-{
-	int		len;
-
-	len = 0;
-	if (option->flag & CONV_D)
-		len = d_conv(diux, option->flag, output);
-	else if (option->flag & CONV_I)
-		len = i_conv(diux, option->flag, output);
-	else if (option->flag & CONV_U)
-		len = u_conv(diux, option->flag, output);
-	else if ((option->flag & CONV_XMIN) ||
-				(option->flag & CONV_XMAJ))
-		len = xminxmaj_conv(diux, option->flag, output);
-	(void)diux;
-	return (len);
-}

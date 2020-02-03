@@ -6,48 +6,66 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 12:01:57 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 15:24:34 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 18:07:34 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int		xminxmaj_conv(int x, int flag, char **output)
+char	*xminxmaj_conv(int x, int flag)
 {
-	int		len;
+	char	*new_str;
 
-	len = 0;
+	new_str = NULL;
 	(void)x;
 	(void)flag;
-	return (len);
+	return (new_str);
 }
 
-int		d_conv(int d, int flag, char **output)
+char	*d_conv(int d, int flag)
 {
-	int		len;
+	char	*new_str;
 
-	len = 0;
+	new_str = NULL;
 	(void)d;
 	(void)flag;
-	return (len);
+	return (new_str);
 }
 
-int		i_conv(int i, int flag, char **output)
+char	*i_conv(int i, int flag)
 {
-	int		len;
+	char	*new_str;
 
-	len = 0;
+	new_str = NULL;
 	(void)i;
 	(void)flag;
-	return (len);
+	return (new_str);
 }
 
-int		u_conv(unsigned long u, int flag, char **output)
+char	*u_conv(unsigned long u, int flag)
 {
-	int		len;
+	char	*new_str;
 
-	len = 0;
+	new_str = NULL;
 	(void)u;
 	(void)flag;
-	return (len);
+	return (new_str);
+}
+
+char	*diuxminxmaj_conv(long diux, t_option *option)
+{
+	char	*output;
+
+	output = NULL;
+	if (option->flag & CONV_D)
+		output = d_conv(diux, option->flag);
+	else if (option->flag & CONV_I)
+		output = i_conv(diux, option->flag);
+	else if (option->flag & CONV_U)
+		output = u_conv(diux, option->flag);
+	else if ((option->flag & CONV_XMIN) ||
+				(option->flag & CONV_XMAJ))
+		output = xminxmaj_conv(diux, option->flag);
+	(void)diux;
+	return (output);
 }
