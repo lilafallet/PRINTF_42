@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 19:06:51 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 12:42:31 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 12:57:30 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	*strjoin_width_precision(char *buffer, char *str, int width,
 		len_str = precision;
 	if (width != 0)
 		nb_space = check_nb_space(width, precision, len_str);
-	printf("nb of space = %zu\n", nb_space); //DEBUG
+	//printf("nb of space = %zu\n", nb_space); //DEBUG
 	len_new_str = ft_strlen(buffer) + len_str + nb_space;
 	new_str = (char *)malloc(sizeof(char) * (len_new_str + 1));
 	if (new_str != NULL)

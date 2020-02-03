@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 12:01:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 12:49:11 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 12:56:58 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		c_conv(int c, t_option *option, char **output)
 	int		len;
 
 	len = 0;
-	printf("ARGPTR CONV_C = %d\n", c); //DEBUG
+	//printf("ARGPTR CONV_C = %d\n", c); //DEBUG
 	(void)c;
 	(void)option;
 	return (len);
@@ -30,7 +30,7 @@ int		s_conv(char *str, t_option *option, char **output,
 	int		len;
 
 	len = 0;
-	printf("ARGPTR CONV_S = %s\n", str); //DEBUG
+	//printf("ARGPTR CONV_S = %s\n", str); //DEBUG
 	if (option->width != 0 || option->precision != 0) //C'EST ICI ?//
 		*output = hub_strjoin_width_precision(machine->buffer, str, option);
 	(void)str;
@@ -44,7 +44,7 @@ int		p_conv(void *p, t_option *option, char **output)
 	int		len;
 
 	len = 0;
-	printf("ARGPTR CONV_P = %p\n", p); //DEBUG
+	//printf("ARGPTR CONV_P = %p\n", p); //DEBUG
 	(void)p;
 	(void)option;
 	return (len);
