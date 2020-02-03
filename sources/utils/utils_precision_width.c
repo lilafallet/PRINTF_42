@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 19:06:51 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 13:17:09 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 14:50:10 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	*hub_strjoin_width_precision(char *str, t_option *option)
 	len_str = ft_strlen(str);
 	if ((option->width == 0 && option->precision != 0) &&
 			len_str < option->precision)
-		return (new_str); //POUR FAIRE UN STRJOIN
+		return (str); //POUR FAIRE UN STRJOIN
 	new_str = strjoin_width_precision(str, option->width, option->precision);
 	return (new_str);
 }

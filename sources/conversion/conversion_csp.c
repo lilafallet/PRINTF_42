@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 12:01:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 13:12:49 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 14:37:00 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		s_conv(char *str, t_option *option, char **output,
 		*output = hub_strjoin_width_precision(str, option);
 	(void)str;
 	(void)option;
-	printf("OUTPUT: %s\n", *output);
+	len = ft_strlen((const char *)*output);
 	return (len);
 }
 
