@@ -6,13 +6,12 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 19:06:51 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 14:50:10 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 15:27:51 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft.h"
-#include <stdio.h> //DEBUG
 
 int		len_width(int width)
 {
@@ -86,7 +85,7 @@ char	*hub_strjoin_width_precision(char *str, t_option *option)
 	len_str = ft_strlen(str);
 	if ((option->width == 0 && option->precision != 0) &&
 			len_str < option->precision)
-		return (str); //POUR FAIRE UN STRJOIN
+		return (str);
 	new_str = strjoin_width_precision(str, option->width, option->precision);
 	return (new_str);
 }

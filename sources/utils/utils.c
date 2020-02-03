@@ -6,13 +6,12 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:44 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/01 12:12:39 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 15:27:04 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft.h"
-#include <stdio.h> //DEBUG
 
 void	*ft_memdup(void *s, int len)
 {
@@ -57,16 +56,11 @@ void	fill_buffer(t_state_machine *machine, char c)
 {
 	if (machine->len + 1 >= BUFFER_SIZE)
 	{
-		//printf("MACHINE->OUT = %s\n", machine->out); //DEBUG
-		//printf("MACHINE->BUFFER = %s\n", machine->buffer); //DEBUG
 		memjoin_free(&machine->out, machine->buffer, machine->len_out,
 						machine->len);
-		//printf("MACHINE->OUT = %s\n", machine->out); //DEBUG
-		//printf("MACHINE->BUFFER = %s\n\n", machine->buffer); //DEBUG
 		machine->len_out += machine->len;
 		machine->len = 0;
 		ft_bzero(machine->buffer, BUFFER_SIZE);
-		//printf("MACHINE->LEN_OUT = %d\n", machine->len_out); //DEBUG
 	}
 	else
 	{

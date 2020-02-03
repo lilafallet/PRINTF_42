@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 13:12:49 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 15:18:29 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ enum	e_state
 	DO_CONV //4
 };
 
-typedef	struct		s_option
+typedef	struct	s_option
 {
 	int				flag;
 	int				width;

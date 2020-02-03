@@ -6,19 +6,17 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 12:01:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 14:37:00 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 15:23:53 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h> //PRINTF
 
 int		c_conv(int c, t_option *option, char **output)
 {
 	int		len;
 
 	len = 0;
-	//printf("ARGPTR CONV_C = %d\n", c); //DEBUG
 	(void)c;
 	(void)option;
 	return (len);
@@ -30,8 +28,7 @@ int		s_conv(char *str, t_option *option, char **output,
 	int		len;
 
 	len = 0;
-	//printf("ARGPTR CONV_S = %s\n", str); //DEBUG
-	if (option->width != 0 || option->precision != 0) //C'EST ICI ?//
+	if (option->width != 0 || option->precision != 0)
 		*output = hub_strjoin_width_precision(str, option);
 	(void)str;
 	(void)option;
@@ -44,7 +41,6 @@ int		p_conv(void *p, t_option *option, char **output)
 	int		len;
 
 	len = 0;
-	//printf("ARGPTR CONV_P = %p\n", p); //DEBUG
 	(void)p;
 	(void)option;
 	return (len);

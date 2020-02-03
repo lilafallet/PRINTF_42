@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 15:15:30 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 15:20:59 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,18 @@ int	do_conv(va_list *argptr, t_state_machine *machine)
 	if (machine->option.flag & CONV_C)
 		len = c_conv(va_arg(*argptr, int), &machine->option, &output);
 	else if (machine->option.flag & CONV_S)
-		len = s_conv(va_arg(*argptr, char *), &machine->option, &output, machine);
+		len = s_conv(va_arg(*argptr, char *), &machine->option, &output,
+						machine);
 	else if (machine->option.flag & CONV_P)
 		len = p_conv(va_arg(*argptr, void *), &machine->option, &output);
-	else if ((machine->option.flag & CONV_D) || (machine->option.flag & CONV_I) ||
-				(machine->option.flag & CONV_U) || (machine->option.flag & CONV_XMIN) ||
-				(machine->option.flag & CONV_XMAJ))
-		len = diuxminxmaj_conv(va_arg(*argptr, long), &machine->option, &output);
-	memjoin_free(&machine->out, machine->buffer, machine->len_out, machine->len);
+	else if ((machine->option.flag & CONV_D) || (machine->option.flag & CONV_I)
+				|| (machine->option.flag & CONV_U)
+				|| (machine->option.flag & CONV_XMIN)
+				|| (machine->option.flag & CONV_XMAJ))
+		len = diuxminxmaj_conv(va_arg(*argptr, long), &machine->option,
+								&output);
+	memjoin_free(&machine->out, machine->buffer, machine->len_out,
+					machine->len);
 	machine->len_out += machine->len;
 	memjoin_free(&machine->out, output, machine->len_out, len);
 	ft_bzero(machine->buffer, BUFFER_SIZE);
