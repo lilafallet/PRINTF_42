@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:44 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 15:27:04 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 17:21:45 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ int		is_flag(char c)
 	int	i;
 
 	i = 0;
-	while (STR_FLAG[i] != '\0')
+	while (STR_MOD[i] != '\0')
 	{
-		if (c == STR_FLAG[i])
+		if (c == STR_MOD[i])
 			return (i);
 		i++;
 	}

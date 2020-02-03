@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 15:35:44 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 17:22:15 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,18 @@
 #include <stdio.h> //DEBUG
 #include "libftprintf.h"
 #include "libft.h"
+
+int		it_is_csp(int flag)
+{
+	return ((flag & CONV_C) || (flag & CONV_S) || (flag & CONV_P));
+}
+
+void	preset_flag(t_state_machine *machine)
+{
+	if ((machine->option.flag & MOD_MINUS)
+		|| it_is_csp(machine->option.flag) == TRUE)
+		machine->option.flag &= ~MOD_ZERO;
+}
 
 void	initialisation(t_state_machine *machine, int len)
 {
@@ -32,7 +44,7 @@ int		do_conv(va_list *argptr, t_state_machine *machine)
 
 	output = NULL;
 	len = 0;
-	//preset_flag()
+	preset_flag(machine);
 	if (machine->option.flag & CONV_C)
 		len = c_conv(va_arg(*argptr, int), &machine->option, &output);
 	else if (machine->option.flag & CONV_S)

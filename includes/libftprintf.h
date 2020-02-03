@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 15:18:29 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 17:19:30 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@
 
 # define NB_FLAGS 4
 
-# define FLAG_MINUS		0x000001
-# define FLAG_ZERO		0x000002
-# define FLAG_DOT		0x000004
-# define FLAG_STAR		0x000008
+# define MOD_MINUS		0x000001
+# define MOD_ZERO		0x000002
+# define MOD_DOT		0x000004
+# define MOD_STAR		0x000008
 
 # define CONV_C			0x000100
 # define CONV_S			0x000200
@@ -48,7 +48,7 @@
 # define NB_CONV 9
 # define STR_CONV "cspdiuxX%"
 
-# define STR_FLAG "-0.*"
+# define STR_MOD "-0.*"
 
 # define BUFFER_SIZE 4096
 
