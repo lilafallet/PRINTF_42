@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 17:19:30 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 17:38:39 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,7 @@ int				i_conv(int i, int flag, char **output);
 int				diuxminxmaj_conv(long diux, t_option *option, char **output);
 int				len_width(int width);
 char			*hub_strjoin_width_precision(char *str, t_option *option);
+void			preset_flag(t_state_machine *machine);
+int				it_is_csp(int flag);
 
 #endif
