@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 15:20:59 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 15:35:44 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,16 @@
 #include "libftprintf.h"
 #include "libft.h"
 
-int	do_conv(va_list *argptr, t_state_machine *machine)
+void	initialisation(t_state_machine *machine, int len)
+{
+	ft_bzero(machine->buffer, BUFFER_SIZE);
+	machine->len = 0;
+	machine->len_out += len;
+	machine->state = LETTER;
+	ft_bzero(&machine->option, sizeof(machine->option));
+}
+
+int		do_conv(va_list *argptr, t_state_machine *machine)
 {
 	char	*output;
 	int		len;
@@ -41,15 +50,11 @@ int	do_conv(va_list *argptr, t_state_machine *machine)
 					machine->len);
 	machine->len_out += machine->len;
 	memjoin_free(&machine->out, output, machine->len_out, len);
-	ft_bzero(machine->buffer, BUFFER_SIZE);
-	machine->len = 0;
-	machine->len_out += len;
-	machine->state = LETTER;
-	ft_bzero(&machine->option, sizeof(machine->option));
+	initialisation(machine, len);
 	return (0);
 }
 
-int	parser(char *format, va_list *argptr, t_state_machine *machine)
+int		parser(char *format, va_list *argptr, t_state_machine *machine)
 {
 	static	t_function	function[4] = {letter_function, flag_function,
 										conversion_function,
@@ -72,7 +77,7 @@ int	parser(char *format, va_list *argptr, t_state_machine *machine)
 	return (ret == FAILURE ? FAILURE : SUCCESS);
 }
 
-int	ft_printf(const char *format, ...)
+int		ft_printf(const char *format, ...)
 {
 	t_state_machine		machine;
 	va_list				argptr;
