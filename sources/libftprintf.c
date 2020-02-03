@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 14:35:18 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 15:15:30 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,12 @@ int	do_conv(va_list *argptr, t_state_machine *machine)
 				(machine->option.flag & CONV_U) || (machine->option.flag & CONV_XMIN) ||
 				(machine->option.flag & CONV_XMAJ))
 		len = diuxminxmaj_conv(va_arg(*argptr, long), &machine->option, &output);
-	printf("OUTPUT: %s\n", output); //DEBUG
-	printf("REAL LEN : %d\n", len); //DEBUG
-	printf("machine->out = %s\n", machine->out); //DEBUG
-	printf("machine->buffer = %s\n", machine->buffer); //DEBUG
-	printf("machine->len_out = %d\n", machine->len_out); //DEBUG
-	printf("len = %d\n", len); //DEBUG
-	memjoin_free(&machine->out, machine->buffer, machine->len_out, len);
-	printf("&machine->out = %s\n", machine->out); //DEBUG
+	memjoin_free(&machine->out, machine->buffer, machine->len_out, machine->len);
 	machine->len_out += machine->len;
-	printf("machine->len_out += machine->len = %d\n",
-				machine->len_out += machine->len); //DEBUG
-	printf("machine->out = %s\n", machine->out); //DEBUG
-	printf("output = %s\n", output); //DEBUG
-	printf("machine->len_out = %d\n", machine->len_out); //DEBUG
-	printf("len = %d\n", len); //DEBUG
 	memjoin_free(&machine->out, output, machine->len_out, len);
-	printf("&machine->out = %s\n", machine->out); //DEBUG
 	ft_bzero(machine->buffer, BUFFER_SIZE);
 	machine->len = 0;
 	machine->len_out += len;
-	printf("machine->len_out += len = %d\n", machine->len_out += len); //DEBUG
 	machine->state = LETTER;
 	ft_bzero(&machine->option, sizeof(machine->option));
 	return (0);

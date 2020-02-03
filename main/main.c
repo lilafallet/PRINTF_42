@@ -44,14 +44,14 @@ int	main(int ac, char **av)
 		ret = ft_printf("%15.6s", "hello ca va");
 		printf("\n");
 		printf("PRINTF 5\n");
-		ret = printf("%15.2s", "hello ca va");
+		ret = printf("%15.6s", "hello ca va");
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("ca marche%.6s\n", "hello"); //debug
+		ret = ft_printf("ca marche%.6s", "hello"); //debug
 		printf("\n");
 		printf("PRINTF 6\n"); //DEBUG
-		printf("ca marche%.6s\n\n", "hello"); //debug
+		printf("ca marche%.6s", "hello"); //debug
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 
