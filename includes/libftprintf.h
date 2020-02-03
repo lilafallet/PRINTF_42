@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/02 17:18:15 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 12:51:44 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,17 +97,16 @@ int				flag_function(char *str, t_state_machine *machine);
 int				conversion_function(char *str, t_state_machine *machine);
 int				error_function(char *str, t_state_machine *machine);
 int				xminxmaj_conv(int x, int flag, char **output);
-int				c_conv(int c, int flag, char **output);
-int				s_conv(char *s, int flag, char **output,
+int				c_conv(int c, t_option *option, char **output);
+int				s_conv(char *s, t_option *option, char **output,
 						t_state_machine *machine);
-int				p_conv(void *p, int flag, char **output);
+int				p_conv(void *p, t_option *option, char **output);
 int				u_conv(unsigned long u, int flag, char **output);
 int				d_conv(int d, int flag, char **output);
 int				i_conv(int i, int flag, char **output);
-int				diuxminxmaj_conv(long diux, t_state_machine *machine,
-									char **output);
+int				diuxminxmaj_conv(long diux, t_option *option, char **output);
 int				len_width(int width);
 char			*hub_strjoin_width_precision(char *buffer, char *str,
-												int width, size_t precision);
+												t_option *option);
 
 #endif

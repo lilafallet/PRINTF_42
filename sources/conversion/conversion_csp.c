@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 12:01:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/02 17:23:45 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 12:49:11 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,45 +24,46 @@ int		c_conv(int c, t_option *option, char **output)
 	return (len);
 }
 
-int		s_conv(char *str, t_option *option, char **output)
+int		s_conv(char *str, t_option *option, char **output,
+				t_state_machine *machine)
 {
 	int		len;
 
 	len = 0;
 	printf("ARGPTR CONV_S = %s\n", str); //DEBUG
 	if (option->width != 0 || option->precision != 0) //C'EST ICI ?//
-		*output = hub_strjoin_width_precision(str, option->width,
-												option->precision);
+		*output = hub_strjoin_width_precision(machine->buffer, str, option);
 	(void)str;
-	(void)flag;
-printf("OUTPUT: %s\n", *output);
+	(void)option;
+	printf("OUTPUT: %s\n", *output);
 	return (len);
 }
 
-int		p_conv(char *str, t_option *option, char **output)
+int		p_conv(void *p, t_option *option, char **output)
 {
 	int		len;
 
 	len = 0;
 	printf("ARGPTR CONV_P = %p\n", p); //DEBUG
 	(void)p;
-	(void)flag;
+	(void)option;
 	return (len);
 }
 
-int		diuxminxmaj_conv(long diux, t_state_machine *machine, char **output)
+int		diuxminxmaj_conv(long diux, t_option *option, char **output)
 {
 	int		len;
 
 	len = 0;
-	if (machine->flag & CONV_D)
-		len = d_conv(diux, machine->flag, output);
-	else if (machine->flag & CONV_I)
-		len = i_conv(diux, machine->flag, output);
-	else if (machine->flag & CONV_U)
-		len = u_conv(diux, machine->flag, output);
-	else if ((machine->flag & CONV_XMIN) || (machine->flag & CONV_XMAJ))
-		len = xminxmaj_conv(diux, machine->flag, output);
+	if (option->flag & CONV_D)
+		len = d_conv(diux, option->flag, output);
+	else if (option->flag & CONV_I)
+		len = i_conv(diux, option->flag, output);
+	else if (option->flag & CONV_U)
+		len = u_conv(diux, option->flag, output);
+	else if ((option->flag & CONV_XMIN) ||
+				(option->flag & CONV_XMAJ))
+		len = xminxmaj_conv(diux, option->flag, output);
 	(void)diux;
 	return (len);
 }

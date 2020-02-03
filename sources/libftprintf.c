@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/02 17:41:28 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 12:45:09 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,27 +23,22 @@ int	do_conv(va_list *argptr, t_state_machine *machine)
 
 	output = NULL;
 	len = 0;
-	printf("machine->width : %d\n", machine->width); //DEBUG
-	printf("len_width = %d\n", len_width(machine->width)); //DEBUG
-	printf("machine->precision : %d\n", machine->precision); //DEBUG
-	printf("len_precision = %d\n", len_width(machine->precision)); //DEBUG
-	preset_flag()
+	//preset_flag()
 	if (machine->option.flag & CONV_C)
 		len = c_conv(va_arg(*argptr, int), &machine->option, &output);
 	else if (machine->option.flag & CONV_S)
-		len = s_conv(va_arg(*argptr, char *), &machine->option, &output,
-						machine);
-	else if (machine->flag & CONV_P)
-		len = p_conv(va_arg(*argptr, void *), machine->flag, &output);
-	else if ((machine->flag & CONV_D) || (machine->flag & CONV_I) ||
-				(machine->flag & CONV_U) || (machine->flag & CONV_XMIN) ||
-				(machine->flag & CONV_XMAJ))
-		len = diuxminxmaj_conv(va_arg(*argptr, long), machine, &output);
+		len = s_conv(va_arg(*argptr, char *), &machine->option, &output, machine);
+	else if (machine->option.flag & CONV_P)
+		len = p_conv(va_arg(*argptr, void *), &machine->option, &output);
+	else if ((machine->option.flag & CONV_D) || (machine->option.flag & CONV_I) ||
+				(machine->option.flag & CONV_U) || (machine->option.flag & CONV_XMIN) ||
+				(machine->option.flag & CONV_XMAJ))
+		len = diuxminxmaj_conv(va_arg(*argptr, long), &machine->option, &output);
 	memjoin_free(&machine->out, machine->buffer, machine->len_out, len);
-	machine->len_out += machine->len_buffer;
+	machine->len_out += machine->len;
 	memjoin_free(&machine->out, output, machine->len_out, len);
-	ft_bzero(machine->buffer, BUFF_SIZE);
-	machine->len_buffer = 0;
+	ft_bzero(machine->buffer, BUFFER_SIZE);
+	machine->len = 0;
 	machine->len_out += len;
 	machine->state = LETTER;
 	ft_bzero(&machine->option, sizeof(machine->option));

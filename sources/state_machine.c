@@ -33,7 +33,7 @@ int	flag_function(char *str, t_state_machine *machine)
 	{
 		//printf("%c = flag \n", *str); //DEBUG
 		//printf("what flag = %d\n", what_flag); //DEBUG
-		machine->flag |= 1 << what_flag;
+		machine->option.flag |= 1 << what_flag;
 		if (*str != '.')
 			return (1);
 		str++;
@@ -42,9 +42,9 @@ int	flag_function(char *str, t_state_machine *machine)
 	{
 		nb = ft_atoi((const char *)str);
 		if (what_flag != -1)
-			machine->precision = nb;
+			machine->option.precision = nb;
 		else
-			machine->width = nb;
+			machine->option.width = nb;
 		return (len_width(nb) + (what_flag != -1));
 	}
 	machine->state = CONVERSION;
@@ -57,7 +57,7 @@ int	conversion_function(char *str, t_state_machine *machine)
 
 	if ((what_conv = is_conversion(*str)) != -1)
 	{
-		machine->flag |= (1 << what_conv) << 8;
+		machine->option.flag |= (1 << what_conv) << 8;
 		//printf("%c = conversion\n", *str); //DEBUG
 		//printf("calc_flag = %d\n", machine->flag); //DEBUG
 		machine->state = DO_CONV;

@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 19:06:51 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/02 17:06:17 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 12:42:31 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,19 +83,20 @@ char	*strjoin_width_precision(char *buffer, char *str, int width,
 	return (new_str);
 }
 
-char	*hub_strjoin_width_precision(char *buffer, char *str, int width,
-										size_t precision)
+char	*hub_strjoin_width_precision(char *buffer, char *str, t_option *option)
 {
 	char	*new_str;
 	size_t	len_str;
 
 	new_str = NULL;
 	len_str = ft_strlen(str);
-	if ((width == 0 && precision != 0) && len_str < precision)
+	if ((option->width == 0 && option->precision != 0) &&
+			len_str < option->precision)
 	{
 		new_str = ft_strjoin(buffer, str);
 		return (new_str);
 	}
-	new_str = strjoin_width_precision(buffer, str, width, precision);
+	new_str = strjoin_width_precision(buffer, str, option->width,
+										option->precision);
 	return (new_str);
 }
