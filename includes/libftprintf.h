@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 12:51:44 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 13:12:49 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ int				d_conv(int d, int flag, char **output);
 int				i_conv(int i, int flag, char **output);
 int				diuxminxmaj_conv(long diux, t_option *option, char **output);
 int				len_width(int width);
-char			*hub_strjoin_width_precision(char *buffer, char *str,
-												t_option *option);
+char			*hub_strjoin_width_precision(char *str, t_option *option);
 
 #endif

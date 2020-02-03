@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 12:01:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 12:56:58 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/03 13:12:49 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		s_conv(char *str, t_option *option, char **output,
 	len = 0;
 	//printf("ARGPTR CONV_S = %s\n", str); //DEBUG
 	if (option->width != 0 || option->precision != 0) //C'EST ICI ?//
-		*output = hub_strjoin_width_precision(machine->buffer, str, option);
+		*output = hub_strjoin_width_precision(str, option);
 	(void)str;
 	(void)option;
 	printf("OUTPUT: %s\n", *output);

@@ -13,7 +13,7 @@ int	main(int ac, char **av)
 	s = "hello";
 	if (ac == 1)
 	{
-		printf("MY PRINTF\n");
+		/*printf("MY PRINTF\n");
 		ret = ft_printf("haha %3s", "hello");
 		printf("\n");
 		printf("PRINTF\n");
@@ -101,7 +101,7 @@ int	main(int ac, char **av)
 	//	printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		/*printf("MY PRINTF\n");
+		printf("MY PRINTF\n");
 		ret = ft_printf("%.3f", 15.965564);
 		printf("\n");
 		printf("PRINTF\n");
@@ -124,6 +124,26 @@ int	main(int ac, char **av)
 	//	ret = printf("%15.3f", 15.965564);
 		//printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);*/
+
+	ret = ft_printf("ca marche%.6s\n", "hello"); //debug
+	printf("PRINTF\n"); //DEBUG
+	printf("ca marche%.6s\n\n", "hello"); //debug
+
+	ret = ft_printf("ca marche%.11s\n", "hello ca va"); //debug
+	printf("PRINTF\n"); //DEBUG
+	printf("ca marche%.11s\n\n", "hello ca va"); //debug
+	
+	ret = ft_printf("ca marche%15s\n", "hello ca va"); //debug
+	printf("PRINTF\n"); //DEBUG
+	printf("ca marche%15s\n\n", "hello ca va"); //debug
+	
+	ret = ft_printf("ca marche%25s\n", "hello ca va"); //debug
+	printf("PRINTF\n"); //DEBUG
+	printf("ca marche%25s\n\n", "hello ca va"); //debug
+	
+	ret = ft_printf("ca marche%15.6s\n", "hello ca va"); //debug
+	printf("PRINTF\n"); //DEBUG
+	printf("ca marche%15.6s\n\n", "hello ca va"); //debug
 	}
 	else
 		return (EXIT_FAILURE);
