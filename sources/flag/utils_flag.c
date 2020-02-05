@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_flag.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/03 17:25:51 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/03 17:26:16 by lfallet          ###   ########.fr       */
+/*   Created: 2020/02/05 14:07:06 by lfallet           #+#    #+#             */
+/*   Updated: 2020/02/05 14:11:07 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int		it_is_csp(int flag)
 void	preset_flag(t_state_machine *machine)
 {
 	if ((machine->option.flag & MOD_MINUS)
-		|| it_is_csp(machine->option.flag) == TRUE)
+			|| it_is_csp(machine->option.flag) == TRUE)
 		machine->option.flag &= ~MOD_ZERO;
 }
