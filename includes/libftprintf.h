@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/05 14:12:25 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/05 15:37:24 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 # define CONV_U			0x002000
 # define CONV_XMIN		0x004000
 # define CONV_XMAJ		0x008000
-# define CONV_PERCENT	0x001000
+# define CONV_PERCENT	0x010000
 # define NB_CONV 9
 # define STR_CONV "cspdiuxX%"
 

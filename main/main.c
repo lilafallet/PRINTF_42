@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/05 15:43:42 by lfallet           #+#    #+#             */
+/*   Updated: 2020/02/05 15:46:36 by lfallet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libftprintf.h"
 #include "libft.h"
 #include <stdlib.h>
@@ -84,9 +96,49 @@ int	main(int ac, char **av)
 		printf("RET MY PRINTF : %d\n\n", ret);*/
 
 		ret = ft_printf("%-25s\n", "hello ca va");
+		printf("\n");
+		printf("PRINTF 11\n"); //DEBUG
+		printf("%-25s\n", "hello ca va");
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
 		ret = ft_printf("%025s\n", "hello ca va");
+		printf("\n");
+		printf("PRINTF 12\n"); //DEBUG
+		printf("%025s\n", "hello ca va");
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
 		ret = ft_printf("%-025s\n", "hello ca va");
+		printf("\n");
+		printf("PRINTF 13\n"); //DEBUG
+		printf("%-025s\n", "hello ca va");
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
 		ret = ft_printf("%0-25s\n", "hello ca va");
+		printf("\n");
+		printf("PRINTF 14\n"); //DEBUG
+		printf("%0-25s\n", "hello ca va");
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%025d\n", 12456);
+		printf("\n");
+		printf("PRINTF 15\n"); //DEBUG
+		printf("%025d\n", 12456);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%0-25d\n", 12456);
+		printf("\n");
+		printf("PRINTF 16\n"); //DEBUG
+		printf("%0-25d\n", 12456);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+
+		printf("[%s]\n", NULL); //NULL
+		printf("[hello %-6c prout]\n", '\0'); //'\0'
 	}
 	else
 		return (EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:07:06 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/05 14:11:07 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/05 14:25:55 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ void	preset_flag(t_state_machine *machine)
 	if ((machine->option.flag & MOD_MINUS)
 			|| it_is_csp(machine->option.flag) == TRUE)
 		machine->option.flag &= ~MOD_ZERO;
+	printf("machine->option.flag = %d\n", machine->option.flag); //DEBUG
 }
