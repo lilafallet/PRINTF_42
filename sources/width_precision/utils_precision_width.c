@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:14:22 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/05 14:14:24 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/05 16:31:07 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		len_width(int width)
 	return (i);
 }
 
-void	strjoin_all(char **new_str, char *str, size_t len_str, size_t nb_space)
+void	strjoin_all(char *new_str, char *str, size_t len_str, size_t nb_space)
 {
 	size_t	i;
 	size_t	index;
@@ -37,14 +37,14 @@ void	strjoin_all(char **new_str, char *str, size_t len_str, size_t nb_space)
 	{
 		while (i < nb_space)
 		{
-			(*new_str)[index++] = ' ';
+			new_str[index++] = ' ';
 			i++;
 		}
 	}
 	i = 0;
 	while (i < len_str)
-		(*new_str)[index++] = str[i++];
-	(*new_str)[index] = '\0';
+		new_str[index++] = str[i++];
+	new_str[index] = '\0';
 }
 
 size_t	check_nb_space(size_t width, size_t precision, size_t len_str)
@@ -72,7 +72,7 @@ char	*strjoin_width_precision(char *str, int width, size_t precision)
 	len_new_str = len_str + nb_space;
 	new_str = (char *)malloc(sizeof(char) * (len_new_str + 1));
 	if (new_str != NULL)
-		strjoin_all(&new_str, str, len_str, nb_space);
+		strjoin_all(new_str, str, len_str, nb_space);
 	return (new_str);
 }
 

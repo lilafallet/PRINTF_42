@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:43:42 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/05 15:46:36 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/05 16:22:51 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,8 +137,8 @@ int	main(int ac, char **av)
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 
-		printf("[%s]\n", NULL); //NULL
-		printf("[hello %-6c prout]\n", '\0'); //'\0'
+		//printf("[%s]\n", NULL); //NULL
+		//printf("[hello %-6c prout]\n", '\0'); //'\0'
 	}
 	else
 		return (EXIT_FAILURE);
