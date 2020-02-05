@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:18 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/05 14:13:20 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/05 18:11:52 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*process_conversion(va_list *argptr, t_state_machine *machine)
 	if (machine->option.flag & CONV_C)
 		new_str  = c_conv(va_arg(*argptr, int), &machine->option);
 	else if (machine->option.flag & CONV_S)
-		new_str = s_conv(va_arg(*argptr, char *), &machine->option, machine);
+		new_str = s_conv(va_arg(*argptr, char *), &machine->option);
 	else if (machine->option.flag & CONV_P)
 		new_str = p_conv(va_arg(*argptr, void *), &machine->option);
 	else if ((machine->option.flag & CONV_D) || (machine->option.flag & CONV_I)

@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:14:22 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/05 17:57:38 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/05 18:29:45 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,21 @@ int		len_width(int width)
 char	*strjoin_all(char *str, size_t len_str, size_t nb_space,
 						t_option *option)
 {
-	size_t	i;
 	char	*new_str;
+	char	character;
 
-	i = 0;
 	new_str = (char *)malloc(sizeof(char) * (len_str + nb_space + 1));
+	character = (option->flag & MOD_ZERO) ? '0' : ' ';
 	if (new_str != NULL)
 	{
-		if ((option->flag & MOD_MINUS))
+		if (option->flag & MOD_MINUS)
 		{
 			ft_memcpy(new_str, str, len_str);
-			ft_memset(new_str + len_str, ' ', nb_space);
+			ft_memset(new_str + len_str, character, nb_space);
 		}
 		else
 		{
-			ft_memset(new_str, ' ', nb_space);
+			ft_memset(new_str, character, nb_space);
 			ft_memcpy(new_str + nb_space, str, len_str);
 		}
 		new_str[len_str + nb_space] = '\0';

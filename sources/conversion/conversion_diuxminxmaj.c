@@ -6,49 +6,51 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:08 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/05 14:13:09 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/05 18:26:42 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	*xminxmaj_conv(int x, int flag)
+char	*xminxmaj_conv(long x, t_option *option)
 {
 	char	*new_str;
 
 	new_str = NULL;
 	(void)x;
-	(void)flag;
+	(void)option;
 	return (new_str);
 }
 
-char	*d_conv(int d, int flag)
+char	*d_conv(long d, t_option *option)
 {
 	char	*new_str;
+	char	*number;
 
-	new_str = NULL;
-	(void)d;
-	(void)flag;
+	number = ft_itoa(d);
+	new_str = hub_strjoin_width_precision(number, option); 
+	free(number);
+	option->len_conversion = ft_strlen((const char *)new_str);
 	return (new_str);
 }
 
-char	*i_conv(int i, int flag)
+char	*i_conv(long i, t_option *option)
 {
 	char	*new_str;
 
 	new_str = NULL;
 	(void)i;
-	(void)flag;
+	(void)option;
 	return (new_str);
 }
 
-char	*u_conv(unsigned long u, int flag)
+char	*u_conv(unsigned long u, t_option *option)
 {
 	char	*new_str;
 
 	new_str = NULL;
 	(void)u;
-	(void)flag;
+	(void)option;
 	return (new_str);
 }
 
@@ -58,14 +60,14 @@ char	*diuxminxmaj_conv(long diux, t_option *option)
 
 	output = NULL;
 	if (option->flag & CONV_D)
-		output = d_conv(diux, option->flag);
+		output = d_conv(diux, option);
 	else if (option->flag & CONV_I)
-		output = i_conv(diux, option->flag);
+		output = i_conv(diux, option);
 	else if (option->flag & CONV_U)
-		output = u_conv(diux, option->flag);
+		output = u_conv(diux, option);
 	else if ((option->flag & CONV_XMIN) ||
 				(option->flag & CONV_XMAJ))
-		output = xminxmaj_conv(diux, option->flag);
+		output = xminxmaj_conv(diux, option);
 	(void)diux;
 	return (output);
 }
