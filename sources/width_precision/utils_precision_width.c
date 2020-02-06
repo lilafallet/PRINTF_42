@@ -6,12 +6,13 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:14:22 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 11:16:03 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 13:15:58 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft.h"
+#include <stdio.h> //DEBUG
 
 int		len_width(int width)
 {
@@ -68,9 +69,14 @@ char	*strjoin_width_precision(char *str, t_option *option)
 	new_str = NULL;
 	nb_space = 0;
 	len_str = ft_strlen(str);
-	if (option->precision != 0)
+	if (len_str == 1)
+	{
+		len_str = 1;
+		nb_space = option->width - 1;
+	}
+	if (option->precision != 0 && len_str != 1)
 		len_str = option->precision;
-	if (option->width != 0)
+	if (option->width != 0 && nb_space != option->width - 1)
 		nb_space = check_nb_space(option->width, option->precision,
 									len_str);
 	new_str = strjoin_all(str, len_str, nb_space, option);
