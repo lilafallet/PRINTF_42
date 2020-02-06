@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:14:22 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 13:20:57 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 15:10:47 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ char	*strjoin_all(char *str, size_t len_str, size_t nb_space,
 	char	character;
 
 	new_str = (char *)malloc(sizeof(char) * (len_str + nb_space + 1));
-	character = (option->flag & MOD_ZERO) ? '0' : ' ';
+	character = ((option->flag & MOD_ZERO) || (option->precision > len_str)) ?
+					'0' : ' ';
 	if (new_str != NULL)
 	{
 		if (option->flag & MOD_MINUS)
@@ -72,11 +73,18 @@ char	*strjoin_width_precision(char *str, t_option *option, size_t len_str)
 		len_str = 1;
 		nb_space = option->width - 1;
 	}
-	if (option->precision != 0 && len_str != 1)
+	if (option->precision != 0 && option->precision > len_str)
+	{
+		printf("HELLO 2\n"); //DEBUG
+		nb_space = option->precision - len_str;
+	}
+	if (option->precision != 0 && len_str != 1 && nb_space == 0)
 		len_str = option->precision;
 	if (option->width != 0 && nb_space != option->width - 1)
 		nb_space = check_nb_space(option->width, option->precision,
 									len_str);
+	printf("LEN STR = %zu\n", len_str); //DEBUG
+	printf("NB SPACE = %zu\n", nb_space); //DEBUG
 	new_str = strjoin_all(str, len_str, nb_space, option);
 	return (new_str);
 }
@@ -86,9 +94,13 @@ char	*hub_strjoin_width_precision(char *str, t_option *option, size_t len_str)
 	char	*new_str;
 
 	new_str = NULL;
-	if ((option->width == 0 && option->precision != 0) &&
-			len_str < option->precision)
+
+	if (option->width == 0 && option->precision != 0 &&
+			option->precision < len_str)
+	{
+		printf("HELLO 1\n"); //DEBUG
 		return (str);
+	}
 	new_str = strjoin_width_precision(str, option, len_str);
 	return (new_str);
 }

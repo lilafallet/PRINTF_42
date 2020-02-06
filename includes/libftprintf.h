@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 13:20:11 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 13:36:08 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,7 @@ char			*c_conv(int c, t_option *option);
 char			*s_conv(char *str, t_option *option);
 char			*p_conv(void *p, t_option *option);
 char			*u_conv(unsigned long u, t_option *option);
-char			*d_conv(long d, t_option *option);
-char			*i_conv(long i, t_option *option);
+char			*di_conv(long d, t_option *option);
 char			*diuxminxmaj_conv(long diux, t_option *option);
 int				len_width(int width);
 char			*hub_strjoin_width_precision(char *str, t_option *option,
