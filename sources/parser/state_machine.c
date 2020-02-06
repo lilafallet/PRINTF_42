@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:44 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/05 14:13:54 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 11:08:29 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	conversion_function(char *str, t_state_machine *machine)
 
 int	error_function(char *str, t_state_machine *machine)
 {
+	(void)str; //VOID
 	machine->state = LETTER;
 	return (1);
 }

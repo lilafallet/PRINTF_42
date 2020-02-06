@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:43:42 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/05 16:22:51 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 11:11:12 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	main(int ac, char **av)
+int	main(void)
 {
 	int	ret;
 
@@ -23,7 +23,6 @@ int	main(int ac, char **av)
 	char	*s;
 
 	s = "hello";
-	if (ac == 1)
 	{
 		/*ret = ft_printf("haha %3s", "hello");
 		printf("\n");
@@ -140,7 +139,5 @@ int	main(int ac, char **av)
 		//printf("[%s]\n", NULL); //NULL
 		//printf("[hello %-6c prout]\n", '\0'); //'\0'
 	}
-	else
-		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

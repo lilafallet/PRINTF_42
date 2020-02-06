@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 10:59:31 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 11:10:06 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ typedef	struct	s_option
 {
 	int				flag;
 	int				width;
-	int				precision;
+	size_t			precision;
 	int				len_conversion;
 }				t_option;
 
