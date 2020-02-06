@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:14:22 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 13:15:58 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 13:20:57 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,13 @@ size_t	check_nb_space(size_t width, size_t precision, size_t len_str)
 				width - precision);
 }
 
-char	*strjoin_width_precision(char *str, t_option *option)
+char	*strjoin_width_precision(char *str, t_option *option, size_t len_str)
 {
 	char	*new_str;
 	size_t	nb_space;
-	size_t	len_str;
 
 	new_str = NULL;
 	nb_space = 0;
-	len_str = ft_strlen(str);
 	if (len_str == 1)
 	{
 		len_str = 1;
@@ -83,16 +81,14 @@ char	*strjoin_width_precision(char *str, t_option *option)
 	return (new_str);
 }
 
-char	*hub_strjoin_width_precision(char *str, t_option *option)
+char	*hub_strjoin_width_precision(char *str, t_option *option, size_t len_str)
 {
 	char	*new_str;
-	size_t	len_str;
 
 	new_str = NULL;
-	len_str = ft_strlen(str);
 	if ((option->width == 0 && option->precision != 0) &&
 			len_str < option->precision)
 		return (str);
-	new_str = strjoin_width_precision(str, option);
+	new_str = strjoin_width_precision(str, option, len_str);
 	return (new_str);
 }
