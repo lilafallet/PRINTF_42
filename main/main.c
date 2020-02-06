@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:43:42 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 11:11:12 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 12:11:21 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,66 +21,68 @@ int	main(void)
 
 	ret = 0;
 	char	*s;
+	char	c;
 
+	c = 'a';
 	s = "hello";
 	{
-		/*ret = ft_printf("haha %3s", "hello");
+		ret = ft_printf("haha %3c", 'c');
 		printf("\n");
 		printf("PRINTF 1\n");
-		ret = printf("haha %3s", "hello");
+		ret = printf("haha %3c", 'c');
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("%.3s", "hello");
+		ret = ft_printf("%.3c", 'c');
 		printf("\n");
 		printf("PRINTF 2\n");
-		ret = printf("%.3s", "hello");
+		ret = printf("%.3c", 'c');
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("%.15s", "hello ca va");
+		ret = ft_printf("%.15c", 'c');
 		printf("\n");
 		printf("PRINTF 3\n");
-		ret = printf("%.15s", "hello ca va");
+		ret = printf("%.15c", 'c');
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("%15s", "hello ca va");
+		ret = ft_printf("%15c", 'c');
 		printf("\n");
 		printf("PRINTF 4\n");
-		ret = printf("%15s", "hello ca va");
+		ret = printf("%15c", 'c');
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("%15.6s", "hello ca va");
+		ret = ft_printf("%15.6c", 'c');
 		printf("\n");
 		printf("PRINTF 5\n");
-		ret = printf("%15.6s", "hello ca va");
+		ret = printf("%15.6c", 'c');
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("ca marche%.6s", "hello"); //debug
+		ret = ft_printf("ca marche%.6c", 'c'); //debug
 		printf("\n");
 		printf("PRINTF 6\n"); //DEBUG
-		printf("ca marche%.6s", "hello"); //debug
+		printf("ca marche%.6c", 'c'); //debug
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 
-		ret = ft_printf("ca marche%.11s\n", "hello ca va"); //debug
+		ret = ft_printf("ca marche%.11c\n", 'c'); //debug
 		printf("\n");
 		printf("PRINTF 7\n"); //DEBUG
-		printf("ca marche%.11s\n\n", "hello ca va"); //debug
+		printf("ca marche%.11c\n\n", 'c'); //debug
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 	
-		ret = ft_printf("ca marche%15s\n", "hello ca va"); //debug
+		ret = ft_printf("ca marche%15c\n", 'c'); //debug
 		printf("\n");
 		printf("PRINTF 8\n"); //DEBUG
-		printf("ca marche%15s\n\n", "hello ca va"); //debug
+		printf("ca marche%15c\n\n", 'c'); //debug
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 	
-		ret = ft_printf("ca marche%25s\n", "hello ca va"); //debug
+		/*ret = ft_printf("ca marche%25s\n", "hello ca va"); //debug
 		printf("\n");
 		printf("PRINTF 9\n"); //DEBUG
 		printf("ca marche%25s\n\n", "hello ca va"); //debug
@@ -94,28 +96,28 @@ int	main(void)
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);*/
 
-		ret = ft_printf("%-25s\n", "hello ca va");
+		/*ret = ft_printf("%-25c\n", 'c');
 		printf("\n");
 		printf("PRINTF 11\n"); //DEBUG
-		printf("%-25s\n", "hello ca va");
+		printf("%-25c\n", 'c');
 		printf("\n");
-		printf("RET MY PRINTF : %d\n\n", ret);
+		printf("RET MY PRINTF : %d\n\n", ret);*/
 		
-		ret = ft_printf("%025s\n", "hello ca va");
+		ret = ft_printf("%025c\n", 'c');
 		printf("\n");
 		printf("PRINTF 12\n"); //DEBUG
-		printf("%025s\n", "hello ca va");
+		printf("%025c\n", 'c');
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("%-025s\n", "hello ca va");
+		ret = ft_printf("%-025c\n", 'c');
 		printf("\n");
 		printf("PRINTF 13\n"); //DEBUG
-		printf("%-025s\n", "hello ca va");
+		printf("%-025c\n", 'c');
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("%0-25s\n", "hello ca va");
+		/*ret = ft_printf("%0-25s\n", "hello ca va");
 		printf("\n");
 		printf("PRINTF 14\n"); //DEBUG
 		printf("%0-25s\n", "hello ca va");
@@ -137,7 +139,7 @@ int	main(void)
 		printf("RET MY PRINTF : %d\n\n", ret);
 
 		//printf("[%s]\n", NULL); //NULL
-		//printf("[hello %-6c prout]\n", '\0'); //'\0'
+		//printf("[hello %-6c prout]\n", '\0'); //'\0'*/
 	}
 	return (EXIT_SUCCESS);
 }
