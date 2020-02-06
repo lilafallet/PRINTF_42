@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:14:22 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 15:10:47 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 17:07:39 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,28 @@ int		len_width(int width)
 	return (i);
 }
 
-char	*strjoin_all(char *str, size_t len_str, size_t nb_space,
-						t_option *option)
+char	*strjoin_all(char *str, size_t len_str, t_option *option)
 {
 	char	*new_str;
-	char	character;
+	int		nb_zero;
 
-	new_str = (char *)malloc(sizeof(char) * (len_str + nb_space + 1));
-	character = ((option->flag & MOD_ZERO) || (option->precision > len_str)) ?
-					'0' : ' ';
+	new_str = (char *)malloc(sizeof(char) * (len_str + option->precision
+				+ option->width + 1));
 	if (new_str != NULL)
 	{
 		if (option->flag & MOD_MINUS)
 		{
-			ft_memcpy(new_str, str, len_str);
-			ft_memset(new_str + len_str, character, nb_space);
+			ft_memset(new_str, '0', option->precision);
+			ft_memcpy(new_str + option->precision, str, len_str);
+			ft_memset(new_str + option->precision + len_str, ' ', option->width);
 		}
 		else
 		{
-			ft_memset(new_str, character, nb_space);
-			ft_memcpy(new_str + nb_space, str, len_str);
+			ft_memset(new_str, option->flag & MOD_ZERO ? '0' : ' ', option->width);
+			ft_memset(new_str + option->width, '0', option->precision);
+			ft_memcpy(new_str + option->width + option->precision, str, len_str);
 		}
-		new_str[len_str + nb_space] = '\0';
+		new_str[len_str + option->precision + option->width] = '\0';
 	}
 	return (new_str);
 }
@@ -64,28 +64,34 @@ size_t	check_nb_space(size_t width, size_t precision, size_t len_str)
 char	*strjoin_width_precision(char *str, t_option *option, size_t len_str)
 {
 	char	*new_str;
-	size_t	nb_space;
 
 	new_str = NULL;
-	nb_space = 0;
-	if (len_str == 1)
+	if (option->precision > len_str)
+		option->precision -= len_str;
+	else
+	{
+		option->precision = 0;
+		option->flag &= ~MOD_DOT;
+	}
+	if (option->width > option->precision + len_str)
+		option->width = option->width - option->precision - len_str;
+	else
+		option->width = 0;
+	/*
+	if (len_str == 1 && (option->flag & CONV_C || option->flag & CONV_S))
 	{
 		len_str = 1;
 		nb_space = option->width - 1;
 	}
 	if (option->precision != 0 && option->precision > len_str)
-	{
-		printf("HELLO 2\n"); //DEBUG
 		nb_space = option->precision - len_str;
-	}
-	if (option->precision != 0 && len_str != 1 && nb_space == 0)
+	if (option->precision != 0 && len_str != 1 && nb_space == 0 &&
+			option->width == 0)
 		len_str = option->precision;
 	if (option->width != 0 && nb_space != option->width - 1)
 		nb_space = check_nb_space(option->width, option->precision,
-									len_str);
-	printf("LEN STR = %zu\n", len_str); //DEBUG
-	printf("NB SPACE = %zu\n", nb_space); //DEBUG
-	new_str = strjoin_all(str, len_str, nb_space, option);
+									len_str);*/
+	new_str = strjoin_all(str, len_str, option);
 	return (new_str);
 }
 
@@ -97,10 +103,7 @@ char	*hub_strjoin_width_precision(char *str, t_option *option, size_t len_str)
 
 	if (option->width == 0 && option->precision != 0 &&
 			option->precision < len_str)
-	{
-		printf("HELLO 1\n"); //DEBUG
 		return (str);
-	}
 	new_str = strjoin_width_precision(str, option, len_str);
 	return (new_str);
 }

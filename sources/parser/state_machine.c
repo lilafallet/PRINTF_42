@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:44 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 11:08:29 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 17:11:39 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	letter_function(char *str, t_state_machine *machine)
 {
 	if (*str == '%')
 		machine->state = FLAG;
-	if (*str != '%')
+	else
 		fill_buffer(machine, *str);
 	return (1);
 }
