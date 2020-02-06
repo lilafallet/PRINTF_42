@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 17:54:10 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 18:32:44 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ enum				e_state
 typedef	struct	s_option
 {
 	int				flag;
-	int				width;
+	size_t			width;
 	size_t			precision;
 	int				len_conversion;
 }				t_option;

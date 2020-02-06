@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:07:06 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 17:57:39 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 18:14:55 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@
 void	preset_flag(t_state_machine *machine)
 {
 	if (machine->option.flag & MOD_MINUS)
-		machine->option.f
+		machine->option.flag &= ~MOD_ZERO;
 }

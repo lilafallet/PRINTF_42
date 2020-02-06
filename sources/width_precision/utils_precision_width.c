@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:14:22 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 18:00:46 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 18:32:19 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int		len_width(int width)
 char	*strjoin_all(char *str, size_t len_str, t_option *option)
 {
 	char	*new_str;
-	int		nb_zero;
 
 	new_str = (char *)malloc(sizeof(char) * (len_str + option->precision
 				+ option->width + 1));

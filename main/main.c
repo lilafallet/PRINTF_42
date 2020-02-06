@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:43:42 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 17:13:38 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 18:33:49 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(void)
 	c = 'a';
 	s = "hello";
 	{
-		ret = ft_printf("haha %3c", 'c');
+		/*ret = ft_printf("haha %3c", 'c');
 		printf("\n");
 		printf("PRINTF 1\n");
 		ret = printf("haha %3c", 'c');
@@ -159,7 +159,7 @@ int	main(void)
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		//printf("[%s]\n", NULL); //NULL
-		//printf("[hello %-6c prout]\n", '\0'); //'\0'*/
+		//printf("[hello %-6c prout]\n", '\0'); //'\0'
 		
 		ret = ft_printf("%6.2d\n", 1);
 		printf("\n");
@@ -193,6 +193,27 @@ int	main(void)
 		printf("\n");
 		printf("PRINTF 24\n"); //DEBUG
 		printf("%6.6d\n", 12);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);*/
+
+		ret = ft_printf("%p\n", NULL);
+		printf("\n");
+		printf("PRINTF 24\n"); //DEBUG
+		printf("%p\n", NULL);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+
+		ret = ft_printf("%p\n", main);
+		printf("\n");
+		printf("PRINTF 26\n"); //DEBUG
+		printf("%p\n", main);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%p\n", &c);
+		printf("\n");
+		printf("PRINTF 27\n"); //DEBUG
+		printf("%p\n", &c);
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 	}

@@ -6,12 +6,13 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 17:55:57 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 18:38:54 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 char	*c_conv(int c, t_option *option)
 {
@@ -50,6 +51,8 @@ char	*p_conv(void *p, t_option *option)
 	char	*new_str;
 
 	new_str = NULL;
+	printf("HELLO JE SUIS UN POINTEUR\n"); //DEBUG
+	printf("pointeur : %p\n", p); //DEBUG
 	(void)p;
 	(void)option;
 	return (new_str);
