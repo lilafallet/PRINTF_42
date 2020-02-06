@@ -6,13 +6,12 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:14:22 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 17:07:39 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 18:00:46 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft.h"
-#include <stdio.h> //DEBUG
 
 int		len_width(int width)
 {
@@ -40,13 +39,16 @@ char	*strjoin_all(char *str, size_t len_str, t_option *option)
 		{
 			ft_memset(new_str, '0', option->precision);
 			ft_memcpy(new_str + option->precision, str, len_str);
-			ft_memset(new_str + option->precision + len_str, ' ', option->width);
+			ft_memset(new_str + option->precision + len_str, ' ',
+						option->width);
 		}
 		else
 		{
-			ft_memset(new_str, option->flag & MOD_ZERO ? '0' : ' ', option->width);
+			ft_memset(new_str, option->flag & MOD_ZERO ? '0' : ' ',
+						option->width);
 			ft_memset(new_str + option->width, '0', option->precision);
-			ft_memcpy(new_str + option->width + option->precision, str, len_str);
+			ft_memcpy(new_str + option->width + option->precision, str,
+						len_str);
 		}
 		new_str[len_str + option->precision + option->width] = '\0';
 	}
@@ -77,30 +79,16 @@ char	*strjoin_width_precision(char *str, t_option *option, size_t len_str)
 		option->width = option->width - option->precision - len_str;
 	else
 		option->width = 0;
-	/*
-	if (len_str == 1 && (option->flag & CONV_C || option->flag & CONV_S))
-	{
-		len_str = 1;
-		nb_space = option->width - 1;
-	}
-	if (option->precision != 0 && option->precision > len_str)
-		nb_space = option->precision - len_str;
-	if (option->precision != 0 && len_str != 1 && nb_space == 0 &&
-			option->width == 0)
-		len_str = option->precision;
-	if (option->width != 0 && nb_space != option->width - 1)
-		nb_space = check_nb_space(option->width, option->precision,
-									len_str);*/
 	new_str = strjoin_all(str, len_str, option);
 	return (new_str);
 }
 
-char	*hub_strjoin_width_precision(char *str, t_option *option, size_t len_str)
+char	*hub_strjoin_width_precision(char *str, t_option *option,
+										size_t len_str)
 {
 	char	*new_str;
 
 	new_str = NULL;
-
 	if (option->width == 0 && option->precision != 0 &&
 			option->precision < len_str)
 		return (str);

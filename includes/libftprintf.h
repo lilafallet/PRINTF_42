@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 13:36:08 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 17:54:10 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@
 
 enum				e_state
 {
-	LETTER, //0
-	FLAG, //1
-	CONVERSION, //2
-	ERROR, //3
-	DO_CONV //4
+	LETTER,
+	FLAG,
+	CONVERSION,
+	ERROR,
+	DO_CONV
 };
 
 typedef	struct	s_option
