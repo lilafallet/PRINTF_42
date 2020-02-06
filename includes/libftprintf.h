@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/05 18:19:23 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 10:59:31 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
 # include "libft.h"
 # include <stdarg.h>
 
-enum	e_state
+enum				e_state
 {
 	LETTER, //0
 	FLAG, //1
@@ -75,7 +75,7 @@ typedef	struct	s_option
 	int				width;
 	int				precision;
 	int				len_conversion;
-}					t_option;
+}				t_option;
 
 typedef struct	s_state_machine
 {

@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/05 18:08:30 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/06 11:00:16 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,3 @@ char	*p_conv(void *p, t_option *option)
 	(void)option;
 	return (new_str);
 }
-
