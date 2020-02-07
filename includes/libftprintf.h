@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 18:32:44 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/07 17:47:21 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int				error_function(char *str, t_state_machine *machine);
 char			*xminxmaj_conv(long x, t_option *option);
 char			*c_conv(int c, t_option *option);
 char			*s_conv(char *str, t_option *option);
-char			*p_conv(void *p, t_option *option);
+char			*p_conv(unsigned long p, t_option *option);
 char			*u_conv(unsigned long u, t_option *option);
 char			*di_conv(long d, t_option *option);
 char			*diuxminxmaj_conv(long diux, t_option *option);
@@ -112,5 +112,6 @@ void			preset_flag(t_state_machine *machine);
 int				it_is_csp(int flag);
 char			*process_conversion(va_list *argptr, t_state_machine *machine);
 void			initialisation(t_state_machine *machine, int len);
+char			*ft_itoa_base(unsigned long nb, int base);
 
 #endif

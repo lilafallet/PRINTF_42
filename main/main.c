@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:43:42 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 18:33:49 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/07 17:10:41 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,12 +196,12 @@ int	main(void)
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);*/
 
-		ret = ft_printf("%p\n", NULL);
+		/*ret = ft_printf("%p\n", NULL);
 		printf("\n");
 		printf("PRINTF 24\n"); //DEBUG
 		printf("%p\n", NULL);
 		printf("\n");
-		printf("RET MY PRINTF : %d\n\n", ret);
+		printf("RET MY PRINTF : %d\n\n", ret);*/
 
 		ret = ft_printf("%p\n", main);
 		printf("\n");
