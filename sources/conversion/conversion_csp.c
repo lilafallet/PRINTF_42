@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/08 15:22:00 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/08 16:49:06 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*c_conv(int c, t_option *option)
 	char	*convert_str;
 
 	convert_str = (char *)malloc(sizeof(char) * (2));
+	if (convert_str == NULL)
+		return (NULL);
 	option->precision = 0;
 	option->flag &= ~MOD_DOT;
 	convert_str[0] = c;
@@ -52,10 +54,22 @@ char	*p_conv(unsigned long p, t_option *option)
 	char	*number;
 
 	number = ft_ultoa_base(p, 16);
-	printf("number = %s\n", number); //DEBUG`
-	printf("HELLO JE SUIS UN POINTEUR\n"); //DEBUG
-	printf("pointeur : %ld\n", p); //DEBUG
-	(void)p;
-	(void)option;
-	return (number);
+	if (option->precision > ft_strlen(number)) //ATTENTION A TESTER SUR MAC
+		option->precision -= ft_strlen(number);
+	else
+		option->precision = 0;
+	new_str = (char *)malloc(sizeof(char) * (2 + option->precision + 1));
+	if (new_str != NULL)
+	{
+		new_str[0] = '0';
+		new_str[1] = 'X';
+		ft_memset(new_str + 2, '0', option->precision);
+		new_str[option->precision + 2] = '\0';
+		option->precision = 0;
+		option->flag &= ~MOD_DOT;
+		memjoin_free(&new_str, number, 2, ft_strlen(number));
+		option->len_conversion = ft_strlen(new_str);
+	}
+	free(number);
+	return (new_str);
 }

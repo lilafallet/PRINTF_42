@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:18 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/07 16:12:40 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/08 16:33:11 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 #include "libftprintf.h"
 #include "libft.h"
 
-void	initialisation(t_state_machine *machine, int len)
+void	initialisation(t_state_machine *machine)
 {
 	ft_bzero(machine->buffer, BUFFER_SIZE);
 	machine->len = 0;
-	machine->len_out += len;
+	machine->len_out += machine->option.len_conversion;
+	machine->option.len_conversion = 0;
 	machine->state = LETTER;
 	ft_bzero(&machine->option, sizeof(machine->option));
 }

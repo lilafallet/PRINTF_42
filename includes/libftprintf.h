@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/08 15:22:46 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/08 16:34:09 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct	s_state_machine
 }				t_state_machine;
 
 typedef	int		(*t_function)(char *, t_state_machine *);
+
 int				is_conversion(char c);
 void			ft_bzero(void *s, size_t n);
 int				is_flag(char c);
@@ -111,7 +112,7 @@ char			*hub_strjoin_width_precision(char *str, t_option *option,
 void			preset_flag(t_state_machine *machine);
 int				it_is_csp(int flag);
 char			*process_conversion(va_list *argptr, t_state_machine *machine);
-void			initialisation(t_state_machine *machine, int len);
+void			initialisation(t_state_machine *machine);
 char			*ft_ultoa_base(unsigned long nb, int base);
 char			*ft_ltoa_base(long nb, int base);
 
