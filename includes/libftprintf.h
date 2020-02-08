@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/07 17:47:21 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/08 15:22:46 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ void			preset_flag(t_state_machine *machine);
 int				it_is_csp(int flag);
 char			*process_conversion(va_list *argptr, t_state_machine *machine);
 void			initialisation(t_state_machine *machine, int len);
-char			*ft_itoa_base(unsigned long nb, int base);
+char			*ft_ultoa_base(unsigned long nb, int base);
+char			*ft_ltoa_base(long nb, int base);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:08 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 17:04:52 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/08 15:22:00 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ char	*di_conv(long d, t_option *option)
 	char	*number;
 	int		len_number;
 
-	number = ft_itoa(d);
+	number = ft_ltoa_base(d, 10);
 	len_number = ft_strlen(number);
 	new_str = hub_strjoin_width_precision(number, option, len_number);
+	free(number);
 	option->len_conversion = ft_strlen((const char *)new_str);
 	return (new_str);
 }

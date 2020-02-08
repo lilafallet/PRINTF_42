@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:14:22 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/06 18:32:19 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/08 15:08:14 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,6 @@ char	*strjoin_all(char *str, size_t len_str, t_option *option)
 		new_str[len_str + option->precision + option->width] = '\0';
 	}
 	return (new_str);
-}
-
-size_t	check_nb_space(size_t width, size_t precision, size_t len_str)
-{
-	if (width < len_str)
-		return (0);
-	return ((width != 0 && precision == 0) ? width - len_str :
-				width - precision);
 }
 
 char	*strjoin_width_precision(char *str, t_option *option, size_t len_str)
