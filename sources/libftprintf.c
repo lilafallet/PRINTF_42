@@ -29,6 +29,7 @@ int		do_conv(va_list *argptr, t_state_machine *machine)
 					machine->option.len_conversion);
 	free(output);
 	initialisation(machine);
+	return (0);
 }
 
 int		parser(char *format, va_list *argptr, t_state_machine *machine)

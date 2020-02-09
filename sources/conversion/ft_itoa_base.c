@@ -47,6 +47,8 @@ char		*ft_ltoa_base(long nb, int base)
 	long				tmp;
 	char				*str;
 
+	if (base < 2 || base > 16)
+		return (NULL);
 	size = 0;
 	if (nb <= 0)
 		size++;
@@ -67,7 +69,7 @@ char		*ft_ltoa_base(long nb, int base)
 
 static void	ul_fill_str(char *str, unsigned long nb, size_t *size, int base)
 {
-	if (nb < base)
+	if (nb < (unsigned long)base)
 	{
 		if (nb < 10)
 			str[*size] = (char)nb + '0';
@@ -88,6 +90,8 @@ char		*ft_ultoa_base(unsigned long nb, int base)
 	unsigned long		tmp;
 	char				*str;
 
+	if (base < 2 || base > 16)
+		return (NULL);
 	size = 0;
 	if (nb == 0)
 		size++;
