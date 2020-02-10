@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:43:42 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/10 11:50:58 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/10 16:29:56 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ int	main(void)
 		printf("PRINTF 14\n"); //DEBUG
 		printf("%0-25s\n", "hello ca va");
 		printf("\n");
-		printf("RET MY PRINTF : %d\n\n", ret);
+		printf("RET MY PRINTF : %d\n\n", ret);*/
 		
 		ret = ft_printf("%.8d\n", 1254);
 		printf("\n");
@@ -150,7 +150,7 @@ int	main(void)
 		printf("PRINTF 18\n"); //DEBUG
 		printf("%25i\n", 12456);
 		printf("\n");
-		printf("RET MY PRINTF : %d\n\n", ret);*/
+		printf("RET MY PRINTF : %d\n\n", ret);
 
 		ret = ft_printf("%i\n", -12456);
 		printf("\n");
