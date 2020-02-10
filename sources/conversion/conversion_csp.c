@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/08 16:49:06 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/10 20:28:30 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ char	*s_conv(char *str, t_option *option)
 	return (new_str);
 }
 
-char	*strjoin_p_conversion(char *new_str, int *tab, t_option *option,
+char	*strjoin_p_conversion(char *new_str, t_option *origin, t_option *option,
 								char *number)
 {
 	size_t	i;
 	
-	if (tab[0] < tab[1])
+	if (origin->precision < origin->width)
 	{
 		ft_memset(new_str, ' ', option->width);
 		new_str[option->width] = '0';
@@ -69,18 +69,23 @@ char	*strjoin_p_conversion(char *new_str, int *tab, t_option *option,
 	ft_memset(new_str + i, '0', option->precision);
 	memjoin_free(&new_str, number, (option->width + option->precision + 2),
 					ft_strlen(number));
-	option->len_conversion = ft_strlen(new_str);
+	if (new_str != NULL)
+	{
+		ft_striter(new_str, ft_tolower);
+		option->len_conversion = ft_strlen(new_str);
+	}
 	return (new_str);
 }
 
 char	*p_conv(unsigned long p, t_option *option)
 {
-	char	*new_str;
-	char	*number;
-	int		tab[2];
+	char		*new_str;
+	char		*number;
+	t_option	cpy_option;
 
-	tab[0] = option->precision;
-	tab[1] = option->width;
+	cpy_option.flag = option->flag;
+	cpy_option.precision = option->precision;
+	cpy_option.width = option->width;
 	number = ft_ultoa_base(p, 16);
 	if (option->precision < option->width)
 		option->width = option->width - (option->precision + 2);
@@ -93,7 +98,7 @@ char	*p_conv(unsigned long p, t_option *option)
 	new_str = (char *)malloc(sizeof(char) * (2 + option->precision +
 				option->width + 1));
 	if (new_str != NULL)
-		new_str = strjoin_p_conversion(new_str, tab, option, number);
+		new_str = strjoin_p_conversion(new_str, &cpy_option, option, number);
 	free(number);
 	return (new_str);
 }

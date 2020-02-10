@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:43:42 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/10 16:29:56 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/10 20:30:35 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ int	main(void)
 		printf("PRINTF 14\n"); //DEBUG
 		printf("%0-25s\n", "hello ca va");
 		printf("\n");
-		printf("RET MY PRINTF : %d\n\n", ret);*/
+		printf("RET MY PRINTF : %d\n\n", ret);
 		
 		ret = ft_printf("%.8d\n", 1254);
 		printf("\n");
@@ -194,7 +194,7 @@ int	main(void)
 		printf("PRINTF 24\n"); //DEBUG
 		printf("%6.6d\n", -12);
 		printf("\n");
-		printf("RET MY PRINTF : %d\n\n", ret);
+		printf("RET MY PRINTF : %d\n\n", ret);*/
 
 		/*ret = ft_printf("%p\n", NULL);
 		printf("\n");
@@ -217,7 +217,7 @@ int	main(void)
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);*/
 		
-		ret = ft_printf("%u\n", -12456);
+		/*ret = ft_printf("%u\n", -12456);
 		printf("\n");
 		printf("PRINTF 19\n"); //DEBUG
 		printf("%u\n", -12456);
@@ -258,6 +258,48 @@ int	main(void)
 		printf("\n");
 		printf("PRINTF 24\n"); //DEBUG
 		printf("%6.6u\n", -12);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);*/
+		
+		ret = ft_printf("%x\n", 0);
+		printf("\n");
+		printf("PRINTF 24\n"); //DEBUG
+		printf("%x\n", 0);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+
+		ret = ft_printf("%20.15x\n", 265894122);
+		printf("\n");
+		printf("PRINTF\n"); //DEBUG
+		printf("%20.15x\n", 265894122);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%x\n", 123456789);
+		printf("\n");
+		printf("PRINTF 27\n"); //DEBUG
+		printf("%x\n", 123456789);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%X\n", 0);
+		printf("\n");
+		printf("PRINTF 28\n"); //DEBUG
+		printf("%X\n", 0);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+
+		ret = ft_printf("%20.15X\n", 265894122);
+		printf("\n");
+		printf("PRINTF 29\n"); //DEBUG
+		printf("%20.15X\n", 265894122);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%X\n", 123456789);
+		printf("\n");
+		printf("PRINTF 30\n"); //DEBUG
+		printf("%X\n", 123456789);
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 	}
