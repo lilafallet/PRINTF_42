@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/08 16:35:14 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/10 18:39:49 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 #include <stdio.h> //DEBUG
 #include "libftprintf.h"
 #include "libft.h"
+
+void	preset_flag(t_state_machine *machine)
+{
+	if (machine->option.flag & MOD_MINUS)
+		machine->option.flag &= ~MOD_ZERO;
+}
 
 int		do_conv(va_list *argptr, t_state_machine *machine)
 {

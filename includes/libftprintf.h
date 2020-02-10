@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/10 14:39:11 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/10 17:55:25 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,6 @@ void			initialisation(t_state_machine *machine);
 char			*ft_ultoa_base(unsigned long nb, int base);
 char			*ft_ltoa_base(long nb, int base);
 char			*ft_ltoa_base_post(long nb, int base);
+char			*add_minus(char *new_str);
 
 #endif
