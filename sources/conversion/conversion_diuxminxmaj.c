@@ -6,11 +6,12 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:08 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/08 15:22:00 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/10 12:27:35 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h> //DEBUG
 
 char	*xminxmaj_conv(long x, t_option *option)
 {
@@ -29,6 +30,7 @@ char	*di_conv(long d, t_option *option)
 	int		len_number;
 
 	number = ft_ltoa_base(d, 10);
+	printf("number = %s\n", number); //DEBUG
 	len_number = ft_strlen(number);
 	new_str = hub_strjoin_width_precision(number, option, len_number);
 	free(number);
@@ -36,14 +38,34 @@ char	*di_conv(long d, t_option *option)
 	return (new_str);
 }
 
+/*char	*di_conv(long d, t_option *option)
+{
+	char	*new_str;
+	char	*number;
+	int		len_number;
+
+	number = ft_ltoa_base(d, 10);
+	printf("number = %s\n", number); //DEBUG
+	len_number = ft_strlen(number);
+	new_str = hub_strjoin_width_precision(number, option, len_number);
+	free(number);
+	option->len_conversion = ft_strlen((const char *)new_str);
+	return (new_str);
+}*/
+
 char	*u_conv(unsigned long u, t_option *option)
 {
 	char	*new_str;
+	char	*number;
+	int		len_number;
 
-	new_str = NULL;
-	(void)u;
-	(void)option;
-	return (new_str);
+	number = ft_ultoa_base(u, 10);
+	printf("number = %s\n", number); //DEBUG
+	len_number = ft_strlen(number);
+	new_str = hub_strjoin_width_precision(number, option, len_number);
+	free(number);
+	option->len_conversion = ft_strlen((const char *)new_str);
+	return (new_str);	
 }
 
 char	*diuxminxmaj_conv(long diux, t_option *option)
