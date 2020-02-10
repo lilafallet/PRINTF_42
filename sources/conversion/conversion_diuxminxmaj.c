@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:08 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/10 17:54:03 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/10 20:54:11 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,30 @@
 
 char	*xminxmaj_conv(long x, t_option *option)
 {
-	char	*new_str;
+	char		*new_str;
+	char		*number;
+	t_option	cpy_option;
 
-	new_str = NULL;
-	(void)x;
-	(void)option;
+	cpy_option.flag = option->flag;
+	cpy_option.precision = option->precision;
+	cpy_option.width = option->width;
+	number = ft_ltoa_base(x, 16);
+	if (option->precision < option->width)
+		option->width = option->width - (option->precision);
+	else
+		option->width = 0;
+	if (option->precision > ft_strlen(number))
+		option->precision -= ft_strlen(number);
+	else
+		option->precision = 0;
+	new_str = (char *)malloc(sizeof(char) * (option->precision +
+												option->width + 1));
+	if (new_str != NULL)
+		new_str = strjoin_xminxmaj_conversion(new_str, &cpy_option, option,
+												number);
+	free(number);
 	return (new_str);
 }
-
 
 char	*di_conv(int d, t_option *option)
 {
