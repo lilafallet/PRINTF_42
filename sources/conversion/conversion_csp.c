@@ -48,57 +48,52 @@ char	*s_conv(char *str, t_option *option)
 	return (new_str);
 }
 
+char	*strjoin_p_conversion(char *new_str, int *tab, t_option *option,
+								char *number)
+{
+	size_t	i;
+	
+	if (tab[0] < tab[1])
+	{
+		ft_memset(new_str, ' ', option->width);
+		new_str[option->width] = '0';
+		new_str[option->width + 1] = 'X';
+		i = option->width + 2;
+	}
+	else
+	{
+		new_str[0] = '0';
+		new_str[1] = 'X';
+		i = 2;
+	}
+	ft_memset(new_str + i, '0', option->precision);
+	memjoin_free(&new_str, number, (option->width + option->precision + 2),
+					ft_strlen(number));
+	option->len_conversion = ft_strlen(new_str);
+	return (new_str);
+}
+
 char	*p_conv(unsigned long p, t_option *option)
 {
 	char	*new_str;
 	char	*number;
-	size_t	i;
-	size_t	tmp_precision;
-	size_t	tmp_width;
+	int		tab[2];
 
-	printf("pointeur : %lu\n", p); //DEBUG
-	i = 0;
-	tmp_precision = option->precision;
-	tmp_width = option->width;
+	tab[0] = option->precision;
+	tab[1] = option->width;
 	number = ft_ultoa_base(p, 16);
-	printf("number = %s\n", number); //DEBUG
 	if (option->precision < option->width)
 		option->width = option->width - (option->precision + 2);
 	else
 		option->width = 0;
-	if (option->precision > ft_strlen(number)) //ATTENTION A TESTER SUR MAC
+	if (option->precision > ft_strlen(number))
 		option->precision -= ft_strlen(number);
 	else
 		option->precision = 0;
-	printf("precision = %lu\n", option->precision); //DEBUG
-	printf("width = %lu\n", option->width); //DEBUG
 	new_str = (char *)malloc(sizeof(char) * (2 + option->precision +
 				option->width + 1));
 	if (new_str != NULL)
-	{
-		if (tmp_precision < tmp_width)
-		{
-			ft_memset(new_str, ' ', option->width);
-			new_str[option->width] = '0';
-			new_str[option->width + 1] = 'X';
-			i = option->width + 2;
-		printf("size_t i1 = %lu\n", i); //DEBUG
-		}
-		else
-		{
-			new_str[0] = '0';
-			new_str[1] = 'X';
-			i = 2;
-		printf("size_t i2 = %lu\n", i); //DEBUG
-		}
-		printf("option->width = %lu\n", option->width); //DEBUG
-		printf("option->precision = %lu\n", option->precision); //DEBUG
-		printf("size_t i3 = %lu\n", i); //DEBUG
-		ft_memset(new_str + i, '0', option->precision);
-		memjoin_free(&new_str, number, (option->width + option->precision + 2),
-						ft_strlen(number));
-		option->len_conversion = ft_strlen(new_str);
-	}
+		new_str = strjoin_p_conversion(new_str, tab, option, number);
 	free(number);
 	return (new_str);
 }
