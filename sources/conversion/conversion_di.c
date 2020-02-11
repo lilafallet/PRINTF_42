@@ -13,35 +13,26 @@
 #include "libftprintf.h"
 #include <stdio.h> //DEBUG
 
-size_t	first_number_negt(char c, char **str)
-{
-	if (ft_isdigit(c) == TRUE)
-		(*str)[0] = '-';
-	return ((*str)[0] == '-' ? TRUE : FALSE);
-}
-
 char	*add_minus(char *new_str)
 {
 	size_t	i;
-	size_t	j;
 	char	*str_minus;
-	int		negt;
 
-	str_minus = (char *)malloc(sizeof(char) * (ft_strlen(new_str) + 1));
-	j = 0;
-	i = first_number_negt(new_str[0], &str_minus);
-	negt = (i == TRUE ? TRUE : FALSE);
-	while (i <= ft_strlen(new_str))
+	str_minus = (char *)malloc(sizeof(char) * (ft_strlen(new_str) + 2));
+	if (str_minus == NULL)
+		return (NULL);
+	i = 0;
+	while (ft_isdigit(new_str[i]) == FALSE)
 	{
-		if ((negt == 0 && ft_isdigit(new_str[j + 1]) == TRUE))
-		{
-			str_minus[i] = '-';
-			negt++;
-		}
-		else
-			str_minus[i] = new_str[j];
+		str_minus[i] = new_str[i];
 		i++;
-		j++;
 	}
+	str_minus[i] = '-';
+	while (new_str[i] != '\0')
+	{
+		str_minus[i + 1] = new_str[i];
+		i++;
+	}	
+	str_minus[i + 1] = '\0';
 	return (str_minus);
 }

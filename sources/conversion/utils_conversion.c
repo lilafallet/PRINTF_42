@@ -21,6 +21,7 @@ void	initialisation(t_state_machine *machine)
 	machine->len = 0;
 	machine->len_out += machine->option.len_conversion;
 	machine->option.len_conversion = 0;
+	machine->char_error = '\0';
 	machine->state = LETTER;
 	ft_bzero(&machine->option, sizeof(machine->option));
 }
@@ -34,12 +35,16 @@ char	*process_conversion(va_list *argptr, t_state_machine *machine)
 		new_str = c_conv(va_arg(*argptr, int), &machine->option);
 	else if (machine->option.flag & CONV_S)
 		new_str = s_conv(va_arg(*argptr, char *), &machine->option);
-	else if (machine->option.flag & CONV_P)
-		new_str = p_conv(va_arg(*argptr, unsigned long), &machine->option);
-	else if ((machine->option.flag & CONV_D) || (machine->option.flag & CONV_I)
-				|| (machine->option.flag & CONV_U)
-				|| (machine->option.flag & CONV_XMIN)
-				|| (machine->option.flag & CONV_XMAJ))
-		new_str = diuxminxmaj_conv(va_arg(*argptr, long), &machine->option);
+	else if ((machine->option.flag & CONV_D) || (machine->option.flag & CONV_I))
+		new_str = di_conv(va_arg(*argptr, long), &machine->option);
+	else if ((machine->option.flag & CONV_U)
+			|| (machine->option.flag & CONV_XMIN)
+			|| (machine->option.flag & CONV_XMAJ)
+			|| (machine->option.flag & CONV_P))
+		new_str = puxxmaj_conv(va_arg(*argptr, unsigned long),&machine->option);
+	else if (machine->option.flag & CONV_PERCENT)
+		new_str = c_conv('%', &machine->option);
+	else if (machine->option.flag & CONV_ERROR)
+		new_str = c_conv(machine->char_error, &machine->option);
 	return (new_str);
 }

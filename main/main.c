@@ -14,6 +14,7 @@
 #include "libft.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
 
 int	main(void)
 {
@@ -26,7 +27,7 @@ int	main(void)
 	c = 'a';
 	s = "hello";
 	{
-		/*ret = ft_printf("haha %3c", 'c');
+		ret = ft_printf("haha %3c", 'c');
 		printf("\n");
 		printf("PRINTF 1\n");
 		ret = printf("haha %3c", 'c');
@@ -194,9 +195,9 @@ int	main(void)
 		printf("PRINTF 24\n"); //DEBUG
 		printf("%6.6d\n", -12);
 		printf("\n");
-		printf("RET MY PRINTF : %d\n\n", ret);*/
+		printf("RET MY PRINTF : %d\n\n", ret);
 
-		/*ret = ft_printf("%p\n", NULL);
+		ret = ft_printf("%p\n", NULL);
 		printf("\n");
 		printf("PRINTF 24\n"); //DEBUG
 		printf("%p\n", NULL);
@@ -215,9 +216,9 @@ int	main(void)
 		printf("PRINTF 27\n"); //DEBUG
 		printf("%p\n", &c);
 		printf("\n");
-		printf("RET MY PRINTF : %d\n\n", ret);*/
+		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		/*ret = ft_printf("%u\n", -12456);
+		ret = ft_printf("%u\n", -12456);
 		printf("\n");
 		printf("PRINTF 19\n"); //DEBUG
 		printf("%u\n", -12456);
@@ -259,47 +260,89 @@ int	main(void)
 		printf("PRINTF 24\n"); //DEBUG
 		printf("%6.6u\n", -12);
 		printf("\n");
-		printf("RET MY PRINTF : %d\n\n", ret);*/
+		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("%x\n", 0);
+		ret = ft_printf("%x\n", -0);
 		printf("\n");
 		printf("PRINTF 24\n"); //DEBUG
-		printf("%x\n", 0);
+		printf("%x\n", -0);
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 
-		ret = ft_printf("%20.15x\n", 265894122);
+		ret = ft_printf("%20.15x\n", -265894122);
 		printf("\n");
 		printf("PRINTF\n"); //DEBUG
-		printf("%20.15x\n", 265894122);
+		printf("%20.15x\n", -265894122);
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("%x\n", 123456789);
+		ret = ft_printf("%x\n", -123456789);
 		printf("\n");
 		printf("PRINTF 27\n"); //DEBUG
-		printf("%x\n", 123456789);
+		printf("%x\n", -123456789);
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("%X\n", 0);
+		ret = ft_printf("%X\n", -0);
 		printf("\n");
 		printf("PRINTF 28\n"); //DEBUG
-		printf("%X\n", 0);
+		printf("%X\n", -0);
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 
-		ret = ft_printf("%20.15X\n", 265894122);
+		ret = ft_printf("%20.15X\n", -265894122);
 		printf("\n");
 		printf("PRINTF 29\n"); //DEBUG
-		printf("%20.15X\n", 265894122);
+		printf("%20.15X\n", -265894122);
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("%X\n", 123456789);
+		ret = ft_printf("%X\n", -123456789);
 		printf("\n");
 		printf("PRINTF 30\n"); //DEBUG
-		printf("%X\n", 123456789);
+		printf("%X\n", -123456789);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%X\n", INT_MAX + 2);
+		printf("\n");
+		printf("PRINTF 31\n"); //DEBUG
+		printf("%X\n", INT_MAX + 2);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%X\n", INT_MIN - 2);
+		printf("\n");
+		printf("PRINTF 32\n"); //DEBUG
+		printf("%X\n", INT_MIN - 2);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%p\n", LONG_MAX + 2);
+		printf("\n");
+		printf("PRINTF 33\n"); //DEBUG
+		printf("%p\n", LONG_MAX + 2);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%p\n", LONG_MIN - 2);
+		printf("\n");
+		printf("PRINTF 34\n"); //DEBUG
+		printf("%p\n", LONG_MIN - 2);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%0% hello\n");
+		printf("\n");
+		printf("PRINTF 35\n"); //DEBUG
+		printf("%0% hello\n");
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+
+		ret = ft_printf("%08.2% hello\n");
+		printf("\n");
+		printf("PRINTF 36\n"); //DEBUG
+		printf("%08.2% hello\n");
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 	}

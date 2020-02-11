@@ -53,19 +53,13 @@ int	conversion_function(char *str, t_state_machine *machine)
 {
 	int		what_conv;
 
+	machine->state = DO_CONV;
 	if ((what_conv = is_conversion(*str)) != -1)
-	{
 		machine->option.flag |= (1 << what_conv) << 8;
-		machine->state = DO_CONV;
-		return (1);
+	else
+	{
+		machine->char_error = *str;
+		machine->option.flag |= (1 << (NB_CONV)) << 8;
 	}
-	machine->state = ERROR;
-	return (0);
-}
-
-int	error_function(char *str, t_state_machine *machine)
-{
-	(void)str; //VOID
-	machine->state = LETTER;
 	return (1);
 }

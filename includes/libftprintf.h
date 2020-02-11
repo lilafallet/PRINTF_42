@@ -45,6 +45,7 @@
 # define CONV_XMIN		0x004000
 # define CONV_XMAJ		0x008000
 # define CONV_PERCENT	0x010000
+# define CONV_ERROR		0x020000
 # define NB_CONV 9
 # define STR_CONV "cspdiuxX%"
 
@@ -65,7 +66,6 @@ enum				e_state
 	LETTER,
 	FLAG,
 	CONVERSION,
-	ERROR,
 	DO_CONV
 };
 
@@ -86,6 +86,7 @@ typedef struct	s_state_machine
 	int				len;
 	int				len_out;
 	struct s_option	option;
+	char			char_error;
 }				t_state_machine;
 
 typedef	int		(*t_function)(char *, t_state_machine *);
@@ -99,14 +100,13 @@ int				ft_printf(const char *format, ...);
 int				letter_function(char *str, t_state_machine *machine);
 int				flag_function(char *str, t_state_machine *machine);
 int				conversion_function(char *str, t_state_machine *machine);
-int				error_function(char *str, t_state_machine *machine);
-char			*xminxmaj_conv(long x, t_option *option);
+char			*xminxmaj_conv(unsigned long x, t_option *option);
 char			*c_conv(int c, t_option *option);
 char			*s_conv(char *str, t_option *option);
 char			*p_conv(unsigned long p, t_option *option);
 char			*u_conv(unsigned long u, t_option *option);
-char			*di_conv(int d, t_option *option);
-char			*diuxminxmaj_conv(long diux, t_option *option);
+char			*di_conv(long d, t_option *option);
+char			*puxxmaj_conv(unsigned long diux, t_option *option);
 int				len_width(int width);
 char			*hub_strjoin_width_precision(char *str, t_option *option,
 												size_t len_str);

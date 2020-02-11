@@ -40,9 +40,8 @@ int		do_conv(va_list *argptr, t_state_machine *machine)
 
 int		parser(char *format, va_list *argptr, t_state_machine *machine)
 {
-	static	t_function	function[4] = {letter_function, flag_function,
-										conversion_function,
-										error_function};
+	static	t_function	function[3] = {letter_function, flag_function,
+										conversion_function};
 	int					ret;
 
 	ret = SUCCESS;

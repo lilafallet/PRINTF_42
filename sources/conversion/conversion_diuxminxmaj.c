@@ -13,16 +13,17 @@
 #include "libftprintf.h"
 #include <stdio.h> //DEBUG
 
-char	*xminxmaj_conv(long x, t_option *option)
+char	*xminxmaj_conv(unsigned long x, t_option *option)
 {
 	char		*new_str;
 	char		*number;
 	t_option	cpy_option;
 
+	x = (unsigned int)x;
 	cpy_option.flag = option->flag;
 	cpy_option.precision = option->precision;
 	cpy_option.width = option->width;
-	number = ft_ltoa_base(x, 16);
+	number = ft_ultoa_base(x, 16);
 	if (option->precision < option->width)
 		option->width = option->width - (option->precision);
 	else
@@ -40,7 +41,7 @@ char	*xminxmaj_conv(long x, t_option *option)
 	return (new_str);
 }
 
-char	*di_conv(int d, t_option *option)
+char	*di_conv(long d, t_option *option)
 {
 	char	*new_str_negt;
 	char	*new_str;
@@ -48,10 +49,13 @@ char	*di_conv(int d, t_option *option)
 	char	*number_negt;
 	int		len_number;
 
+	d = (int)d;
 	if (d < 0)
 	{
 		number_negt = ft_ltoa_base_post(d, 10);
 		len_number = ft_strlen(number_negt);
+		if (option->width > 0)
+			option->width--;
 		new_str = hub_strjoin_width_precision(number_negt, option,
 												len_number);
 		new_str_negt = add_minus(new_str);
@@ -82,18 +86,17 @@ char	*u_conv(unsigned long u, t_option *option)
 	return (new_str);	
 }
 
-char	*diuxminxmaj_conv(long diux, t_option *option)
+char	*puxxmaj_conv(unsigned long nb, t_option *option)
 {
 	char	*output;
 
 	output = NULL;
-	if ((option->flag & CONV_I) || (option->flag & CONV_D))
-		output = di_conv(diux, option);
+	if (option->flag & CONV_P)
+		output = p_conv(nb, option);
 	else if (option->flag & CONV_U)
-		output = u_conv(diux, option);
+		output = u_conv(nb, option);
 	else if ((option->flag & CONV_XMIN) ||
 				(option->flag & CONV_XMAJ))
-		output = xminxmaj_conv(diux, option);
-	(void)diux;
+		output = xminxmaj_conv(nb, option);
 	return (output);
 }
