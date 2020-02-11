@@ -29,12 +29,11 @@
 #  define FAILURE -1
 # endif
 
-# define NB_FLAGS 4
+# define NB_FLAGS 3
 
 # define MOD_MINUS		0x000001
 # define MOD_ZERO		0x000002
 # define MOD_DOT		0x000004
-# define MOD_STAR		0x000008
 
 # define CONV_C			0x000100
 # define CONV_S			0x000200
@@ -49,7 +48,9 @@
 # define NB_CONV 9
 # define STR_CONV "cspdiuxX%"
 
-# define STR_MOD "-0.*"
+# define STAR	'*'
+
+# define STR_MOD "-0."
 
 # define BUFFER_SIZE 4096
 
@@ -72,8 +73,8 @@ enum				e_state
 typedef	struct	s_option
 {
 	int				flag;
-	size_t			width;
-	size_t			precision;
+	unsigned long	width;
+	unsigned long	precision;
 	int				len_conversion;
 	int				post_negt;
 }				t_option;
@@ -89,7 +90,7 @@ typedef struct	s_state_machine
 	char			char_error;
 }				t_state_machine;
 
-typedef	int		(*t_function)(char *, t_state_machine *);
+typedef	int		(*t_function)(char *, t_state_machine *, va_list *);
 
 int				is_conversion(char c);
 void			ft_bzero(void *s, size_t n);
@@ -97,9 +98,12 @@ int				is_flag(char c);
 void			fill_buffer(t_state_machine *machine, char c);
 void			memjoin_free(char **dest, char *src, int len_dest, int len_src);
 int				ft_printf(const char *format, ...);
-int				letter_function(char *str, t_state_machine *machine);
-int				flag_function(char *str, t_state_machine *machine);
-int				conversion_function(char *str, t_state_machine *machine);
+int				letter_function(char *str, t_state_machine *machine,
+									va_list *argptr);
+int				flag_function(char *str, t_state_machine *machine,
+									va_list *argptr);
+int				conversion_function(char *str, t_state_machine *machine,
+									va_list *argptr);
 char			*xminxmaj_conv(unsigned long x, t_option *option);
 char			*c_conv(int c, t_option *option);
 char			*s_conv(char *str, t_option *option);

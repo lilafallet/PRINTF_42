@@ -332,17 +332,17 @@ int	main(void)
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("%0% hello\n");
+	/*	ret = ft_printf("%0% hello\n");
 		printf("\n");
 		printf("PRINTF 35\n"); //DEBUG
 		printf("%0% hello\n");
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
-
-		ret = ft_printf("%08.2% hello\n");
+*/
+		ret = ft_printf("%*.*d hello\n", 8, 5, 10);
 		printf("\n");
 		printf("PRINTF 36\n"); //DEBUG
-		printf("%08.2% hello\n");
+		printf("%*.*d hello\n", 8, 5, 10);
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 	}

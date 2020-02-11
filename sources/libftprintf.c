@@ -49,7 +49,7 @@ int		parser(char *format, va_list *argptr, t_state_machine *machine)
 	{
 		while (*format != '\0')
 		{
-			ret = function[machine->state](format, machine);
+			ret = function[machine->state](format, machine, argptr);
 			if (ret == FAILURE)
 				break ;
 			format += ret;

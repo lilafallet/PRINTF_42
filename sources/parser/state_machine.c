@@ -14,8 +14,9 @@
 #include "libftprintf.h"
 #include "libft.h"
 
-int	letter_function(char *str, t_state_machine *machine)
+int	letter_function(char *str, t_state_machine *machine, va_list *argptr)
 {
+	(void)argptr;
 	if (*str == '%')
 		machine->state = FLAG;
 	else
@@ -23,10 +24,10 @@ int	letter_function(char *str, t_state_machine *machine)
 	return (1);
 }
 
-int	flag_function(char *str, t_state_machine *machine)
+int	flag_function(char *str, t_state_machine *machine, va_list *argptr)
 {
-	int			what_flag;
-	int			nb;
+	int					what_flag;
+	unsigned long		nb;
 
 	what_flag = is_flag(*str);
 	if (what_flag != -1)
@@ -36,9 +37,9 @@ int	flag_function(char *str, t_state_machine *machine)
 			return (1);
 		str++;
 	}
-	if (*str >= '1' && *str <= '9')
+	if ((*str >= '1' && *str <= '9') || *str == STAR)
 	{
-		nb = ft_atoi((const char *)str);
+		nb = *str == STAR ? va_arg(*argptr, unsigned long) : ft_atoi((const char *)str); // ft_atol unsigned 
 		if (what_flag != -1)
 			machine->option.precision = nb;
 		else
@@ -49,10 +50,11 @@ int	flag_function(char *str, t_state_machine *machine)
 	return (0);
 }
 
-int	conversion_function(char *str, t_state_machine *machine)
+int	conversion_function(char *str, t_state_machine *machine, va_list *argptr)
 {
 	int		what_conv;
 
+	(void)argptr;
 	machine->state = DO_CONV;
 	if ((what_conv = is_conversion(*str)) != -1)
 		machine->option.flag |= (1 << what_conv) << 8;
