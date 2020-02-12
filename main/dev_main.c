@@ -192,7 +192,7 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 
-	printf("\033[31;01mNUMERO 17\033[00m\n"); //NUMERO 17
+	printf("\033[31;01mNUMERO 17\033[00m\n"); //NUMERO 1
   	ret = printf("%-.12d\n", 12345);
 	printf("||");
 	printf("\n");

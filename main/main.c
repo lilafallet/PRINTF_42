@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:43:42 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 17:24:32 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 18:05:57 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(void)
 	c = 'a';
 	s = "hello";
 	{
-		rett = ft_printf("haha %3c", 'c');
+		/*rett = ft_printf("haha %3c", 'c');
 		printf("\n");
 		printf("PRINTF 1\n");
 		ret = printf("haha %3c", 'c');
