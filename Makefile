@@ -5,51 +5,73 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/02/05 14:12:31 by lfallet           #+#    #+#              #
-#    Updated: 2020/02/05 14:12:33 by lfallet          ###   ########.fr        #
+#    Created: 2019/11/11 15:19:15 by lfallet           #+#    #+#              #
+#    Updated: 2020/02/12 16:00:58 by lfallet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
+LIBDIR = ./libft/
+LIB = $(LIBDIR)libft.a
 
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
 
-CC = clang
+CC = gcc
 
-INCLUDES = ./
+INCLUDES = ./includes/
 
 HEADER = $(INCLUDES)libftprintf.h
 
-SRCS += ft_atoi.c #A AJPOUTER AU FUR ET A MESURE
+SRCS += conversion_csp.c
+SRCS += conversion_di.c
+SRCS += conversion_diuxminxmaj.c
+SRCS += conversion_pxminxmaj.c
+SRCS += utils_conversion.c
+SRCS += libftprintf.c
+SRCS += state_machine.c
+SRCS += atoul.c
+SRCS += ft_ltoa_base.c
+SRCS += ft_ltoa_base_post.c
+SRCS += ft_ultoa_base.c
+SRCS += utils_precision_width.c
+SRCS += utils_string.c
 
-BONUS += ft_lstadd_back.c #A AJOUTER AU FURE ET A MESURE
+OBJ_DIR = ./objs/
 
-OBJS = $(SRCS:.c=.o)
-OBJS_BONUS = $(BONUS:.c=.o)
+vpath %.c sources/
+vpath %.c sources/conversion/
+vpath %.c sources/utils/
+vpath %.c sources/parser/
 
-all : $(NAME)
+OBJS = $(patsubst %.c, $(OBJ_DIR)%.o, $(SRCS))
 
-$(NAME): $(OBJS)
+all : $(OBJ_DIR) $(NAME)
+
+$(OBJS): $(OBJ_DIR)%.o: %.c $(HEADER) 
+	$(CC) -c $< $(CFLAGS) -I $(INCLUDES) -I $(LIBDIR) -o $@
+
+$(NAME): $(LIB) $(OBJS)
 	ar rcs $@ $^
 
-bonus : $(OBJS_BONUS) $(OBJS)
-	ar rcs $(NAME) $^
+$(OBJ_DIR):
+	mkdir $@
 
-$(OBJS) : %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
+$(LIB) : FORCE
+	$(MAKE) -C $(LIBDIR)
 
-$(OBJS_BONUS) : %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
+FORCE :
 
 clean :
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	$(MAKE) clean -C $(LIBDIR)
+	$(RM) -R $(OBJ_DIR)
 
 fclean : clean
+	$(MAKE) fclean -C $(LIBDIR)
 	$(RM) $(NAME)
 
 re : fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re FORCE
 #.SILENT:
