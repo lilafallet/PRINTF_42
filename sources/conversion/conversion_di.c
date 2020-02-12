@@ -6,12 +6,11 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 17:53:11 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/10 18:26:17 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 14:11:20 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h> //DEBUG
 
 char	*add_minus(char *new_str)
 {
@@ -32,7 +31,7 @@ char	*add_minus(char *new_str)
 	{
 		str_minus[i + 1] = new_str[i];
 		i++;
-	}	
+	}
 	str_minus[i + 1] = '\0';
 	return (str_minus);
 }

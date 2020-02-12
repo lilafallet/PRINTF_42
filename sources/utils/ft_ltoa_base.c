@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 18:28:15 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/10 18:46:03 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 14:20:59 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ static void	ul_fill_str(char *str, long nb, size_t *size, int base)
 
 char		*ft_ltoa_base(long nb, int base)
 {
-	size_t				size;
-	long		tmp;
-	char				*str;
+	size_t	size;
+	long	tmp;
+	char	*str;
 
 	if (base < 2 || base > 16)
 		return (NULL);

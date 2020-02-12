@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:18 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/08 16:33:11 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 14:19:28 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ char	*process_conversion(va_list *argptr, t_state_machine *machine)
 			|| (machine->option.flag & CONV_XMIN)
 			|| (machine->option.flag & CONV_XMAJ)
 			|| (machine->option.flag & CONV_P))
-		new_str = puxxmaj_conv(va_arg(*argptr, unsigned long),&machine->option);
+		new_str = puxxmaj_conv(va_arg(*argptr, unsigned long),
+								&machine->option);
 	else if (machine->option.flag & CONV_PERCENT)
 		new_str = c_conv('%', &machine->option);
 	else if (machine->option.flag & CONV_ERROR)

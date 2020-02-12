@@ -6,12 +6,11 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:08 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 12:20:25 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 14:16:10 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h> //DEBUG
 
 char	*xminxmaj_conv(unsigned long x, t_option *option)
 {
@@ -47,25 +46,23 @@ char	*di_conv(long d, t_option *option)
 	char	*new_str;
 	char	*number;
 	char	*number_negt;
-	int		len_number;
 
 	d = (int)d;
 	if (d < 0)
 	{
 		number_negt = ft_ltoa_base_post(d, 10);
-		len_number = ft_strlen(number_negt);
 		if (option->width > 0)
 			option->width--;
 		new_str = hub_strjoin_width_precision(number_negt, option,
-												len_number);
+												ft_strlen(number_negt));
 		new_str_negt = add_minus(new_str);
 		free(new_str);
 	}
 	else
 	{
 		number = ft_ltoa_base(d, 10);
-		len_number = ft_strlen(number);
-		new_str = hub_strjoin_width_precision(number, option, len_number);
+		new_str = hub_strjoin_width_precision(number, option,
+												ft_strlen(number));
 	}
 	option->len_conversion = ft_strlen(d < 0 ? new_str_negt : new_str);
 	free(d < 0 ? number_negt : number);
@@ -83,7 +80,7 @@ char	*u_conv(unsigned long u, t_option *option)
 	new_str = hub_strjoin_width_precision(number, option, len_number);
 	free(number);
 	option->len_conversion = ft_strlen(new_str);
-	return (new_str);	
+	return (new_str);
 }
 
 char	*puxxmaj_conv(unsigned long nb, t_option *option)
