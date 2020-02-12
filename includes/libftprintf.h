@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/10 20:47:54 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 14:06:29 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,6 @@ char			*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 												t_option *option, char *number);
 char			*strjoin_p_conversion(char *new_str, t_option *origin,
 										t_option *option, char *number);
+unsigned long	atoul(const char *str);
 
 #endif

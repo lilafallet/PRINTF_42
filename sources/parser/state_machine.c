@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:44 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 11:45:21 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 14:05:46 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	flag_function(char *str, t_state_machine *machine, va_list *argptr)
 	}
 	if ((*str >= '1' && *str <= '9') || *str == STAR)
 	{
-		nb = *str == STAR ? va_arg(*argptr, unsigned long) : ft_atoi((const char *)str); // ft_atol unsigned 
+		nb = *str == STAR ? va_arg(*argptr, unsigned long) : atoul(str);
 		if (what_flag != -1)
 			machine->option.precision = nb;
 		else
