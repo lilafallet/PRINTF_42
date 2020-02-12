@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 12:09:09 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 12:11:02 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ char	*s_conv(char *str, t_option *option)
 	option->flag &= ~MOD_DOT;
 	new_str = hub_strjoin_width_precision(str, option, ft_strlen(str_out));
 	option->len_conversion = ft_strlen(new_str);
+	free(str_out);
 	return (new_str);
 }
 
