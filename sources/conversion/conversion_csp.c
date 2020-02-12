@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 11:43:08 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 12:09:09 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,28 @@ char	*c_conv(int c, t_option *option)
 	char	*new_str;
 	char	*convert_str;
 
-	convert_str = (char *)malloc(sizeof(char) * (2));
-	if (convert_str == NULL)
-		return (NULL);
-	option->precision = 0;
-	option->flag &= ~MOD_DOT;
-	convert_str[0] = c;
-	convert_str[1] = '\0';
+	if (c == 0)
+	{
+		convert_str = (char *)malloc(sizeof(char) * 1);
+		if (convert_str == NULL)
+			return (NULL);
+		convert_str[0] = '\0';
+		if (option->width == 0 && option->precision != 0)
+		{
+			option->precision = 0;
+			option->flag &= ~MOD_DOT;
+		}
+	}
+	else
+	{
+		convert_str = (char *)malloc(sizeof(char) * (2));
+		if (convert_str == NULL)
+			return (NULL);
+		option->precision = 0;
+		option->flag &= ~MOD_DOT;
+		convert_str[0] = c;
+		convert_str[1] = '\0';
+	}
 	new_str = hub_strjoin_width_precision(convert_str, option, 1);
 	option->len_conversion = ft_strlen((const char *)new_str);
 	return (new_str);

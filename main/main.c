@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:43:42 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 11:43:25 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 12:09:39 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -381,38 +381,38 @@ int	main(void)
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 	
-		ret = ft_printf("ca marche%25c\n", 'c'); //debug
+		ret = ft_printf("[ca marche%25c]\n", NULL); //debug
 		printf("\n");
 		printf("PRINTF 42\n"); //DEBUG
-		printf("ca marche%25c\n", NULL); //debug
+		printf("[ca marche%25c]\n", NULL); //debug
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 	
-		ret = ft_printf("ca marche%15.6c\n", 'c'); //debug
+		ret = ft_printf("[ca marche%15.6c]\n", NULL); //debug
 		printf("\n");
 		printf("PRINTF 43\n"); //DEBUG
-		printf("ca marche%15.6c\n\n", NULL); //debug
+		printf("[ca marche%15.6c]\n\n", NULL); //debug
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("%c\n", 'c'); //debug
+		ret = ft_printf("[%c]\n", NULL); //debug
 		printf("\n");
 		printf("PRINTF 44\n"); //DEBUG
-		printf("%c\n", NULL); //debug
+		printf("[%c]\n", NULL); //debug
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("%15.6c\n", 'c'); //debug
+		ret = ft_printf("[%15.6c]\n", NULL); //debug
 		printf("\n");
 		printf("PRINTF 45\n"); //DEBUG
-		printf("%15.6c\n", NULL); //debug
+		printf("[%15.6c]\n", NULL); //debug
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 		
-		ret = ft_printf("%.3c\n", 'c'); //debug
+		ret = ft_printf("[%.3c]\n", NULL); //debug
 		printf("\n");
 		printf("PRINTF 46\n"); //DEBUG
-		printf("%.6c\n\n", NULL); //debug
+		printf("[%.3c]\n", NULL); //debug
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 	}

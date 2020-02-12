@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:14:22 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/10 14:56:11 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 12:06:34 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ char	*strjoin_all(char *str, size_t len_str, t_option *option)
 		{
 			ft_memset(new_str, option->flag & MOD_ZERO ? '0' : ' ',
 						option->width);
-			ft_memset(new_str + option->width, '0', option->precision);
+			ft_memset(new_str + option->width, option->flag & CONV_C ?
+						' ' : '0', option->precision);
 			ft_memcpy(new_str + option->width + option->precision, str,
 						len_str);
 		}
