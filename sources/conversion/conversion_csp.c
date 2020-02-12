@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 12:11:02 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 12:19:58 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*c_conv(int c, t_option *option)
 		convert_str[1] = '\0';
 	}
 	new_str = hub_strjoin_width_precision(convert_str, option, 1);
-	option->len_conversion = ft_strlen((const char *)new_str);
+	option->len_conversion = ft_strlen(new_str);
 	return (new_str);
 }
 
@@ -53,13 +53,7 @@ char	*s_conv(char *str, t_option *option)
 	static char		*null = "(null)";
 
 	if (str == NULL)
-	{
 		str = null;
-		//if (option->width != 0)
-			//option->width = option->width - option->precision;
-		//option->precision = 0;
-		//option->flag &= ~MOD_DOT;
-	}
 	if (option->flag & MOD_DOT)
 		str_out = ft_strndup(str, option->precision);
 	else
