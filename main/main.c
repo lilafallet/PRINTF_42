@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:43:42 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/10 20:30:35 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 11:43:25 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -343,6 +343,76 @@ int	main(void)
 		printf("\n");
 		printf("PRINTF 36\n"); //DEBUG
 		printf("%*.*d hello\n", 8, 5, 10);
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("ca marche%25s\n", NULL); //debug
+		printf("\n");
+		printf("PRINTF 37\n"); //DEBUG
+		printf("ca marche%25s\n\n", NULL); //debug
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+	
+		ret = ft_printf("ca marche%15.6s\n", NULL); //debug
+		printf("\n");
+		printf("PRINTF 38\n"); //DEBUG
+		printf("ca marche%15.6s\n\n", NULL); //debug
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%s\n", NULL); //debug
+		printf("\n");
+		printf("PRINTF 39\n"); //DEBUG
+		printf("%s\n", NULL); //debug
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%15.6s\n", NULL); //debug
+		printf("\n");
+		printf("PRINTF 40\n"); //DEBUG
+		printf("%15.6s\n\n", NULL); //debug
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%.s\n", NULL); //debug
+		printf("\n");
+		printf("PRINTF 41\n"); //DEBUG
+		printf("%.s\n\n", NULL); //debug
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+	
+		ret = ft_printf("ca marche%25c\n", 'c'); //debug
+		printf("\n");
+		printf("PRINTF 42\n"); //DEBUG
+		printf("ca marche%25c\n", NULL); //debug
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+	
+		ret = ft_printf("ca marche%15.6c\n", 'c'); //debug
+		printf("\n");
+		printf("PRINTF 43\n"); //DEBUG
+		printf("ca marche%15.6c\n\n", NULL); //debug
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%c\n", 'c'); //debug
+		printf("\n");
+		printf("PRINTF 44\n"); //DEBUG
+		printf("%c\n", NULL); //debug
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%15.6c\n", 'c'); //debug
+		printf("\n");
+		printf("PRINTF 45\n"); //DEBUG
+		printf("%15.6c\n", NULL); //debug
+		printf("\n");
+		printf("RET MY PRINTF : %d\n\n", ret);
+		
+		ret = ft_printf("%.3c\n", 'c'); //debug
+		printf("\n");
+		printf("PRINTF 46\n"); //DEBUG
+		printf("%.6c\n\n", NULL); //debug
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", ret);
 	}

@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/10 20:49:56 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 11:43:08 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,18 @@ char	*c_conv(int c, t_option *option)
 
 char	*s_conv(char *str, t_option *option)
 {
-	char	*new_str;
-	char	*str_out;
+	char			*new_str;
+	char			*str_out;
+	static char		*null = "(null)";
 
+	if (str == NULL)
+	{
+		str = null;
+		//if (option->width != 0)
+			//option->width = option->width - option->precision;
+		//option->precision = 0;
+		//option->flag &= ~MOD_DOT;
+	}
 	if (option->flag & MOD_DOT)
 		str_out = ft_strndup(str, option->precision);
 	else
@@ -43,7 +52,6 @@ char	*s_conv(char *str, t_option *option)
 	option->precision = 0;
 	option->flag &= ~MOD_DOT;
 	new_str = hub_strjoin_width_precision(str, option, ft_strlen(str_out));
-	free(str_out);
 	option->len_conversion = ft_strlen(new_str);
 	return (new_str);
 }
