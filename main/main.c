@@ -6,12 +6,12 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:43:42 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 16:29:24 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 17:08:30 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
 #include "libft.h"
+#include "libftprintf.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
