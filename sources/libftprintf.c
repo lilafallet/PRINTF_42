@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/10 18:39:49 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 12:29:29 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int		ft_printf(const char *format, ...)
 	t_state_machine		machine;
 	va_list				argptr;
 	int					ret;
+	ssize_t				ret_printf;
 
 	ft_bzero(&machine, sizeof(machine));
 	va_start(argptr, format);
@@ -73,7 +74,7 @@ int		ft_printf(const char *format, ...)
 	memjoin_free(&machine.out, machine.buffer, machine.len_out, machine.len);
 	machine.len_out += machine.len;
 	printf("REAL MY PRINTF\n"); //DEBUG
-	write(1, machine.out, machine.len_out);
+	ret_printf = write(1, machine.out, machine.len_out);
 	free(machine.out);
-	return (ret != FAILURE ? machine.len_out : FAILURE);
+	return (ret != FAILURE ? ret_printf : FAILURE);
 }
