@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 14:06:29 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 17:44:20 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,12 @@ typedef struct	s_state_machine
 
 typedef	int		(*t_function)(char *, t_state_machine *, va_list *);
 
+int				ft_printf(const char *format, ...);
 int				is_conversion(char c);
 void			ft_bzero(void *s, size_t n);
 int				is_flag(char c);
 void			fill_buffer(t_state_machine *machine, char c);
 void			memjoin_free(char **dest, char *src, int len_dest, int len_src);
-int				ft_printf(const char *format, ...);
 int				letter_function(char *str, t_state_machine *machine,
 									va_list *argptr);
 int				flag_function(char *str, t_state_machine *machine,

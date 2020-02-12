@@ -5,7 +5,7 @@
 int	main(void)
 {
 	int	n = 42;
-	int	ret = 0;
+	ssize_t	ret = 0;
 	char *str = "est-ce que ca marche ?";
 
 	//ENTIERS
@@ -492,7 +492,7 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 
-	printf("\033[31;01mNUMERO 43\033[00m\n"); //NUMERO 43
+	/*printf("\033[31;01mNUMERO 43\033[00m\n"); //NUMERO 43
   	ret = printf("-%.3d-%.3d-%.3d-", 12, 123, 1234);
 	printf("||");
 	printf("\n");
@@ -502,7 +502,7 @@ int	main(void)
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
+	printf("\033[00m");*/
 
 	printf("\033[31;01mNUMERO 44\033[00m\n"); //NUMERO 44
  	ret = printf("-%08.0d-", 0);
@@ -540,7 +540,7 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 
-	printf("\033[31;01mNUMERO 47\033[00m\n"); //NUMERO 47
+	/*printf("\033[31;01mNUMERO 47\033[00m\n"); //NUMERO 47
   	ret = printf("-%.3d-%.3d-%.3d-", -12, -123, -1234);	
 	printf("||");
 	printf("\n");
@@ -550,7 +550,7 @@ int	main(void)
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
+	printf("\033[00m");*/
 
 	printf("\033[31;01mNUMERO 48\033[00m\n"); //NUMERO 48
 	ret = printf("-%d-%.0d-%.8d-%8.0d-%8.8d-", 0, 0, 0, 0, 0);
@@ -964,7 +964,7 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 
-	printf("\033[31;01mNUMERO 10\033[00m\n"); //NUMERO 10
+	/*printf("\033[31;01mNUMERO 10\033[00m\n"); //NUMERO 10
   	ret = printf("-%.4d-%.4d-%.d-%.0d-\n", 7, 12345, 1, 9);
 	printf("||");
 	printf("\n");
@@ -974,7 +974,7 @@ int	main(void)
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
+	printf("\033[00m");*/
 
 	printf("\033[31;01mNUMERO 11\033[00m\n"); //NUMERO 11
   	ret = printf("-%.4s-%.4s-%.s-\n", "A", "ABCDEF", "ABC");
@@ -1000,7 +1000,7 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 
-	printf("\033[31;01mNUMERO 13\033[00m\n"); //NUMERO 13
+	/*printf("\033[31;01mNUMERO 13\033[00m\n"); //NUMERO 13
   	ret = printf("-%.*d-\n", -4, 7);
 	printf("||");
 	printf("\n");
@@ -1010,7 +1010,7 @@ int	main(void)
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
+	printf("\033[00m");*/
 
 	printf("\033[31;01mNUMERO 14\033[00m\n"); //NUMERO 14
   	ret = printf("%.1d %.0d %.1u %.0u %.1o %.0o %.1x %.0x\n", 0, 0, 0, 0, 0, 0, 0, 0);
@@ -1246,7 +1246,7 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 
-	printf("\033[31;01mNUMERO 12\033[00m\n"); //NUMERO 12
+	/*printf("\033[31;01mNUMERO 12\033[00m\n"); //NUMERO 12
 	ret = printf("%*.*k", -32, 5);
 	printf("||");
 	printf("\n");
@@ -1256,7 +1256,7 @@ int	main(void)
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
+	printf("\033[00m");*/
 
 	printf("\033[31;01mNUMERO 13\033[00m\n"); //NUMERO 13
 	ret = printf("%16k");
@@ -1306,7 +1306,7 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 
-	printf("\033[31;01mNUMERO 17\033[00m\n"); //NUMERO 17
+	/*printf("\033[31;01mNUMERO 17\033[00m\n"); //NUMERO 17
   	ret = printf("%*.*k %0*.*k", 0, 0, 0, 0);
 	printf("||");
 	printf("\n");
@@ -1316,7 +1316,7 @@ int	main(void)
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
+	printf("\033[00m");*/
 
 	printf("\033[31;01mNUMERO 18\033[00m\n"); //NUMERO 18
   	ret = printf("%.2p", main);
@@ -1657,7 +1657,7 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 
-	printf("\033[31;01mNUMERO 10\033[00m\n"); //NUMERO 10
+	/*printf("\033[31;01mNUMERO 10\033[00m\n"); //NUMERO 10
   	ret = printf("-%+8.4d-%8.0d-%+8.0d-", 13, 0, 0);	
 	printf("||");
 	printf("\n");
@@ -1667,7 +1667,7 @@ int	main(void)
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
+	printf("\033[00m");*/
 
 	printf("\033[31;01mNUMERO 11\033[00m\n"); //NUMERO 11
  	ret = printf("%+010d", 543);

@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:43:42 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 17:08:30 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 17:24:32 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -433,13 +433,13 @@ int	main(void)
 		printf("RET MY PRINTF : %d\n", rett);
 		printf("RET PRINTF : %d\n\n", ret);
 	
-		rett = ft_printf("[ca marche%15.6c]\n", NULL); //debug
+		/*rett = ft_printf("[ca marche%15.6c]\n", NULL); //debug
 		printf("\n");
 		printf("PRINTF 43\n"); //DEBUG
 		ret = printf("[ca marche%15.6c]\n", NULL); //debug
 		printf("\n");
 		printf("RET MY PRINTF : %d\n", rett);
-		printf("RET PRINTF : %d\n\n", ret);
+		printf("RET PRINTF : %d\n\n", ret);*/
 		
 		rett = ft_printf("[%c]\n", NULL); //debug
 		printf("\n");
