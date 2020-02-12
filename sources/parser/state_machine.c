@@ -6,13 +6,14 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:44 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 14:05:46 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 18:38:14 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libftprintf.h"
 #include "libft.h"
+#include <stdio.h> //DEBUG
 
 int	letter_function(char *str, t_state_machine *machine, va_list *argptr)
 {
@@ -32,6 +33,7 @@ int	flag_function(char *str, t_state_machine *machine, va_list *argptr)
 	what_flag = is_flag(*str);
 	if (what_flag != -1)
 	{
+		printf("HELLO\n"); //DEBUG
 		machine->option.flag |= 1 << what_flag;
 		if (*str != '.')
 			return (1);

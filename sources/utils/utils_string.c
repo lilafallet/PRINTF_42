@@ -6,12 +6,13 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 18:35:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/10 18:35:54 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/12 18:42:48 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft.h"
+#include <stdio.h> //DEBUG
 
 void	*ft_memdup(void *s, int len)
 {
@@ -90,6 +91,7 @@ int		is_conversion(char c)
 	i = 0;
 	while (STR_CONV[i] != '\0')
 	{
+		printf("i = %d\n", i); //DEBUG
 		if (c == STR_CONV[i])
 			return (i);
 		i++;
