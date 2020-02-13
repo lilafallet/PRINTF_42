@@ -27,7 +27,7 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 		option->width = option->width - (option->precision);
 	else
 		option->width = 0;
-	if (option->precision > ft_strlen(number))
+	if (option->precision > (long)ft_strlen(number))
 		option->precision -= ft_strlen(number);
 	else
 		option->precision = 0;
@@ -42,31 +42,29 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 
 char	*di_conv(long d, t_option *option)
 {
-	char	*new_str_negt;
 	char	*new_str;
 	char	*number;
-	char	*number_negt;
+	char	*tmp_number;
 
 	d = (int)d;
 	if (d < 0)
 	{
-		number_negt = ft_ltoa_base_post(d, 10);
+		number = ft_ltoa_base_post(d, 10);
 		if (option->width > 0)
 			option->width--;
-		new_str = hub_strjoin_width_precision(number_negt, option,
-												ft_strlen(number_negt));
-		new_str_negt = add_minus(new_str);
-		free(new_str);
 	}
 	else
-	{
 		number = ft_ltoa_base(d, 10);
-		new_str = hub_strjoin_width_precision(number, option,
-												ft_strlen(number));
+	new_str = hub_strjoin_width_precision(number, option, ft_strlen(number));
+	free(number);
+	if (d < 0)
+	{
+		tmp_number = new_str;
+		new_str = add_minus(new_str);
+		free(tmp_number);
 	}
-	option->len_conversion = ft_strlen(d < 0 ? new_str_negt : new_str);
-	free(d < 0 ? number_negt : number);
-	return (d < 0 ? new_str_negt : new_str);
+	option->len_conversion = ft_strlen(new_str);
+	return (new_str);
 }
 
 char	*u_conv(unsigned long u, t_option *option)

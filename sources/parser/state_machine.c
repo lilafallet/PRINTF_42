@@ -28,12 +28,11 @@ int	letter_function(char *str, t_state_machine *machine, va_list *argptr)
 int	flag_function(char *str, t_state_machine *machine, va_list *argptr)
 {
 	int					what_flag;
-	unsigned long		nb;
+	long				nb;
 
 	what_flag = is_flag(*str);
 	if (what_flag != -1)
 	{
-		printf("HELLO\n"); //DEBUG
 		machine->option.flag |= 1 << what_flag;
 		if (*str != '.')
 			return (1);
@@ -41,11 +40,12 @@ int	flag_function(char *str, t_state_machine *machine, va_list *argptr)
 	}
 	if ((*str >= '1' && *str <= '9') || *str == STAR)
 	{
-		nb = *str == STAR ? va_arg(*argptr, unsigned long) : atoul(str);
+		nb = *str == STAR ? va_arg(*argptr, int) : atoul(str);
 		if (what_flag != -1)
 			machine->option.precision = nb;
 		else
 			machine->option.width = nb;
+		dprintf(2, "PARSER  nb %ld, prec %ld, width %ld, string: [%s]\n", nb, machine->option.precision, machine->option.width, str);
 		return (len_width(nb) + (what_flag != -1));
 	}
 	else if (what_flag != -1)

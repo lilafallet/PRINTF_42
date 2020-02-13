@@ -23,7 +23,7 @@ void	initialisation(t_state_machine *machine)
 	machine->option.len_conversion = 0;
 	machine->char_error = '\0';
 	machine->state = LETTER;
-	ft_bzero(&machine->option, sizeof(machine->option));
+	ft_bzero(&machine->option, sizeof(t_option));
 }
 
 char	*process_conversion(va_list *argptr, t_state_machine *machine)

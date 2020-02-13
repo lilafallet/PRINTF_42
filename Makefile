@@ -17,6 +17,8 @@ LIB = $(LIBDIR)libft.a
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
+CFLAGS += -fsanitize=address,undefined
+CFLAGS += -g3
 
 CC = gcc
 
@@ -97,7 +99,7 @@ OBJS = $(patsubst %.c, $(OBJ_DIR)%.o, $(SRCS))
 all : $(LIB) $(OBJ_DIR) $(NAME)
 
 $(OBJS): $(OBJ_DIR)%.o: %.c $(HEADER) 
-	$(CC) -c $< $(CFLAGS) -I $(INCLUDES) -I $(LIBDIR) -o $@
+	$(CC) $(CFLAGS) -c $<  -I $(INCLUDES) -I $(LIBDIR) -o $@
 
 $(NAME): $(LIB) $(OBJS)
 	ar rcs $@ $(OBJS)

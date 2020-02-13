@@ -73,8 +73,8 @@ enum				e_state
 typedef	struct	s_option
 {
 	int				flag;
-	unsigned long	width;
-	unsigned long	precision;
+	long			width;
+	long			precision;
 	int				len_conversion;
 	int				post_negt;
 }				t_option;
@@ -84,8 +84,8 @@ typedef struct	s_state_machine
 	char			buffer[BUFFER_SIZE];
 	char			*out;
 	enum e_state	state;
-	int				len;
-	int				len_out;
+	size_t			len;
+	size_t			len_out;
 	struct s_option	option;
 	char			char_error;
 }				t_state_machine;

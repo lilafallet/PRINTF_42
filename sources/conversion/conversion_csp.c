@@ -26,6 +26,8 @@ char	*c_conv(int c, t_option *option)
 	option->flag &= ~MOD_DOT;
 	convert_str[0] = c;
 	convert_str[1] = '\0';
+	new_str = NULL;
+	dprintf(2, "[C] %c, prec %zu, width %zu\n", c, option->precision, option->width);
 	new_str = hub_strjoin_width_precision(convert_str, option, 1);
 	option->len_conversion = option->width + option->precision + 1;
 	return (new_str);
@@ -65,7 +67,7 @@ char	*p_conv(unsigned long p, t_option *option)
 		option->width = option->width - (option->precision + 2);
 	else
 		option->width = 0;
-	if (option->precision > ft_strlen(number))
+	if (option->precision > (long)ft_strlen(number))
 		option->precision -= ft_strlen(number);
 	else
 		option->precision = 0;

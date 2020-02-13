@@ -54,25 +54,22 @@ char	*strjoin_all(char *str, size_t len_str, t_option *option)
 	}
 	return (new_str);
 }
-
+#include <stdio.h>
 char	*strjoin_width_precision(char *str, t_option *option, size_t len_str)
 {
-	char	*new_str;
-
-	new_str = NULL;
-	if (option->precision > len_str)
+	dprintf(2, "prec %zu, width %zu, len %zu\n", option->precision, option->width, len_str);
+	if (option->precision > (long)len_str)
 		option->precision -= len_str;
 	else
 	{
 		option->precision = 0;
 		option->flag &= ~MOD_DOT;
 	}
-	if (option->width > option->precision + len_str)
-		option->width = option->width - option->precision - len_str;
+	if (option->width > option->precision + (long)len_str)
+		option->width = option->width - (option->precision + len_str);
 	else
 		option->width = 0;
-	new_str = strjoin_all(str, len_str, option);
-	return (new_str);
+	return (strjoin_all(str, len_str, option));
 }
 
 char	*hub_strjoin_width_precision(char *str, t_option *option,
@@ -82,8 +79,16 @@ char	*hub_strjoin_width_precision(char *str, t_option *option,
 
 	new_str = NULL;
 	if (option->width == 0 && option->precision != 0 &&
-			option->precision < len_str)
-		return (str);
-	new_str = strjoin_width_precision(str, option, len_str);
+			option->precision < (long)len_str)
+	{
+		new_str = (char *)malloc(sizeof(char) * (len_str + 1));
+		if (new_str != NULL)
+		{
+			ft_memcpy(new_str, str, len_str);
+			new_str[len_str] = '\0';
+		}
+	}
+	else
+		new_str = strjoin_width_precision(str, option, len_str);
 	return (new_str);
 }

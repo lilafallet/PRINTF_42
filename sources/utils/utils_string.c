@@ -31,10 +31,10 @@ void	*ft_memdup(void *s, int len)
 void	memjoin_free(char **dest, char *src, int len_dest, int len_src)
 {
 	char	*str;
-	int		len_str;
+	size_t	len_str;
 
 	str = NULL;
-	len_str = len_dest + len_src;
+	len_str = (size_t)len_dest + (size_t)len_src;
 	if (*dest != NULL && src != NULL)
 	{
 		str = (char *)malloc(sizeof(char) * (len_str + 1));
