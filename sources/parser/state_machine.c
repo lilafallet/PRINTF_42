@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:44 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 18:38:14 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/13 21:33:06 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	flag_function(char *str, t_state_machine *machine, va_list *argptr)
 		else
 			machine->option.width = nb;
 		dprintf(2, "PARSER  nb %ld, prec %ld, width %ld, string: [%s]\n", nb, machine->option.precision, machine->option.width, str);
-		return (len_width(nb) + (what_flag != -1));
+		return (*str == STAR ? 1 : len_width(nb) + (what_flag != -1));
 	}
 	else if (what_flag != -1)
 		return (1);
