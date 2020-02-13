@@ -91,7 +91,6 @@ int		is_conversion(char c)
 	i = 0;
 	while (STR_CONV[i] != '\0')
 	{
-		printf("i = %d\n", i); //DEBUG
 		if (c == STR_CONV[i])
 			return (i);
 		i++;

@@ -77,7 +77,6 @@ int		ft_printf(const char *format, ...)
 	va_end(argptr);
 	memjoin_free(&machine.out, machine.buffer, machine.len_out, machine.len);
 	machine.len_out += machine.len;
-	printf("REAL MY PRINTF\n"); //DEBUG
 	ret_printf = write(1, machine.out, machine.len_out);
 	free(machine.out);
 	return (ret != FAILURE ? ret_printf : FAILURE);

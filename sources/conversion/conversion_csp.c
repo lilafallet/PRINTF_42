@@ -38,6 +38,7 @@ char	*s_conv(char *str, t_option *option)
 	char			*new_str;
 	char			*str_out;
 	static char		*null = "(null)";
+	size_t			len;
 
 	if (str == NULL)
 		str = null;
@@ -45,9 +46,13 @@ char	*s_conv(char *str, t_option *option)
 		str_out = ft_strndup(str, option->precision);
 	else
 		str_out = ft_strdup(str);
+	len = ft_strlen(str_out);
+	if (option->width < (long)len)
+		option->width = 0;
 	option->precision = 0;
 	option->flag &= ~MOD_DOT;
-	new_str = hub_strjoin_width_precision(str, option, ft_strlen(str_out));
+	option->flag &= ~MOD_ZERO;
+	new_str = hub_strjoin_width_precision(str, option, len);
 	option->len_conversion = ft_strlen(new_str);
 	free(str_out);
 	return (new_str);
