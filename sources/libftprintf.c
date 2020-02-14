@@ -24,6 +24,9 @@ void	preset_flag(t_state_machine *machine)
 			machine->option.precision = 0;
 	if (machine->option.width < 0)
 			machine->option.width = 0;
+	if ((machine->option.flag & MOD_ZERO) && (machine->option.flag & MOD_DOT)
+			&& (machine->option.flag & CONV_D || machine->option.flag & CONV_I))
+		machine->option.flag &= ~MOD_ZERO;
 }
 
 int		do_conv(va_list *argptr, t_state_machine *machine)

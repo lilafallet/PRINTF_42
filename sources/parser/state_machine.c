@@ -41,9 +41,11 @@ int	flag_function(char *str, t_state_machine *machine, va_list *argptr)
 	long				nb;
 
 	dprintf(2, "PARSER prec1 %zu, width1 %zu\n", machine->option.precision, machine->option.width);
+	dprintf(2, "str = %s\n", str); //DEBUG
 	what_flag = is_flag(*str);
 	if (what_flag != -1)
 	{
+		dprintf(2, "HELLO\n"); //DEBUG
 		machine->option.flag |= 1 << what_flag;
 		if (*str != '.')
 			return (1);

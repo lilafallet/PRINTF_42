@@ -12,6 +12,7 @@
 
 #include "libftprintf.h"
 #include "libft.h"
+#include <stdio.h> //DEBUG
 
 int		len_width(int width)
 {
@@ -54,7 +55,7 @@ char	*strjoin_all(char *str, size_t len_str, t_option *option)
 	}
 	return (new_str);
 }
-#include <stdio.h>
+
 char	*strjoin_width_precision(char *str, t_option *option, size_t len_str)
 {
 	dprintf(2, "prec %zu, width %zu, len %zu\n", option->precision, option->width, len_str);

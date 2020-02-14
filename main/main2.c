@@ -125,12 +125,28 @@ int	main(void)
 		ret = printf("[%09s]", "hi low");
 		printf("\n");
 		printf("RET MY PRINTF : %zd\n\n", rett);
-		printf("RET PRINTF : %zd\n\n", ret);*/
+		printf("RET PRINTF : %zd\n\n", ret);
 		
 		rett = ft_printf("[%.09s]", "hi low");
 		printf("\n");
 		printf("PRINTF 10\n");
 		ret = printf("[%.09s]", "hi low");
+		printf("\n");
+		printf("RET MY PRINTF : %zd\n\n", rett);
+		printf("RET PRINTF : %zd\n\n", ret);*/
+		
+		rett = ft_printf("[%08.5i]", 34);
+		printf("\n");
+		printf("PRINTF 10\n");
+		ret = printf("[%08.5i]", 34);
+		printf("\n");
+		printf("RET MY PRINTF : %zd\n\n", rett);
+		printf("RET PRINTF : %zd\n\n", ret);
+		
+		rett = ft_printf("[%08.5d]", 34);
+		printf("\n");
+		printf("PRINTF 10\n");
+		ret = printf("[%08.5d]", 34);
 		printf("\n");
 		printf("RET MY PRINTF : %zd\n\n", rett);
 		printf("RET PRINTF : %zd\n\n", ret);
