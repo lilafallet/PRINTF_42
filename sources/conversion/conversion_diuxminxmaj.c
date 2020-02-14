@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h> //DEBUG
 
 char	*xminxmaj_conv(unsigned long x, t_option *option)
 {
@@ -47,15 +48,17 @@ char	*di_conv(long d, t_option *option)
 	char	*tmp_number;
 
 	d = (int)d;
+	number = NULL;
 	if (d < 0)
 	{
 		number = ft_ltoa_base_post(d, 10);
 		if (option->width > 0)
 			option->width--;
 	}
-	else
+	else if (d > 0)
 		number = ft_ltoa_base(d, 10);
-	new_str = hub_strjoin_width_precision(number, option, ft_strlen(number));
+	new_str = hub_strjoin_width_precision(number, option, d == 0 ? 0 :
+				ft_strlen(number));
 	free(number);
 	if (d < 0)
 	{

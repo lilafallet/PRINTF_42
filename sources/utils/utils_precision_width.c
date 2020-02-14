@@ -67,9 +67,12 @@ char	*strjoin_width_precision(char *str, t_option *option, size_t len_str)
 		option->flag &= ~MOD_DOT;
 	}
 	if (option->width > option->precision + (long)len_str)
+	{
 		option->width = option->width - (option->precision + len_str);
+	}
 	else
 		option->width = 0;
+	dprintf(2, "prec3 %zu, width3 %zu, len3 %zu\n", option->precision, option->width, len_str);
 	return (strjoin_all(str, len_str, option));
 }
 
@@ -80,7 +83,9 @@ char	*hub_strjoin_width_precision(char *str, t_option *option,
 
 	new_str = NULL;
 	if (option->width == 0 && option->precision != 0 &&
-			option->precision < (long)len_str)
+			option->precision < (long)len_str &&
+			(((option->flag & CONV_D) == FALSE) ||
+			((option->flag & CONV_I) == FALSE)))
 	{
 		new_str = (char *)malloc(sizeof(char) * (len_str + 1));
 		if (new_str != NULL)

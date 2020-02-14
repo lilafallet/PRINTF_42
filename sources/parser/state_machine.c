@@ -45,7 +45,6 @@ int	flag_function(char *str, t_state_machine *machine, va_list *argptr)
 	what_flag = is_flag(*str);
 	if (what_flag != -1)
 	{
-		dprintf(2, "HELLO\n"); //DEBUG
 		machine->option.flag |= 1 << what_flag;
 		if (*str != '.')
 			return (1);
