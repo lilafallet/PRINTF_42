@@ -19,11 +19,11 @@
 void	preset_flag(t_state_machine *machine)
 {
 	if (machine->option.flag & MOD_MINUS)
-		machine->option.flag &= ~MOD_ZERO;
+			machine->option.flag &= ~MOD_ZERO;
 	if (machine->option.precision < 0)
-		machine->option.precision = 0;
+			machine->option.precision = 0;
 	if (machine->option.width < 0)
-		machine->option.width = 0;
+			machine->option.width = 0;
 }
 
 int		do_conv(va_list *argptr, t_state_machine *machine)

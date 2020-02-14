@@ -16,6 +16,8 @@
 #include <stdio.h>
 #include <limits.h>
 
+int	ft_printf(const char *format, ...);
+
 int	main(void)
 {
 	ssize_t	rett;
@@ -29,7 +31,7 @@ int	main(void)
 	c = 'a';
 	s = "hello";
 
-		rett = ft_printf("%012.d\n", 12345);
+		/*rett = ft_printf("%012.d\n", 12345);
 		printf("\n");
 		printf("PRINTF 2\n");
 		ret = printf("%012.d\n", 12345);
@@ -108,6 +110,30 @@ int	main(void)
 		printf("\n");
 		printf("RET MY PRINTF : %d\n\n", rett);
 		printf("RET PRINTF : %d\n\n", ret);
+		
+		rett = ft_printf("[%.03s]", "hi low");
+		printf("\n");
+		printf("PRINTF 10\n");
+		ret = printf("[%.03s]", "hi low");
+		printf("\n");
+		printf("RET MY PRINTF : %zd\n\n", rett);
+		printf("RET PRINTF : %zd\n\n", ret);
+		
+		rett = ft_printf("[%09s]", "hi low");
+		printf("\n");
+		printf("PRINTF 10\n");
+		ret = printf("[%09s]", "hi low");
+		printf("\n");
+		printf("RET MY PRINTF : %zd\n\n", rett);
+		printf("RET PRINTF : %zd\n\n", ret);*/
+		
+		rett = ft_printf("[%.09s]", "hi low");
+		printf("\n");
+		printf("PRINTF 10\n");
+		ret = printf("[%.09s]", "hi low");
+		printf("\n");
+		printf("RET MY PRINTF : %zd\n\n", rett);
+		printf("RET PRINTF : %zd\n\n", ret);
 
 		return (0);
 }

@@ -17,10 +17,10 @@ LIB = $(LIBDIR)libft.a
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
-CFLAGS += -fsanitize=address,undefined
-CFLAGS += -g3
+#CFLAGS += -fsanitize=address,undefined
+#CFLAGS += -g3
 
-CC = gcc
+CC = clang
 
 INCLUDES = ./includes/
 

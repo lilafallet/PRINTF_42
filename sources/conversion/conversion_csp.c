@@ -40,6 +40,7 @@ char	*s_conv(char *str, t_option *option)
 	static char		*null = "(null)";
 	size_t			len;
 
+	dprintf(2, "prec1 %zu, width1 %zu\n", option->precision, option->width);
 	if (str == NULL)
 		str = null;
 	if (option->flag & MOD_DOT)
@@ -51,7 +52,7 @@ char	*s_conv(char *str, t_option *option)
 		option->width = 0;
 	option->precision = 0;
 	option->flag &= ~MOD_DOT;
-	option->flag &= ~MOD_ZERO;
+//	dprintf(2, "prec2 %zu, width2 %zu, len2 %zu\n", option->precision, option->width, len);
 	new_str = hub_strjoin_width_precision(str, option, len);
 	option->len_conversion = ft_strlen(new_str);
 	free(str_out);
