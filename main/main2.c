@@ -343,6 +343,7 @@ int	main(void)
 	printf("RET MY PRINTF : %zd\n\n", rett);
 	printf("RET PRINTF : %zd\n\n", ret);
 	
+	printf("CELUI CI ////////////////////////////////\n");
 	rett = ft_printf("[%-8.5x]", 43);
 	printf("\n");
 	printf("PRINTF 10\n");
@@ -458,7 +459,6 @@ printf("////////////////////////////////////////////////\n"); //DEBUG
 	printf("RET MY PRINTF : %zd\n\n", rett);
 	printf("RET PRINTF : %zd\n\n", ret);
 	
-	printf("CELUI CI ////////////////////////////////\n");
 	rett = ft_printf("[%8.5x]", 0);
 	printf("\n");
 	printf("PRINTF 10\n");

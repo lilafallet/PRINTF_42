@@ -30,7 +30,15 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 	{
 		dprintf(2, "HEY\n"); //debug
 		option->width = cpy_option.width - option->precision;
-		option->precision = cpy_option.width - option->width - ft_strlen(number);
+		if (option->flag & MOD_MINUS && (option->flag & MOD_DOT) == FALSE)
+			option->precision = cpy_option.width - option->width - ft_strlen(number);
+		if (ft_strlen(number) == 1)
+		{
+			dprintf(2, "ca passe la ?"); //DEBUG
+			option->precision = option->width + ft_strlen(number);
+		}
+		else
+			option->precision = option->width;
 	}
 	if (option->precision < option->width && option->width >
 			(long)ft_strlen(number) && (option->flag & MOD_DOT) == FALSE)
@@ -62,11 +70,11 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 			option->precision = 0;
 			dprintf(2, "HEY5\n"); //debug
 		}
-		else
+		/*else
 		{
 			dprintf(2, "HEY6\n"); //debug
 			option->precision = option->precision - ft_strlen(number);
-		}
+		}*/
 	}
 	dprintf(2, "option->precision1 = %ld, option->width1 = %ld\n", option->precision, option->width); //DEBUG
 	new_str = (char *)malloc(sizeof(char) * (option->precision +
