@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 18:06:12 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 18:25:13 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/15 11:24:02 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ int	main(void)
 		ret = printf("[%.09s]", "hi low");
 		printf("\n");
 		printf("RET MY PRINTF : %zd\n\n", rett);
-		printf("RET PRINTF : %zd\n\n", ret);
+		printf("RET PRINTF : %zd\n\n", ret);*/
 		
 		rett = ft_printf("[%08.5i]", 34);
 		printf("\n");
@@ -149,7 +149,7 @@ int	main(void)
 		ret = printf("[%08.5d]", 34);
 		printf("\n");
 		printf("RET MY PRINTF : %zd\n\n", rett);
-		printf("RET PRINTF : %zd\n\n", ret);*/
+		printf("RET PRINTF : %zd\n\n", ret);
 		
 		rett = ft_printf("[%.0i]", 0);
 		printf("\n");
@@ -182,6 +182,32 @@ int	main(void)
 		printf("\n");
 		printf("RET MY PRINTF : %zd\n\n", rett);
 		printf("RET PRINTF : %zd\n\n", ret);
+		
+		rett = ft_printf("this is %i number", 0);
+		printf("\n");
+		printf("PRINTF 10\n");
+		ret = printf("this is %i number", 0);
+		printf("\n");
+		printf("RET MY PRINTF : %zd\n\n", rett);
+		printf("RET PRINTF : %zd\n\n", ret);
+		
+		rett = ft_printf("this is %d number", 0);
+		printf("\n");
+		printf("PRINTF 10\n");
+		ret = printf("this is %d number", 0);
+		printf("\n");
+		printf("RET MY PRINTF : %zd\n\n", rett);
+		printf("RET PRINTF : %zd\n\n", ret);
+		
+		rett = ft_printf("[%3i]", 0);
+		printf("\n");
+		printf("PRINTF 10\n");
+		ret = printf("[%3i]", 0);
+		printf("\n");
+		printf("RET MY PRINTF : %zd\n\n", rett);
+		printf("RET PRINTF : %zd\n\n", ret);
+
+
 		
 		return (0);
 }

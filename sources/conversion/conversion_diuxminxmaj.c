@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:08 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 14:16:10 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/15 11:35:44 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,30 @@ char	*di_conv(long d, t_option *option)
 	char	*new_str;
 	char	*number;
 	char	*tmp_number;
+	size_t	len;
 
 	d = (int)d;
 	number = NULL;
+	len = 0;
 	if (d < 0)
 	{
 		number = ft_ltoa_base_post(d, 10);
 		if (option->width > 0)
 			option->width--;
+		len = ft_strlen(number);
+	}
+	else if (d == 0 && ((option->flag & MOD_DOT) == FALSE) &&
+				((option->flag & MOD_ZERO) == FALSE))
+	{
+		number = ft_ltoa_base(d, 10);
+		len = ft_strlen(number);
 	}
 	else if (d > 0)
+	{
 		number = ft_ltoa_base(d, 10);
-	new_str = hub_strjoin_width_precision(number, option, d == 0 ? 0 :
-				ft_strlen(number));
+		len = ft_strlen(number);
+	}
+	new_str = hub_strjoin_width_precision(number, option, len);
 	free(number);
 	if (d < 0)
 	{
