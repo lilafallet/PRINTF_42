@@ -6,7 +6,7 @@
 #    By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 15:19:15 by lfallet           #+#    #+#              #
-#    Updated: 2020/02/12 17:52:44 by lfallet          ###   ########.fr        #
+#    Updated: 2020/02/15 12:10:50 by lfallet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,10 @@ LIB = $(LIBDIR)libft.a
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
-#CFLAGS += -fsanitize=address,undefined
-#CFLAGS += -g3
+ifeq ($(debug), 1)
+	CFLAGS += -fsanitize=address,undefined
+	CFLAGS += -g3
+endif
 
 CC = clang
 
@@ -96,12 +98,12 @@ vpath %.c libft/
 
 OBJS = $(patsubst %.c, $(OBJ_DIR)%.o, $(SRCS))
 
-all : $(LIB) $(OBJ_DIR) $(NAME)
+all : $(OBJ_DIR) $(NAME)
 
-$(OBJS): $(OBJ_DIR)%.o: %.c $(HEADER) 
+$(OBJS): $(OBJ_DIR)%.o: %.c $(HEADER) Makefile
 	$(CC) $(CFLAGS) -c $<  -I $(INCLUDES) -I $(LIBDIR) -o $@
 
-$(NAME): $(LIB) $(OBJS)
+$(NAME): $(OBJS)
 	ar rcs $@ $(OBJS)
 
 $(OBJ_DIR):
