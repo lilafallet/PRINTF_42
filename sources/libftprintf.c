@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/15 11:21:28 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/15 14:12:15 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 void	preset_flag(t_state_machine *machine)
 {
 	if (machine->option.flag & MOD_MINUS)
+			machine->option.flag &= ~MOD_ZERO;
+	if (machine->option.flag & CONV_U && machine->option.flag & MOD_DOT)
 			machine->option.flag &= ~MOD_ZERO;
 	if (machine->option.precision < 0)
 			machine->option.precision = 0;

@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:08 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/15 11:35:44 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/15 14:57:18 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,21 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 	char		*number;
 	t_option	cpy_option;
 
+	dprintf(2, "prec %zu, width %zu\n", option->precision, option->width);
 	x = (unsigned int)x;
 	cpy_option.flag = option->flag;
 	cpy_option.precision = option->precision;
 	cpy_option.width = option->width;
 	number = ft_ultoa_base(x, 16);
-	if (option->precision < option->width)
-		option->width = option->width - (option->precision);
+	if (option->precision < option->width && option->width > (long)ft_strlen(number))
+		option->width = option->width - ft_strlen(number);
 	else
 		option->width = 0;
 	if (option->precision > (long)ft_strlen(number))
 		option->precision -= ft_strlen(number);
 	else
 		option->precision = 0;
+	dprintf(2, "prec1 %zu, width1 %zu, len1 %zu\n", option->precision, option->width, ft_strlen(number));
 	new_str = (char *)malloc(sizeof(char) * (option->precision +
 												option->width + 1));
 	if (new_str != NULL)
@@ -85,12 +87,37 @@ char	*u_conv(unsigned long u, t_option *option)
 {
 	char	*new_str;
 	char	*number;
-	int		len_number;
+	char	*tmp_number;
+	size_t	len;
 
-	number = ft_ultoa_base(u, 10);
-	len_number = ft_strlen(number);
-	new_str = hub_strjoin_width_precision(number, option, len_number);
+	number = NULL;
+	len = 0;
+	if (u < 0)
+	{
+		number = ft_ltoa_base_post(u, 10);
+		if (option->width > 0)
+			option->width--;
+		len = ft_strlen(number);
+	}
+	else if (u == 0 && ((option->flag & MOD_DOT) == FALSE) &&
+				((option->flag & MOD_ZERO) == FALSE))
+	{
+		number = ft_ltoa_base(u, 10);
+		len = ft_strlen(number);
+	}
+	else if (u > 0)
+	{
+		number = ft_ltoa_base(u, 10);
+		len = ft_strlen(number);
+	}
+	new_str = hub_strjoin_width_precision(number, option, len);
 	free(number);
+	if (u < 0)
+	{
+		tmp_number = new_str;
+		new_str = add_minus(new_str);
+		free(tmp_number);
+	}
 	option->len_conversion = ft_strlen(new_str);
 	return (new_str);
 }

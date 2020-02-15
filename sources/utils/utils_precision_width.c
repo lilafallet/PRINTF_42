@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:14:22 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 12:06:34 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/15 14:58:22 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ char	*strjoin_all(char *str, size_t len_str, t_option *option)
 	{
 		if (option->flag & MOD_MINUS)
 		{
+			dprintf(2, "HELLO\n"); //DEBUG
 			ft_memset(new_str, '0', option->precision);
 			ft_memcpy(new_str + option->precision, str, len_str);
 			ft_memset(new_str + option->precision + len_str, ' ',

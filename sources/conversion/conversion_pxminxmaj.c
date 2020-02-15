@@ -6,11 +6,12 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 20:38:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 14:18:36 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/15 15:16:17 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h>
 
 char	*strjoin_p_conversion(char *new_str, t_option *origin, t_option *option,
 								char *number)
@@ -47,14 +48,24 @@ char	*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 	size_t	i;
 
 	i = 0;
-	if (origin->precision < origin->width)
+	if ((option->flag & MOD_MINUS) == FALSE)
 	{
-		ft_memset(new_str, ' ', option->width);
-		i = option->width;
+		if (origin->precision < origin->width)
+		{	
+			ft_memset(new_str, ' ', option->width);
+			i = option->width;
+		}
+		ft_memset(new_str + i, '0', option->precision);
+		memjoin_free(&new_str, number, (option->width + option->precision),
+						ft_strlen(number));
 	}
-	ft_memset(new_str + i, '0', option->precision);
-	memjoin_free(&new_str, number, (option->width + option->precision),
-					ft_strlen(number));
+	else
+	{
+		ft_memset(new_str, '0', option->precision);
+		ft_memcpy(new_str + option->precision, number, ft_strlen(number));
+		ft_memset(new_str + option->precision + ft_strlen(number), ' ',
+					option->width);
+	}
 	if (new_str != NULL)
 	{
 		if (option->flag & CONV_XMIN)
