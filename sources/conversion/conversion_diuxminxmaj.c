@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:08 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/15 14:57:18 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/15 16:00:00 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,13 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 	cpy_option.precision = option->precision;
 	cpy_option.width = option->width;
 	number = ft_ultoa_base(x, 16);
-	if (option->precision < option->width && option->width > (long)ft_strlen(number))
+	if (option->precision < option->width && option->width > (long)ft_strlen(number) && (option->flag & MOD_DOT) == FALSE)
 		option->width = option->width - ft_strlen(number);
+	else if ((cpy_option.width > option->precision) && (option->flag & MOD_DOT || option->flag & MOD_MINUS))
+	{
+		dprintf(2, "MOD_DOT"); //DEBUG
+		option->width = cpy_option.width - option->precision;
+	}
 	else
 		option->width = 0;
 	if (option->precision > (long)ft_strlen(number))

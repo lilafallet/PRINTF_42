@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 20:38:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/15 15:16:17 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/15 15:49:43 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ char	*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 	{
 		if (origin->precision < origin->width)
 		{	
-			ft_memset(new_str, ' ', option->width);
+			dprintf(2, "HELLO\n"); //DEBUG
+			ft_memset(new_str, option->flag & MOD_ZERO ? '0' : ' ',
+						option->width);
 			i = option->width;
 		}
 		ft_memset(new_str + i, '0', option->precision);

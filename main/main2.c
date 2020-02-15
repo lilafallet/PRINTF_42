@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 18:06:12 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/15 14:29:55 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/15 15:57:42 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,7 +253,7 @@ int	main(void)
 	ret = printf("[%2.03u]", 8375);
 	printf("\n");
 	printf("RET MY PRINTF : %zd\n\n", rett);
-	printf("RET PRINTF : %zd\n\n", ret);*/
+	printf("RET PRINTF : %zd\n\n", ret);
 	
 	rett = ft_printf("[%7x]", 33);
 	printf("\n");
@@ -310,5 +310,57 @@ int	main(void)
 	printf("\n");
 	printf("RET MY PRINTF : %zd\n\n", rett);
 	printf("RET PRINTF : %zd\n\n", ret);
+	return (0);*/
+
+	rett = ft_printf("[%05x]", 43);
+	printf("\n");
+	printf("PRINTF 10\n");
+	ret = printf("[%05x]", 43);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+
+	rett = ft_printf("[%03x]", 0);
+	printf("\n");
+	printf("PRINTF 10\n");
+	ret = printf("[%03x]", 0);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%8.5x]", 43);
+	printf("\n");
+	printf("PRINTF 10\n");
+	ret = printf("[%8.5x]", 43);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%8.5x]", 0);
+	printf("\n");
+	printf("PRINTF 10\n");
+	ret = printf("[%8.5x]", 0);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%-8.5x]", 43);
+	printf("\n");
+	printf("PRINTF 10\n");
+	ret = printf("[%-8.5x]", 43);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%-8.5x]", 0);
+	printf("\n");
+	printf("PRINTF 10\n");
+	ret = printf("[%-8.5x]", 0);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+
+	ret = printf("[%.3x]", 0);
+
 	return (0);
 }
