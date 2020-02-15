@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 20:38:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/15 15:49:43 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/15 20:02:59 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,22 @@ char	*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 	size_t	i;
 
 	i = 0;
+	dprintf(2, "origin->precision = %ld, origin->width = %ld\n", origin->precision, origin->width); //DEBUG
+	dprintf(2, "option->precision = %ld, option->width = %ld\n", option->precision, option->width); //DEBUG
 	if ((option->flag & MOD_MINUS) == FALSE)
 	{
 		if (origin->precision < origin->width)
 		{	
-			dprintf(2, "HELLO\n"); //DEBUG
+			dprintf(2, "est ce que ca passe ?\n"); //DEBUG
 			ft_memset(new_str, option->flag & MOD_ZERO ? '0' : ' ',
 						option->width);
 			i = option->width;
 		}
 		ft_memset(new_str + i, '0', option->precision);
+		dprintf(2, "new_str = [%s]\n", new_str); //DEBUG
 		memjoin_free(&new_str, number, (option->width + option->precision),
 						ft_strlen(number));
+		dprintf(2, "new_str1 = [%s]\n", new_str); //DEBUG
 	}
 	else
 	{
@@ -72,6 +76,8 @@ char	*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 	{
 		if (option->flag & CONV_XMIN)
 			ft_striter(new_str, ft_tolower);
+		dprintf(2, "new_str2 = [%s]\n", new_str); //DEBUG
+		dprintf(2, "len_new_str = %lu\n", ft_strlen(new_str)); //DEBUG
 		option->len_conversion = ft_strlen(new_str);
 	}
 	return (new_str);
