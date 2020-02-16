@@ -29,13 +29,6 @@ void	preset_flag(t_state_machine *machine)
 	if ((machine->option.flag & MOD_DOT) && (machine->option.flag & CONV_D ||
 			machine->option.flag & CONV_I))
 		machine->option.flag &= ~MOD_ZERO;
-	if ((machine->option.flag & MOD_DOT && machine->option.flag & MOD_MINUS &&
-		(machine->option.flag & CONV_XMIN || machine->option.flag & CONV_XMAJ)))
-	{
-			machine->option.flag &= ~MOD_MINUS;
-			dprintf(2, "ca rentre ?\n"); //debug
-	}
-		
 }
 
 int		do_conv(va_list *argptr, t_state_machine *machine)

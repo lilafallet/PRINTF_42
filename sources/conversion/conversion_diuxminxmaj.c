@@ -24,67 +24,11 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 	cpy_option.precision = option->precision;
 	cpy_option.width = option->width;
 	number = ft_ultoa_base(x, 16);
-	dprintf(2, "option->precision = %ld, option->width = %ld\n", option->precision, option->width); //DEBUG
-	dprintf(2, "number = %s, len_number = %lu\n", number, ft_strlen(number)); //DEBUG
-	if (option->flag & MOD_DOT && option->width != 0)
-	{
-		dprintf(2, "HEY\n"); //debug
-		option->width = cpy_option.width - option->precision;
-		if (option->flag & MOD_MINUS && (option->flag & MOD_DOT) == FALSE)
-			option->precision = cpy_option.width - option->width - ft_strlen(number);
-		if (ft_strlen(number) == 1)
-		{
-			dprintf(2, "ca passe la ?"); //DEBUG
-			option->precision = option->width + ft_strlen(number);
-		}
-		else
-			option->precision = option->width;
-	}
-	if (option->precision < option->width && option->width >
-			(long)ft_strlen(number) && (option->flag & MOD_DOT) == FALSE)
-	{
-		dprintf(2, "HEY1\n"); //debug
-		option->width = option->width - ft_strlen(number);
-		if (option->precision > (long)ft_strlen(number))
-		{
-			dprintf(2, "HEY2\n"); //debug
-			option->precision = option->width - (long)ft_strlen(number);
-		}
-	}
-	if ((cpy_option.width > option->precision) &&
-				(option->width > option->precision) && 
-				(option->flag & MOD_DOT))
-	{
-		option->width = ft_strlen(number);
-		dprintf(2, "HEY3\n"); //debug
-	}
-	if (cpy_option.width < (long)ft_strlen(number))
-	{
-		dprintf(2, "HEY4\n"); //debug
-		option->width = 0;
-	}
-	if (option->precision > option->width && option->flag & MOD_DOT)
-	{
-		if (option->precision < (long)ft_strlen(number))
-		{
-			option->precision = 0;
-			dprintf(2, "HEY5\n"); //debug
-		}
-		/*else
-		{
-			dprintf(2, "HEY6\n"); //debug
-			option->precision = option->precision - ft_strlen(number);
-		}*/
-	}
-	dprintf(2, "option->precision1 = %ld, option->width1 = %ld\n", option->precision, option->width); //DEBUG
 	new_str = (char *)malloc(sizeof(char) * (option->precision +
 												option->width + 1));
 	if (new_str != NULL)
-	{
 		new_str = strjoin_xminxmaj_conversion(new_str, &cpy_option, option,
 												number);
-		dprintf(2, "HELLO\n"); //debug
-	}
 	free(number);
 	return (new_str);
 }
