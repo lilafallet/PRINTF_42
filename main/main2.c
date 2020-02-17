@@ -257,7 +257,7 @@ int	main(void)
 	
 	rett = ft_printf("[%7x]", 33);
 	printf("\n");
-	printf("PRINTF 10\n");
+	printf("PRINTF 1\n");
 	ret = printf("[%7x]", 33);
 	printf("\n");
 	printf("RET MY PRINTF : %zd\n\n", rett);
@@ -265,7 +265,7 @@ int	main(void)
 	
 	rett = ft_printf("[%-7x]", 33);
 	printf("\n");
-	printf("PRINTF 10\n");
+	printf("PRINTF 2\n");
 	ret = printf("[%-7x]", 33);
 	printf("\n");
 	printf("RET MY PRINTF : %zd\n\n", rett);
@@ -273,7 +273,7 @@ int	main(void)
 	
 	rett = ft_printf("[%.5x]", 21);
 	printf("\n");
-	printf("PRINTF 10\n");
+	printf("PRINTF 3\n");
 	ret = printf("[%.5x]", 21);
 	printf("\n");
 	printf("RET MY PRINTF : %zd\n\n", rett);
@@ -281,7 +281,7 @@ int	main(void)
 	
 	rett = ft_printf("[%.4x]", 5263);
 	printf("\n");
-	printf("PRINTF 10\n");
+	printf("PRINTF 4\n");
 	ret = printf("[%.4x]", 5263);
 	printf("\n");
 	printf("RET MY PRINTF : %zd\n\n", rett);
@@ -289,7 +289,7 @@ int	main(void)
 	
 	rett = ft_printf("[%05x]", 43);
 	printf("\n");
-	printf("PRINTF 10\n");
+	printf("PRINTF 5\n");
 	ret = printf("[%05x]", 43);
 	printf("\n");
 	printf("RET MY PRINTF : %zd\n\n", rett);
@@ -297,11 +297,131 @@ int	main(void)
 	
 	rett = ft_printf("[%03x]", 698334);
 	printf("\n");
-	printf("PRINTF 10\n");
+	printf("PRINTF 6\n");
 	ret = printf("[%05x]", 698334);
 	printf("\n");
 	printf("RET MY PRINTF : %zd\n\n", rett);
 	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%8.5x]", 34);
+	printf("\n");
+	printf("PRINTF 7\n");
+	ret = printf("[%8.5x]", 34);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%8.3x]", 8375);
+	printf("\n");
+	printf("PRINTF 8\n");
+	ret = printf("[%8.3x]", 8375);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%2.7x]", 3267);
+	printf("\n");
+	printf("PRINTF 9\n");
+	ret = printf("[%2.7x]", 3267);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%3.3x]", 6983);
+	printf("\n");
+	printf("PRINTF 10\n");
+	ret = printf("[%3.3x]", 6983);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%-8.3x]", 8375);
+	printf("\n");
+	printf("PRINTF 11\n");
+	ret = printf("[%-8.3x]", 8375);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%-2.7x]", 3267);
+	printf("\n");
+	printf("PRINTF 12\n");
+	ret = printf("[%-2.7x]", 3267);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%08.5x]", 34);
+	printf("\n");
+	printf("PRINTF 13\n");
+	ret = printf("[%08.5x]", 34);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%08.3x]", 8375);
+	printf("\n");
+	printf("PRINTF 14\n");
+	ret = printf("[%08.3x]", 8375);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%02.7x]", 3267);
+	printf("\n");
+	printf("PRINTF 15\n");
+	ret = printf("[%02.7x]", 3267);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%03.3x]", 6983);
+	printf("\n");
+	printf("PRINTF 16\n");
+	ret = printf("[%03.3x]", 6983);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%0-8.5x]", 34);
+	printf("\n");
+	printf("PRINTF 17\n");
+	ret = printf("[%0-8.5x]", 34);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
 
+	rett = ft_printf("[%0-2.7x]", 3267);
+	printf("\n");
+	printf("PRINTF 18\n");
+	ret = printf("[%0-2.7x]", 3267);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%0-3.3x]", 6983);
+	printf("\n");
+	printf("PRINTF 19\n");
+	ret = printf("[%0-3.3x]", 6983);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%.0x]", 0);
+	printf("\n");
+	printf("PRINTF 20\n");
+	ret = printf("[%.0x]", 0);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%5.0x]", 0);
+	printf("\n");
+	printf("PRINTF 21\n");
+	ret = printf("[%5.0x]", 0);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
 	return (0);
 }	
