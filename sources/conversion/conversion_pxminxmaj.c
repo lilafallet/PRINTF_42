@@ -52,10 +52,16 @@ char	*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 	dprintf(2, "option->precision = %ld, option->width = %ld\n", option->precision, option->width); //DEBUG
 	if ((option->flag & MOD_MINUS) == FALSE)
 	{
-		if (origin->precision < origin->width)
+		if (origin->precision < origin->width ||
+				option->precision == option->width)
 		{	
 			dprintf(2, "est ce que ca passe ?\n"); //DEBUG
-			ft_memset(new_str, option->flag & MOD_ZERO ? '0' : ' ',
+			if (option->precision == 0 && option->width ==
+					(long)ft_strlen(number))
+				ft_memset(new_str, ' ', option->width);
+			else
+				ft_memset(new_str, (option->flag & MOD_ZERO) &&
+						option->precision < option->width ? '0' : ' ',
 						option->width);
 			i = option->width;
 		}
@@ -72,6 +78,7 @@ char	*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 		ft_memset(new_str + option->precision + ft_strlen(number), ' ',
 					option->width);
 	}
+	new_str[option->precision + option->width + ft_strlen(number)] = '\0';
 	if (new_str != NULL)
 	{
 		if (option->flag & CONV_XMIN)

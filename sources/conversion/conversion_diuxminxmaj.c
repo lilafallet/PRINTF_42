@@ -25,8 +25,9 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 	cpy_option.precision = option->precision;
 	cpy_option.width = option->width;
 	number = ft_ultoa_base(x, 16);
+	dprintf(2, "number1 = %s\n", number); //DEBUG
 	len = ft_strlen(number);
-	dprintf(2, "option->precision1 = %lu\n, option->width1 = %lu, len1 = %lu\n",
+	dprintf(2, "option->precision1 = %lu, option->width1 = %lu, len1 = %lu\n",
 			option->precision, option->width, len); //DEBUG
 	if (option->width > (long)len && option->width > option->precision)
 	{
@@ -35,6 +36,7 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 		{
 			dprintf(2, "HELLO 2\n"); //DEBUG
 			option->width = cpy_option.width - (long)len;
+			option->precision = 0;
 		}
 		else if ((long)len < option->precision)
 		{
@@ -42,36 +44,28 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 			option->width = cpy_option.width - option->precision;
 			option->precision = cpy_option.precision - (long)len;
 		}
-	dprintf(2, "option->precision2 = %lu\n, option->width = %lu, len = %lu\n",
+	dprintf(2, "option->precision2 = %lu, option->width = %lu, len = %lu\n",
 			option->precision, option->width, len); //DEBUG
 	}
 	else if (option->width < (long)len)
 	{
 		dprintf(2, "HELLO 4\n"); //DEBUG
 		option->width = 0;
-		if (option->precision < (long)len)
+		/*if (option->precision < (long)len)
 		{
-			dprintf(2, "HELLO 5\n"); //DEBUG
+			dprintf(2, "HELLO 5\n"); //DEBUG*/
 			option->precision = cpy_option.precision - (long)len;
-		}
-		else if (option->precision <= (long)len)
+		//}
+		/*else*/ if (option->precision <= (long)len)
 		{
 			dprintf(2, "HELLO 6\n"); //DEBUG
 			option->precision = 0;
 		}
-		dprintf(2, "option->precision3 = %lu\n, option->width3 = %lu, len3 = %lu\n",
+		dprintf(2, "option->precision3 = %lu, option->width3 = %lu, len3 = %lu\n",
 			option->precision, option->width, len); //DEBUG
 	}
-	else if (option->flag & MOD_DOT && option->precision == 0 &&
-				(long)len > option->precision && option->width > (long)len)
-	{
-		dprintf(2, "HELLO 7\n"); //DEBUG
-		option->precision = 0;
-		number = NULL;
-		dprintf(2, "option->precision4 = %lu\n, option->width4 = %lu, len4 = %lu\n",
-			option->precision, option->width, len); //DEBUG
-	}
-	dprintf(2, "option->precision5 = %lu\n, option->width5 = %lu, len5 = %lu\n",
+	dprintf(2, "number2 = %s\n", number); //DEBUG
+	dprintf(2, "option->precision5 = %lu, option->width5 = %lu, len5 = %lu\n",
 			option->precision, option->width, len); //DEBUG
 	new_str = (char *)malloc(sizeof(char) * (option->precision +
 												option->width + 1));
