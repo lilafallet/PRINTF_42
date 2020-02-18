@@ -37,7 +37,6 @@ char	*strjoin_all(char *str, size_t len_str, t_option *option)
 	{
 		if (option->flag & MOD_MINUS)
 		{
-			dprintf(2, "HELLO\n"); //DEBUG
 			ft_memset(new_str, '0', option->precision);
 			ft_memcpy(new_str + option->precision, str, len_str);
 			ft_memset(new_str + option->precision + len_str, ' ',
@@ -59,7 +58,6 @@ char	*strjoin_all(char *str, size_t len_str, t_option *option)
 
 char	*strjoin_width_precision(char *str, t_option *option, size_t len_str)
 {
-	dprintf(2, "prec %zu, width %zu, len %zu\n", option->precision, option->width, len_str);
 	if (option->precision > (long)len_str)
 		option->precision -= len_str;
 	else
@@ -73,7 +71,6 @@ char	*strjoin_width_precision(char *str, t_option *option, size_t len_str)
 	}
 	else
 		option->width = 0;
-	dprintf(2, "prec3 %zu, width3 %zu, len3 %zu\n", option->precision, option->width, len_str);
 	return (strjoin_all(str, len_str, option));
 }
 

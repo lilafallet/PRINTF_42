@@ -34,6 +34,10 @@ void	memjoin_free(char **dest, char *src, int len_dest, int len_src)
 	size_t	len_str;
 
 	str = NULL;
+	if (len_src < 0)
+		len_src = 0;
+	if (len_dest < 0)
+		len_dest = 0;
 	len_str = (size_t)len_dest + (size_t)len_src;
 	if (*dest != NULL && src != NULL)
 	{
