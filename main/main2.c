@@ -253,7 +253,7 @@ int	main(void)
 	ret = printf("[%2.03u]", 8375);
 	printf("\n");
 	printf("RET MY PRINTF : %zd\n\n", rett);
-	printf("RET PRINTF : %zd\n\n", ret);*/
+	printf("RET PRINTF : %zd\n\n", ret);
 	
 	rett = ft_printf("[%7x]", 33);
 	printf("\n");
@@ -405,9 +405,9 @@ int	main(void)
 	ret = printf("[%0-3.3x]", 6983);
 	printf("\n");
 	printf("RET MY PRINTF : %zd\n\n", rett);
-	printf("RET PRINTF : %zd\n\n", ret);
+	printf("RET PRINTF : %zd\n\n", ret);*/
 	
-	/*rett = ft_printf("[%.0x]", 0);
+	rett = ft_printf("[%.0x]", 0);
 	printf("\n");
 	printf("PRINTF 20\n");
 	ret = printf("[%.0x]", 0);
@@ -421,7 +421,7 @@ int	main(void)
 	ret = printf("[%5.0x]", 0);
 	printf("\n");
 	printf("RET MY PRINTF : %zd\n\n", rett);
-	printf("RET PRINTF : %zd\n\n", ret);*/
+	printf("RET PRINTF : %zd\n\n", ret);
 	
 	return (0);
 }	

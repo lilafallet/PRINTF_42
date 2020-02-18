@@ -84,8 +84,11 @@ char	*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 		if (option->flag & CONV_XMIN)
 			ft_striter(new_str, ft_tolower);
 		dprintf(2, "new_str2 = [%s]\n", new_str); //DEBUG
-		dprintf(2, "len_new_str = %lu\n", ft_strlen(new_str)); //DEBUG
-		option->len_conversion = ft_strlen(new_str);
+		if (ft_strlen(new_str) != 0)
+			option->len_conversion = ft_strlen(new_str);
+		else
+			option->len_conversion = 1;
+		dprintf(2, "len_new_str = %d\n", option->len_conversion); //DEBUG
 	}
 	return (new_str);
 }

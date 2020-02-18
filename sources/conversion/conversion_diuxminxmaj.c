@@ -67,11 +67,27 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 	dprintf(2, "number2 = %s\n", number); //DEBUG
 	dprintf(2, "option->precision5 = %lu, option->width5 = %lu, len5 = %lu\n",
 			option->precision, option->width, len); //DEBUG
-	new_str = (char *)malloc(sizeof(char) * (option->precision +
+	if (option->precision == 0 && x == 0 && len == 1)
+	{	
+		if (cpy_option.width != 0)
+		{
+			new_str = (char *)malloc(sizeof(char) * (cpy_option.width + 1));
+			if (new_str == NULL)
+			{
+				option->len_conversion = 0;
+				return (NULL);
+			}
+		}
+		option->len_conversion = cpy_option.width != 0 ? cpy_option.width : 0;		
+		return (cpy_option.width != 0 ? ft_memset(new_str, ' ', cpy_option.width) :
+					'\0');
+	}
+	else
+		new_str = (char *)malloc(sizeof(char) * (option->precision +
 												option->width + 1));
 	if (new_str != NULL)
 		new_str = strjoin_xminxmaj_conversion(new_str, &cpy_option, option,
-												number);
+													number);
 	free(number);
 	return (new_str);
 }
