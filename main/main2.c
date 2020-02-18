@@ -405,7 +405,7 @@ int	main(void)
 	ret = printf("[%0-3.3x]", 6983);
 	printf("\n");
 	printf("RET MY PRINTF : %zd\n\n", rett);
-	printf("RET PRINTF : %zd\n\n", ret);*/
+	printf("RET PRINTF : %zd\n\n", ret);
 	
 	rett = ft_printf("[%.0x]", 0);
 	printf("\n");
@@ -421,7 +421,47 @@ int	main(void)
 	ret = printf("[%5.0x]", 0);
 	printf("\n");
 	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);*/
+	
+	rett = ft_printf("[%5p]", NULL);
+	printf("\n");
+	printf("PRINTF 21\n");
+	ret = printf("[%5p]", NULL);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
 	printf("RET PRINTF : %zd\n\n", ret);
 	
+	rett = ft_printf("[%2p]", NULL);
+	printf("\n");
+	printf("PRINTF 21\n");
+	ret = printf("[%2p]", NULL);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%.p]", NULL);
+	printf("\n");
+	printf("PRINTF 21\n");
+	ret = printf("[%.p]", NULL);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p]", 123, 1234, 12345, 123456, 1234567, 12345678, 123456789, 1234567891, 12345678912, 123456789123);
+	printf("\n");
+	printf("PRINTF 21\n");
+	ret = printf("[%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p]", 123, 1234, 12345, 123456, 1234567, 12345678, 123456789, 1234567891, 12345678912, 123456789123);
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
+	
+	rett = ft_printf("[%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p]", 123, 1234, 12345, 123456, 1234567, 12345678, 123456789, 1234567891, 12345678912, 123456789123);
+	printf("\n");
+	printf("PRINTF 21\n");
+	ret = printf("[%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p]", 123, 1234, 12345, 123456, 1234567, 12345678, 123456789, 1234567891, 12345678912, 123456789123);
+	printf("\n");
+	printf("\n");
+	printf("RET MY PRINTF : %zd\n\n", rett);
+	printf("RET PRINTF : %zd\n\n", ret);
 	return (0);
 }	

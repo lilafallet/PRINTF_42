@@ -64,13 +64,89 @@ char	*p_conv(unsigned long p, t_option *option)
 	char		*new_str;
 	char		*number;
 	t_option	cpy_option;
+	size_t		len;
 
 	cpy_option.flag = option->flag;
 	cpy_option.precision = option->precision;
 	cpy_option.width = option->width;
 	number = ft_ultoa_base(p, 16);
-	if (option->precision < option->width)
-		option->width = option->width - (option->precision + 2);
+	len = ft_strlen(number);
+	//dprintf(2, "number = %s\n", number); //DEBUG
+	if (option->width > (long)len && option->width > option->precision)
+	{
+		//dprintf(2, "HELLO 1\n"); //DEBUG
+		if ((long)len > option->precision)
+		{
+			//dprintf(2, "HELLO 2\n"); //DEBUG
+			if (option->width > ((long)len + 2))
+				option->width = cpy_option.width - ((long)len + 2);
+			else
+				option->width = 0;
+			option->precision = 0;
+		}
+		else if ((long)len < option->precision)
+		{
+			//dprintf(2, "HELLO 3\n"); //DEBUG
+			option->width = cpy_option.width - (option->precision + 2);
+			option->precision = cpy_option.precision - (long)len;
+		}
+	//dprintf(2, "option->precision2 = %lu, option->width = %lu, len = %lu\n",
+			//option->precision, option->width, len); //DEBUG
+	}
+	else if (option->width < (long)len)
+	{
+		//dprintf(2, "HELLO 4\n"); //DEBUG
+		option->width = 0;
+		/*if (option->precision < (long)len)
+		{
+			dprintf(2, "HELLO 5\n"); //DEBUG*/
+			option->precision = cpy_option.precision - (long)len;
+		//}
+		/*else*/ if (option->precision <= (long)len)
+		{
+			//dprintf(2, "HELLO 6\n"); //DEBUG
+			option->precision = 0;
+		}
+		//dprintf(2, "option->precision3 = %lu, option->width3 = %lu, len3 = %lu\n",
+			//option->precision, option->width, len); //DEBUG
+	}
+	//dprintf(2, "number2 = %s\n", number); //DEBUG
+	//dprintf(2, "option->precision5 = %lu, option->width5 = %lu, len5 = %lu\n",
+			//option->precision, option->width, len); //DEBUG
+	if (option->precision == 0 && p == 0 && len == 1 && option->flag & MOD_DOT)
+	{	
+		option->width = cpy_option.width - 2;
+		if (cpy_option.width != 0)
+		{
+			new_str = (char *)malloc(sizeof(char) * (cpy_option.width + 2));
+			if (new_str == NULL)
+			{
+				option->len_conversion = 0;
+				return (NULL);
+			}
+			new_str = strjoin_p_conversion(new_str, &cpy_option, option, "\0");
+			return (new_str);
+		}
+		new_str = (char *)malloc(sizeof(char) * (2 + 1));
+		if (new_str == NULL)
+		{
+			option->len_conversion = 0;
+			return (NULL);
+		}
+		new_str[0] = '0';
+		new_str[1] = 'x';
+		new_str[2] = '\0';
+		option->len_conversion = 2;
+		return (new_str);
+	}	
+	else
+		new_str = (char *)malloc(sizeof(char) * (option->precision +
+												option->width + 2 + 1));
+	if (new_str != NULL)
+		new_str = strjoin_p_conversion(new_str, &cpy_option, option,
+													number);
+	/*if (option->precision < option->width)
+		option->width = option->width - (ft_strlen(number) + 2);
 	else
 		option->width = 0;
 	if (option->precision > (long)ft_strlen(number))
@@ -80,7 +156,7 @@ char	*p_conv(unsigned long p, t_option *option)
 	new_str = (char *)malloc(sizeof(char) * (2 + option->precision +
 				option->width + 1));
 	if (new_str != NULL)
-		new_str = strjoin_p_conversion(new_str, &cpy_option, option, number);
+		new_str = strjoin_p_conversion(new_str, &cpy_option, option, number);*/
 	free(number);
 	return (new_str);
 }

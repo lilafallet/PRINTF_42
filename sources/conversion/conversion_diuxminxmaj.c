@@ -67,7 +67,7 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 	dprintf(2, "number2 = %s\n", number); //DEBUG
 	dprintf(2, "option->precision5 = %lu, option->width5 = %lu, len5 = %lu\n",
 			option->precision, option->width, len); //DEBUG
-	if (option->precision == 0 && x == 0 && len == 1)
+	if (option->precision == 0 && x == 0 && len == 1 && option->flag & MOD_DOT)
 	{	
 		if (cpy_option.width != 0)
 		{

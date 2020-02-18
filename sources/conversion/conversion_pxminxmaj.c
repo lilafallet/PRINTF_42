@@ -14,26 +14,45 @@
 #include <stdio.h>
 
 char	*strjoin_p_conversion(char *new_str, t_option *origin, t_option *option,
-								char *number)
+		char *number)
 {
 	size_t	i;
 
-	if (origin->precision < origin->width)
+	if ((option->flag & MOD_MINUS) == FALSE)
 	{
-		ft_memset(new_str, ' ', option->width);
-		new_str[option->width] = '0';
-		new_str[option->width + 1] = 'X';
-		i = option->width + 2;
+		if (origin->precision < origin->width || (option->precision == 0 && 
+					option->flag & MOD_DOT))
+		{
+			ft_memset(new_str, ' ', option->width);
+			new_str[option->width] = '0';
+			new_str[option->width + 1] = 'X';
+			i = option->width + 2;
+		}
+		else
+		{
+			new_str[0] = '0';
+			new_str[1] = 'X';
+			i = 2;
+		}
+		ft_memset(new_str + i, '0', option->precision);
+		memjoin_free(&new_str, number, (option->width + option->precision + 2),
+				ft_strlen(number));
 	}
-	else
+	if (option->flag & MOD_MINUS)
 	{
 		new_str[0] = '0';
 		new_str[1] = 'X';
-		i = 2;
+		option->width = origin->width - (ft_strlen(number) + 2);
+		dprintf(2, "option->width = %lu\n", option->width); //debug
+		memjoin_free(&new_str, number, 2, ft_strlen(number));
+		dprintf(2, "new_str1 = [%s]\n", new_str); //debug
+		
+		ft_memset(new_str + ft_strlen(number) + 2, ' ', option->width);
+		memjoin_free(&new_str, new_str + 2 + ft_strlen(number),
+						2 + ft_strlen(number), option->width);
+		new_str[2 + option->width + ft_strlen(number)] =
+					'\0';
 	}
-	ft_memset(new_str + i, '0', option->precision);
-	memjoin_free(&new_str, number, (option->width + option->precision + 2),
-					ft_strlen(number));
 	if (new_str != NULL)
 	{
 		ft_striter(new_str, ft_tolower);
@@ -43,7 +62,7 @@ char	*strjoin_p_conversion(char *new_str, t_option *origin, t_option *option,
 }
 
 char	*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
-										t_option *option, char *number)
+		t_option *option, char *number)
 {
 	size_t	i;
 
@@ -68,7 +87,7 @@ char	*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 		ft_memset(new_str + i, '0', option->precision);
 		dprintf(2, "new_str = [%s]\n", new_str); //DEBUG
 		memjoin_free(&new_str, number, (option->width + option->precision),
-						ft_strlen(number));
+				ft_strlen(number));
 		dprintf(2, "new_str1 = [%s]\n", new_str); //DEBUG
 	}
 	else
@@ -76,7 +95,7 @@ char	*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 		ft_memset(new_str, '0', option->precision);
 		ft_memcpy(new_str + option->precision, number, ft_strlen(number));
 		ft_memset(new_str + option->precision + ft_strlen(number), ' ',
-					option->width);
+				option->width);
 	}
 	new_str[option->precision + option->width + ft_strlen(number)] = '\0';
 	if (new_str != NULL)
