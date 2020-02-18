@@ -17,6 +17,7 @@ char	*strjoin_p_conversion(char *new_str, t_option *origin, t_option *option,
 		char *number)
 {
 	size_t	i;
+	char	*str_width;
 
 	if ((option->flag & MOD_MINUS) == FALSE)
 	{
@@ -40,16 +41,30 @@ char	*strjoin_p_conversion(char *new_str, t_option *origin, t_option *option,
 	}
 	if (option->flag & MOD_MINUS)
 	{
+		dprintf(2, "first option->width = %lu\n", option->width); //DEBUG
+		dprintf(2, "first origin->width = %lu\n", origin->width); //DEBUG
+		dprintf(2, "len number = %lu\n", ft_strlen(number)); //DEBUG
 		new_str[0] = '0';
 		new_str[1] = 'X';
-		option->width = origin->width - (ft_strlen(number) + 2);
+		if (origin->width - 1 > (long)ft_strlen(number) && origin->width >
+				(origin->width - ((long)ft_strlen(number) + 2)))
+		{
+			dprintf(2, "HELLO1\n"); //DEBUG
+			option->width = origin->width - (ft_strlen(number) + 2);
+		}
+		else
+		{
+			dprintf(2, "HELLO2\n"); //DEBUG
+			option->width = 0;
+		}
 		dprintf(2, "option->width = %lu\n", option->width); //debug
 		memjoin_free(&new_str, number, 2, ft_strlen(number));
 		dprintf(2, "new_str1 = [%s]\n", new_str); //debug
-		
-		ft_memset(new_str + ft_strlen(number) + 2, ' ', option->width);
-		memjoin_free(&new_str, new_str + 2 + ft_strlen(number),
-						2 + ft_strlen(number), option->width);
+		str_width = (char *)malloc(sizeof(char) * (option->width + 1));
+		if (new_str == NULL)
+			return (NULL);
+		ft_memset(str_width, ' ', option->width);
+		memjoin_free(&new_str, str_width, 2 + ft_strlen(number), option->width);
 		new_str[2 + option->width + ft_strlen(number)] =
 					'\0';
 	}
