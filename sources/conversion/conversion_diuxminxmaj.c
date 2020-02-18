@@ -18,12 +18,61 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 	char		*new_str;
 	char		*number;
 	t_option	cpy_option;
+	size_t		len;
 
 	x = (unsigned int)x;
 	cpy_option.flag = option->flag;
 	cpy_option.precision = option->precision;
 	cpy_option.width = option->width;
 	number = ft_ultoa_base(x, 16);
+	len = ft_strlen(number);
+	dprintf(2, "option->precision1 = %lu\n, option->width1 = %lu, len1 = %lu\n",
+			option->precision, option->width, len); //DEBUG
+	if (option->width > (long)len && option->width > option->precision)
+	{
+		dprintf(2, "HELLO 1\n"); //DEBUG
+		if ((long)len > option->precision)
+		{
+			dprintf(2, "HELLO 2\n"); //DEBUG
+			option->width = cpy_option.width - (long)len;
+		}
+		else if ((long)len < option->precision)
+		{
+			dprintf(2, "HELLO 3\n"); //DEBUG
+			option->width = cpy_option.width - option->precision;
+			option->precision = cpy_option.precision - (long)len;
+		}
+	dprintf(2, "option->precision2 = %lu\n, option->width = %lu, len = %lu\n",
+			option->precision, option->width, len); //DEBUG
+	}
+	else if (option->width < (long)len)
+	{
+		dprintf(2, "HELLO 4\n"); //DEBUG
+		option->width = 0;
+		if (option->precision < (long)len)
+		{
+			dprintf(2, "HELLO 5\n"); //DEBUG
+			option->precision = cpy_option.precision - (long)len;
+		}
+		else if (option->precision <= (long)len)
+		{
+			dprintf(2, "HELLO 6\n"); //DEBUG
+			option->precision = 0;
+		}
+		dprintf(2, "option->precision3 = %lu\n, option->width3 = %lu, len3 = %lu\n",
+			option->precision, option->width, len); //DEBUG
+	}
+	else if (option->flag & MOD_DOT && option->precision == 0 &&
+				(long)len > option->precision && option->width > (long)len)
+	{
+		dprintf(2, "HELLO 7\n"); //DEBUG
+		option->precision = 0;
+		number = NULL;
+		dprintf(2, "option->precision4 = %lu\n, option->width4 = %lu, len4 = %lu\n",
+			option->precision, option->width, len); //DEBUG
+	}
+	dprintf(2, "option->precision5 = %lu\n, option->width5 = %lu, len5 = %lu\n",
+			option->precision, option->width, len); //DEBUG
 	new_str = (char *)malloc(sizeof(char) * (option->precision +
 												option->width + 1));
 	if (new_str != NULL)
