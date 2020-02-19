@@ -97,8 +97,6 @@ char	*di_conv(long d, t_option *option)
 	{
 		number = ft_ltoa_base(d, 10);
 		len = ft_strlen(number);
-		if (option->width > (long)len)
-			option->precision = 0;
 	}
 	new_str = hub_strjoin_width_precision(number, option, len);
 	free(number);

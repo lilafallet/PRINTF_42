@@ -73,7 +73,7 @@ char	*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 		t_option *option, char *number)
 {
 	size_t	i;
-
+	char	*str_width;
 	i = 0;
 	if ((option->flag & MOD_MINUS) == FALSE)
 	{
@@ -96,12 +96,15 @@ char	*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 	}
 	else
 	{
+		str_width = (char *)malloc(sizeof(char) * (option->width + 1));
+		if (str_width == NULL)
+			return (NULL);
 		ft_memset(new_str, '0', option->precision);
-		memjoin_free(&new_str, number, (option->width + option->precision),
-				ft_strlen(number));
-	//	ft_memcpy(new_str + option->precision, number, ft_strlen(number));
-		ft_memset(new_str + option->precision + ft_strlen(number), ' ',
-				option->width);
+		memjoin_free(&new_str, number, option->precision, ft_strlen(number));
+		ft_memset(str_width, ' ', option->width);
+		memjoin_free(&new_str, str_width, option->precision + ft_strlen(number),
+						option->width);
+		new_str[option->precision + option->width + ft_strlen(number)] = '\0';
 	}
 	if (new_str != NULL)
 	{
