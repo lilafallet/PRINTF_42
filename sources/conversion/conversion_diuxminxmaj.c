@@ -13,54 +13,66 @@
 #include "libftprintf.h"
 #include <stdio.h> //DEBUG
 
+void	get_width(t_option *option, long len)
+{
+	if (option->width > len && option->width > option->precision)
+	{
+		if (len > option->precision)
+			option->width -= len;
+		else
+			option->width -= option->precision;
+	}
+	else
+		option->width = 0;
+}
+
+void	get_precision(t_option *cpy_option, t_option *option, long len)
+{
+	if ((cpy_option->width > len && len < option->precision) ||
+			(cpy_option->width < option->precision && option->precision > len))
+		option->precision -= len;
+	else
+		option->precision = 0;
+}
+
+char	*x_is_zero(t_option *option, t_option *cpy_option)
+{
+	char	*new_str;
+
+	new_str = NULL;
+	if (cpy_option->width != 0)
+	{
+		new_str = (char *)malloc(sizeof(char) * (cpy_option->width + 1));
+		if (new_str == NULL)
+		{
+			option->len_conversion = 0;
+			return (NULL);
+		}
+	}
+	option->len_conversion = cpy_option->width != 0 ? cpy_option->width : 0;		
+	return (cpy_option->width != 0 ? ft_memset(new_str, ' ', cpy_option->width)
+				: '\0');
+}
+
 char	*xminxmaj_conv(unsigned long x, t_option *option)
 {
 	char		*new_str;
 	char		*number;
 	t_option	cpy_option;
-	size_t		len;
+	long		len;
+	char		*str_zero;
 
 	x = (unsigned int)x;
-	cpy_option.flag = option->flag;
-	cpy_option.precision = option->precision;
 	cpy_option.width = option->width;
+	cpy_option.precision = option->precision;
 	number = ft_ultoa_base(x, 16);
-	len = ft_strlen(number);
-	if (option->width > (long)len && option->width > option->precision)
-	{
-		if ((long)len > option->precision)
-		{
-			option->width = cpy_option.width - (long)len;
-			option->precision = 0;
-		}
-		else if ((long)len < option->precision)
-		{
-			option->width = cpy_option.width - option->precision;
-			option->precision = cpy_option.precision - (long)len;
-		}
-	}
-	else if (option->width < (long)len)
-	{
-		option->width = 0;
-		option->precision = cpy_option.precision - (long)len;
-		if (option->precision <= (long)len)
-			option->precision = 0;
-	}
+	len = (long)ft_strlen(number);
+	new_str = NULL;
+	str_zero = NULL;
+	get_width(option, len);
+	get_precision(&cpy_option, option, len);
 	if (option->precision == 0 && x == 0 && len == 1 && option->flag & MOD_DOT)
-	{	
-		if (cpy_option.width != 0)
-		{
-			new_str = (char *)malloc(sizeof(char) * (cpy_option.width + 1));
-			if (new_str == NULL)
-			{
-				option->len_conversion = 0;
-				return (NULL);
-			}
-		}
-		option->len_conversion = cpy_option.width != 0 ? cpy_option.width : 0;		
-		return (cpy_option.width != 0 ? ft_memset(new_str, ' ', cpy_option.width) :
-				'\0');
-	}
+		str_zero = x_is_zero(option, &cpy_option); 
 	else
 		new_str = (char *)malloc(sizeof(char) * (option->precision +
 					option->width + 1));
@@ -68,7 +80,7 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 		new_str = strjoin_xminxmaj_conversion(new_str, &cpy_option, option,
 				number);
 	free(number);
-	return (new_str);
+	return (str_zero == NULL ? new_str : str_zero);
 }
 
 char	*u_conv(unsigned long u, t_option *option)
