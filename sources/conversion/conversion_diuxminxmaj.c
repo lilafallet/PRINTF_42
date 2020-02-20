@@ -71,7 +71,6 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 	return (new_str);
 }
 
-
 char	*u_conv(unsigned long u, t_option *option)
 {
 	char	*new_str;
@@ -138,13 +137,24 @@ char	*di_conv(long d, t_option *option)
 {
 	char	*str_superior;
 	char	*str_inferior;
+	size_t	len_superior;
+	size_t	len_inferior;
 
+	len_superior = 0;
+	len_inferior = 0;
 	d = (int)d;
 	if (d >= 0)
+	{
 		str_superior = d_superior_zero(option, d);
+		len_superior = ft_strlen(str_superior);
+		option->len_conversion = len_superior;
+	}
 	if (d < 0)
+	{
 		str_inferior = d_inferior_zero(d, option);
-	option->len_conversion = d < 0 ? ft_strlen(str_inferior) : ft_strlen(str_superior);
+		len_inferior = ft_strlen(str_inferior);
+		option->len_conversion = len_inferior;
+	}
 	return (d < 0 ? str_inferior : str_superior);
 }
 
