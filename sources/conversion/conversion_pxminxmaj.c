@@ -16,42 +16,37 @@
 char	*strjoin_p_conversion(char *new_str, t_option *origin, t_option *option,
 		char *number)
 {
-	size_t	i;
 	char	*str_width;
+	char	*str_precision;
+	static char 	*str_zerox = "0X";
+	size_t	i;
 
+	str_precision = NULL;
 	if ((option->flag & MOD_MINUS) == FALSE)
 	{
 		if (origin->precision < origin->width || (option->precision == 0 && 
 					option->flag & MOD_DOT))
 		{
 			ft_memset(new_str, ' ', option->width);
-			new_str[option->width] = '0';
-			new_str[option->width + 1] = 'X';
+			memjoin_free(&new_str, str_zerox, option->width, 2);
 			i = option->width + 2;
 		}
 		else
 		{
-			new_str[0] = '0';
-			new_str[1] = 'X';
+			memjoin_free(&new_str, str_zerox, 0, 2);
 			i = 2;
 		}
 		ft_memset(new_str + i, '0', option->precision);
-		memjoin_free(&new_str, number, (option->width + option->precision + 2),
-				ft_strlen(number));
+		memjoin_free(&new_str, number, (option->width + option->precision + 2), ft_strlen(number));
 	}
 	if (option->flag & MOD_MINUS)
 	{
-		new_str[0] = '0';
-		new_str[1] = 'X';
+		memjoin_free(&new_str, str_zerox, 0, 2);
 		if (origin->width - 1 > (long)ft_strlen(number) && origin->width >
 				(origin->width - ((long)ft_strlen(number) + 2)))
-		{
 			option->width = origin->width - (ft_strlen(number) + 2);
-		}
 		else
-		{
 			option->width = 0;
-		}
 		memjoin_free(&new_str, number, 2, ft_strlen(number));
 		str_width = (char *)malloc(sizeof(char) * (option->width + 1));
 		if (new_str == NULL)
