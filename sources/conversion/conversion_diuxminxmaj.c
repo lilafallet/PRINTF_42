@@ -59,56 +59,18 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 		}
 		option->len_conversion = cpy_option.width != 0 ? cpy_option.width : 0;		
 		return (cpy_option.width != 0 ? ft_memset(new_str, ' ', cpy_option.width) :
-					'\0');
+				'\0');
 	}
 	else
 		new_str = (char *)malloc(sizeof(char) * (option->precision +
-												option->width + 1));
+					option->width + 1));
 	if (new_str != NULL)
 		new_str = strjoin_xminxmaj_conversion(new_str, &cpy_option, option,
-													number);
+				number);
 	free(number);
 	return (new_str);
 }
 
-char	*di_conv(long d, t_option *option)
-{
-	char	*new_str;
-	char	*number;
-	char	*tmp_number;
-	size_t	len;
-
-	d = (int)d;
-	number = NULL;
-	len = 0;
-	if (option->precision >= option->width)
-	{
-		option->flag &= ~MOD_MINUS;
-		option->flag |= MOD_ZERO;
-	}
-	if (d < 0)
-	{
-		number = ft_ltoa_base_post(d, 10);
-		if (option->width > 0)
-			option->width--;
-		len = ft_strlen(number);
-	}
-	else if (d > 0 || (d == 0 && ((option->flag & MOD_DOT) == FALSE)))
-	{
-		number = ft_ltoa_base(d, 10);
-		len = ft_strlen(number);
-	}
-	new_str = hub_strjoin_width_precision(number, option, len);
-	free(number);
-	if (d < 0)
-	{
-		tmp_number = new_str;
-		new_str = add_minus(new_str);
-		free(tmp_number);
-	}
-	option->len_conversion = ft_strlen(new_str);
-	return (new_str);
-}
 
 char	*u_conv(unsigned long u, t_option *option)
 {
@@ -130,6 +92,62 @@ char	*u_conv(unsigned long u, t_option *option)
 	return (new_str);
 }
 
+char	*d_inferior_zero(long d, t_option *option)
+{
+	char	*new_str;
+	char	*number;
+	char	*tmp_number;
+	size_t	len;
+
+	number = ft_ltoa_base_post(d, 10);
+	if (option->width > 0)
+		option->width--;
+	len = ft_strlen(number);
+	new_str = hub_strjoin_width_precision(number, option, len);
+	free(number);
+	tmp_number = new_str;
+	new_str = add_minus(new_str);
+	free(tmp_number);
+	return (new_str);
+}
+
+char	*d_superior_zero(t_option *option, long d)
+{
+	char	*new_str;
+	char	*number;
+	size_t	len;
+
+	number = NULL;
+	len = 0;
+	if (option->precision >= option->width)
+	{
+		option->flag &= ~MOD_MINUS;
+		option->flag |= MOD_ZERO;
+	}
+	if (d > 0 || (d == 0 && ((option->flag & MOD_DOT) == FALSE)))
+	{
+		number = ft_ltoa_base(d, 10);
+		len = ft_strlen(number);
+	}
+	new_str = hub_strjoin_width_precision(number, option, len);
+	free(number);
+	return (new_str);
+}
+
+char	*di_conv(long d, t_option *option)
+{
+	char	*str_superior;
+	char	*str_inferior;
+
+	d = (int)d;
+	if (d >= 0)
+		str_superior = d_superior_zero(option, d);
+	if (d < 0)
+		str_inferior = d_inferior_zero(d, option);
+	option->len_conversion = d < 0 ? ft_strlen(str_inferior) : ft_strlen(str_superior);
+	return (d < 0 ? str_inferior : str_superior);
+}
+
 char	*puxxmaj_conv(unsigned long nb, t_option *option)
 {
 	char	*output;
@@ -140,7 +158,7 @@ char	*puxxmaj_conv(unsigned long nb, t_option *option)
 	else if (option->flag & CONV_U)
 		output = u_conv(nb, option);
 	else if ((option->flag & CONV_XMIN) ||
-				(option->flag & CONV_XMAJ))
+			(option->flag & CONV_XMAJ))
 		output = xminxmaj_conv(nb, option);
 	return (output);
 }
