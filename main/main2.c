@@ -28,14 +28,26 @@ int	main(void)
 	char	*s;
 	char	c;
 
-	rett = ft_printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d",
-				  	  -2,2,8,  -2,2,-12,  -2,2,123456789, -2,2,0,   -2,2,-12345678,
-					  -2,2,97, -2,2,-2147483648,  -2,2,2147483647);
+	/*rett = ft_printf("%7x", 33);
 	printf("\n");
 	printf("PRINTF 2\n");
-	ret = printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d",
-				  	  -2,2,8,  -2,2,-12,  -2,2,123456789, -2,2,0,   -2,2,-12345678,
-					  -2,2,97, -2,2,-2147483648,  -2,2,2147483647);
+	ret = printf("%7x", 33);
+	printf("\n");
+ 	printf("RET MY PRINTF : %d\n\n", rett);
+	printf("RET PRINTF : %d\n\n", ret);
+	
+	rett = ft_printf("%-7x", 33);
+	printf("\n");
+	printf("PRINTF 2\n");
+	ret = printf("%-7x", 33);
+	printf("\n");
+ 	printf("RET MY PRINTF : %d\n\n", rett);
+	printf("RET PRINTF : %d\n\n", ret);*/
+	
+	rett = ft_printf("%-5p", NULL);
+	printf("\n");
+	printf("PRINTF 2\n");
+	ret = printf("%5p", NULL);
 	printf("\n");
  	printf("RET MY PRINTF : %d\n\n", rett);
 	printf("RET PRINTF : %d\n\n", ret);

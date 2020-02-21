@@ -127,5 +127,13 @@ char			*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 char			*strjoin_p_conversion(char *new_str, t_option *origin,
 										t_option *option, char *number);
 unsigned long	atoul(const char *str);
+void			get_p_width(t_option *option, long len);
+char			*p_is_zero(t_option *option, t_option *cpy_option);
+char			*d_inferior_zero(long d, t_option *option);
+char			*d_superior_zero(t_option *option, long d);
+void			get_width_x(t_option *option, long len);
+void			get_precision_x(t_option *cpy_option, t_option *option,
+									long len);
+char			*x_is_zero(t_option *option, t_option *cpy_option);
 
 #endif

@@ -28,19 +28,22 @@ INCLUDES = ./includes/
 
 HEADER = $(INCLUDES)libftprintf.h
 
-SRCS += conversion_csp.c
-SRCS += conversion_di.c
-SRCS += conversion_diuxminxmaj.c
-SRCS += conversion_pxminxmaj.c
-SRCS += utils_conversion.c
 SRCS += libftprintf.c
 SRCS += state_machine.c
 SRCS += atoul.c
 SRCS += ft_ltoa_base.c
-SRCS += ft_ltoa_base_post.c
 SRCS += ft_ultoa_base.c
 SRCS += utils_precision_width.c
 SRCS += utils_string.c
+SRCS += conversion_disc.c
+SRCS += conversion_pux.c
+SRCS += join_p_conversion.c
+SRCS += join_x_conversion.c
+SRCS += process_conversion.c
+SRCS += utils_di_conversion.c
+SRCS += utils_p_conversion.c
+SRCS += utils_x_conversion.c
+SRCS += ft_ltoa_base_post.c
 
 SRCS += ft_atoi.c
 SRCS += ft_bzero.c
