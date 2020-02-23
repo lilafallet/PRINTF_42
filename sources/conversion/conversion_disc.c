@@ -58,25 +58,12 @@ char	*s_conv(char *str, t_option *option)
 
 char	*di_conv(long d, t_option *option)
 {
-	char	*str_superior;
-	char	*str_inferior;
-	size_t	len_superior;
-	size_t	len_inferior;
+	char	*str;
 
-	len_superior = 0;
-	len_inferior = 0;
 	d = (int)d;
-	if (d >= 0)
-	{
-		str_superior = d_superior_zero(option, d);
-		len_superior = ft_strlen(str_superior);
-		option->len_conversion = len_superior;
-	}
-	if (d < 0)
-	{
-		str_inferior = d_inferior_zero(d, option);
-		len_inferior = ft_strlen(str_inferior);
-		option->len_conversion = len_inferior;
-	}
-	return (d < 0 ? str_inferior : str_superior);
+	//dprintf(2, "number d = %lu\n", d); //DEBUG
+	str = d >= 0 ? d_superior_zero(option, d) : d_inferior_zero(d, option);
+	if (str != NULL)
+		option->len_conversion = ft_strlen(str);;
+	return (str);
 }

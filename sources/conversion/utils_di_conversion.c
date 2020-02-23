@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h> //DEBUG
 
 char	*add_minus(char *new_str)
 {
@@ -59,7 +60,7 @@ char	*d_superior_zero(t_option *option, long d)
 {
 	char	*new_str;
 	char	*number;
-	size_t	len;
+	long	len;
 
 	number = NULL;
 	len = 0;
@@ -68,10 +69,10 @@ char	*d_superior_zero(t_option *option, long d)
 		option->flag &= ~MOD_MINUS;
 		option->flag |= MOD_ZERO;
 	}
-	if (d > 0 || (d == 0 && ((option->flag & MOD_DOT) == FALSE)))
+	if (d > 0 || (d == 0 && (option->flag & MOD_DOT) == FALSE))
 	{
 		number = ft_ltoa_base(d, 10);
-		len = ft_strlen(number);
+		len = (long)ft_strlen(number);
 	}
 	new_str = hub_strjoin_width_precision(number, option, len);
 	free(number);

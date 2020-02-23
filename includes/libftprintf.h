@@ -113,7 +113,7 @@ char			*di_conv(long d, t_option *option);
 char			*puxxmaj_conv(unsigned long diux, t_option *option);
 int				len_width(int width);
 char			*hub_strjoin_width_precision(char *str, t_option *option,
-												size_t len_str);
+												long len_str);
 void			preset_flag(t_state_machine *machine);
 int				it_is_csp(int flag);
 char			*process_conversion(va_list *argptr, t_state_machine *machine);
