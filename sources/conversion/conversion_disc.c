@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 13:54:19 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/24 19:36:36 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,16 @@ char	*s_conv(char *str, t_option *option)
 char	*di_conv(long d, t_option *option)
 {
 	char	*str;
+	int		count;
 
+	count = 0;
+	dprintf(2, "cpy precision1 = %ld\n", option->cpy_precision); //DEBUG
+	dprintf(2, "cpy width1 = %ld\n", option->cpy_width); //DEBUG
+	dprintf(2, "precision1 = %lu\n", option->precision); //DEBUG
+	dprintf(2, "width1 = %lu\n", option->width); //DEBUG
 	d = (int)d;
-	//dprintf(2, "number d = %lu\n", d); //DEBUG
 	str = d >= 0 ? d_superior_zero(option, d) : d_inferior_zero(d, option);
 	if (str != NULL)
-		option->len_conversion = ft_strlen(str);;
+		option->len_conversion = ft_strlen(str);
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 18:06:12 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/15 20:31:41 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/24 19:08:33 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,59 @@ int	main(void)
 	char	*s;
 	char	c;
 
-	rett = ft_printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", 2, -2, 8, 2, -2,  -12, 2, -2,  123456789, 2, -2,  0 , 2, -2,  -12345678, 2, -2,  97, 2, -2, -2147483648, 2, -2, 2147483647);
-	printf("\n");
-	printf("PRINTF 1\n");
-	ret = printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", 2, -2, 8, 2, -2,  -12, 2, -2,  123456789, 2, -2,  0 , 2, -2,  -12345678, 2, -2,  97, 2, -2, -2147483648, 2, -2, 2147483647);
-	printf("\n");
- 	printf("RET MY PRINTF : %d\n\n", rett);
-	printf("RET PRINTF : %d\n\n", ret);
-	
 	rett = ft_printf("%*.*i,%*.*d", 2, -2, 8, 2, -2,  0);
 	printf("\n");
 	printf("PRINTF 1\n");
 	ret = printf("%*.*i,%*.*d", 2, -2, 8, 2, -2,  0);
+	printf("\n");
+ 	printf("RET MY PRINTF : %d\n\n", rett);
+	printf("RET PRINTF : %d\n\n", ret);
+	
+	rett = ft_printf("%0*.*i,%0*.*d", 2, -2, 8, 2, -2,  0);
+	printf("\n");
+	printf("PRINTF 1\n");
+	ret = printf("%*.*i,%*.*d", 2, -2, 8, 2, -2,  0);
+	printf("\n");
+ 	printf("RET MY PRINTF : %d\n\n", rett);
+	printf("RET PRINTF : %d\n\n", ret);
+	
+	rett = ft_printf("%*.*i,%*.*d", 2, -1, 8, 2, -1,  0);
+	printf("\n");
+	printf("PRINTF 1\n");
+	ret = printf("%*.*i,%*.*d", 2, -1, 8, 2, -1,  0);
+	printf("\n");
+ 	printf("RET MY PRINTF : %d\n\n", rett);
+	printf("RET PRINTF : %d\n\n", ret);
+	
+	
+	rett = ft_printf("%*i, %*d", -4, 8, -4, 0);
+	printf("\n");
+	printf("PRINTF 1\n");
+	ret = printf("%*i, %*d", -4, 8, -4, 0);
+	printf("\n");
+ 	printf("RET MY PRINTF : %d\n\n", rett);
+	printf("RET PRINTF : %d\n\n", ret);
+	
+	rett = ft_printf("%*.*i, %*.*d", -2, -2, 8, -2, -2, 0);
+	printf("\n");
+	printf("PRINTF 1\n");
+	ret = printf("%*.*i, %*.*d", -2, -2, 8, -2, -2, 0);
+	printf("\n");
+ 	printf("RET MY PRINTF : %d\n\n", rett);
+	printf("RET PRINTF : %d\n\n", ret);
+	
+	rett = ft_printf("%-*.*i,%-*.*d", 2, -2, 8, 2, -1,  0);
+	printf("\n");
+	printf("PRINTF 1\n");
+	ret = printf("%-*.*i,%-*.*d", 2, -2, 8, 2, -1,  0);
+	printf("\n");
+ 	printf("RET MY PRINTF : %d\n\n", rett);
+	printf("RET PRINTF : %d\n\n", ret);
+	
+	rett = ft_printf("%*.*i,%*.*d", 2, -2, 8, 2, -1,  0);
+	printf("\n");
+	printf("PRINTF 1\n");
+	ret = printf("%*.*i,%*.*d", 2, -2, 8, 2, -1,  0);
 	printf("\n");
  	printf("RET MY PRINTF : %d\n\n", rett);
 	printf("RET PRINTF : %d\n\n", ret);

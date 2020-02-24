@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:44 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/15 13:48:50 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/24 19:34:47 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ int	precision_width(char *str, t_state_machine *machine,
 	nb = *str == STAR ? va_arg(*argptr, int) : atoul(str);
 	if (nb < 0)
 	{
-		nb = -nb;
-		machine->option.flag |= MOD_MINUS;
 		if (is_precision == TRUE)
 		{
 			machine->option.precision = 0;
 			machine->option.flag &= ~MOD_DOT;
 			return (2);
 		}
+		nb = -nb;
+		machine->option.flag |= MOD_MINUS;
 	}
 	if (is_precision == TRUE)
 		machine->option.precision = nb;

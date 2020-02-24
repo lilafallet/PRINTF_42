@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 17:44:20 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/24 16:31:36 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ typedef	struct	s_option
 	long			precision;
 	int				len_conversion;
 	int				post_negt;
+	long			cpy_width;
+	long			cpy_precision;
 }				t_option;
 
 typedef struct	s_state_machine
