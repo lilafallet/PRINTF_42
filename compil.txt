@@ -1,1 +1,0 @@
-gcc main/dev_main.c -L. -lftprintf -Iincludes -Ilibft
