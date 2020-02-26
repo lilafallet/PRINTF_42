@@ -6,12 +6,11 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 20:38:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/26 13:23:37 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/26 14:39:51 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
 char	*not_mod_minus_x(char *new_str, t_option *origin, t_option *option,
 							char *number)
@@ -32,8 +31,7 @@ char	*not_mod_minus_x(char *new_str, t_option *origin, t_option *option,
 			ft_memset(new_str, (option->flag & MOD_ZERO) &&
 						option->precision < option->width &&
 						origin->precision != len &&
-						((ft_memcmp(number, "0", 1) == TRUE) ||
-						(option->flag & MOD_DOT) == FALSE) ?
+						((option->flag & MOD_DOT) == FALSE) ?
 						'0' : ' ', option->width);
 		i = option->width;
 	}
