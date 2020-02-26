@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:08 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/15 20:30:20 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/26 12:17:09 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 	get_precision_x(&cpy_option, option, len);
 	dprintf(2, "precision after = %lu\n", option->precision); //DEBUG
 	dprintf(2, "width after = %lu\n", option->width); //DEBUG
-	if (cpy_option.precision == 0 && option->width == 0 && x == 0 && len == 1 && option->flag & MOD_DOT)
+	if (((cpy_option.precision == 0 && option->width == 0) || (cpy_option.precision == 0 && option->width == len) || (cpy_option.precision == 0 && option->width > cpy_option.precision)) && x == 0 && len == 1 && option->flag & MOD_DOT)
 	{
-		dprintf(2, "CA RENTRE LA ?\n"); //DEBUG
+		dprintf(2, "CA RENTRE LA ?\n"); //DEBUG --> PAS DE 0
 		str_zero = x_is_zero(option, &cpy_option); 
 	}
 	else

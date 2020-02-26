@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 20:38:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/15 20:02:59 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/26 12:53:36 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,10 @@ char	*not_mod_minus_x(char *new_str, t_option *origin, t_option *option, char *n
 			option->precision == option->width)
 	{	
 		if (option->precision == 0 && option->width == len)
-			ft_memset(new_str, ' ', option->width);
+			ft_memset(new_str, option->flag & MOD_ZERO && (option->flag & MOD_DOT) == FALSE ? '0' : ' ', option->width);
 		else
 			ft_memset(new_str, (option->flag & MOD_ZERO) &&
-					option->precision < option->width ? '0' : ' ',
-					option->width);
+					option->precision < option->width && origin->precision != len && ((ft_memcmp(number,"0", 1) == TRUE) || (option->flag & MOD_DOT) == FALSE) ? '0' : ' ', option->width);
 		i = option->width;
 	}
 	ft_memset(new_str + i, '0', option->precision);
