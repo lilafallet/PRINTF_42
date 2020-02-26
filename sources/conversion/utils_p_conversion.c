@@ -6,17 +6,16 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 13:54:19 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/26 13:25:22 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdlib.h>
-#include <stdio.h> //debug
 
 char	*p_is_zero(t_option *option, t_option *cpy_option)
 {
-	char	*str_pzero;
+	char		*str_pzero;
 	const char	*pre_string = "0x";
 
 	option->width = cpy_option->width - 2;
@@ -39,7 +38,7 @@ char	*p_is_zero(t_option *option, t_option *cpy_option)
 	}
 	option->len_conversion = 2;
 	return (ft_strdup(pre_string));
-} 
+}
 
 void	get_p_width(t_option *option, long len)
 {
@@ -53,4 +52,4 @@ void	get_p_width(t_option *option, long len)
 	}
 	else
 		option->width = 0;
-}	
+}

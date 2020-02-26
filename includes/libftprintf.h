@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/24 16:31:36 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/26 13:33:47 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,5 +137,9 @@ void			get_width_x(t_option *option, long len);
 void			get_precision_x(t_option *cpy_option, t_option *option,
 									long len);
 char			*x_is_zero(t_option *option, t_option *cpy_option);
+int				string_str_zero(t_option *option, t_option *cpy_option,
+									unsigned int x, long len);
+int				get_size_of_nb(char *s);
+int				is_number(char *str);
 
 #endif

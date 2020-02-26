@@ -6,14 +6,13 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:44 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/24 19:34:47 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/26 13:36:41 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libftprintf.h"
 #include "libft.h"
-#include <stdio.h> //DEBUG
 
 int	letter_function(char *str, t_state_machine *machine, va_list *argptr)
 {
@@ -23,18 +22,6 @@ int	letter_function(char *str, t_state_machine *machine, va_list *argptr)
 	else
 		fill_buffer(machine, *str);
 	return (1);
-}
-
-int	get_size_of_nb(char *s)
-{
-	int		i;
-
-	i = 0;
-	if (*s == '*')
-		return (1);
-	while (ft_isdigit(s[i]) == TRUE)
-		i++;
-	return (i);
 }
 
 int	precision_width(char *str, t_state_machine *machine,
@@ -59,11 +46,6 @@ int	precision_width(char *str, t_state_machine *machine,
 	else
 		machine->option.width = nb;
 	return (get_size_of_nb(str) + is_precision);
-}
-
-int	is_number(char *str)
-{
-	return (ft_isdigit(str[0]) || str[0] == '*');
 }
 
 int	flag_function(char *str, t_state_machine *machine, va_list *argptr)

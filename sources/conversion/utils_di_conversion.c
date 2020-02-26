@@ -6,12 +6,11 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 17:53:11 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 14:11:20 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/26 13:24:09 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h> //DEBUG
 
 char	*add_minus(char *new_str)
 {

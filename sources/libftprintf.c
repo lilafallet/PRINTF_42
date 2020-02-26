@@ -6,26 +6,25 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/26 11:51:42 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/26 13:30:32 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdarg.h>
-#include <stdio.h> //DEBUG
 #include "libftprintf.h"
 #include "libft.h"
 
 void	preset_flag(t_state_machine *machine)
 {
-	 if (machine->option.flag & MOD_MINUS)
-			machine->option.flag &= ~MOD_ZERO;
+	if (machine->option.flag & MOD_MINUS)
+		machine->option.flag &= ~MOD_ZERO;
 	if (machine->option.flag & CONV_U && machine->option.flag & MOD_DOT)
 		machine->option.flag &= ~MOD_ZERO;
 	if (machine->option.precision < 0)
-			machine->option.precision = 0;
+		machine->option.precision = 0;
 	if (machine->option.width < 0)
-			machine->option.width = 0;
+		machine->option.width = 0;
 	if ((machine->option.flag & MOD_DOT) && (machine->option.flag & CONV_D ||
 			machine->option.flag & CONV_I))
 		machine->option.flag &= ~MOD_ZERO;

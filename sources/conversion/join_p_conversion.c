@@ -6,23 +6,23 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 20:38:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/15 20:02:59 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/26 13:21:52 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdio.h>
 
-void	not_mod_minus_p(char **new_str, t_option *origin , t_option *option,
+void	not_mod_minus_p(char **new_str, t_option *origin, t_option *option,
 							char *number)
 {
-	size_t	i;
-	long len_number;
-	static char 	*str_zerox = "0X";
+	size_t			i;
+	long			len_number;
+	static char		*str_zerox = "0X";
 
-	len_number = (long)ft_strlen(number); 
-	if (origin->precision < origin->width || (option->precision == 0 && 
-				option->flag & MOD_DOT))
+	len_number = (long)ft_strlen(number);
+	if (origin->precision < origin->width || (option->precision == 0 &&
+			option->flag & MOD_DOT))
 	{
 		ft_memset(*new_str, ' ', option->width);
 		memjoin_free(&(*new_str), str_zerox, option->width, 2);
@@ -43,9 +43,9 @@ void	not_mod_minus_p(char **new_str, t_option *origin , t_option *option,
 char	*strjoin_p_conversion(char *new_str, t_option *origin, t_option *option,
 		char *number)
 {
-	static char 	*str_zerox = "0X";
-	char	*str_width;
-	long	len_number;
+	static char		*str_zerox = "0X";
+	char			*str_width;
+	long			len_number;
 
 	len_number = (long)ft_strlen(number);
 	if ((option->flag & MOD_MINUS) == FALSE)
@@ -68,5 +68,3 @@ char	*strjoin_p_conversion(char *new_str, t_option *origin, t_option *option,
 	}
 	return (new_str);
 }
-
-

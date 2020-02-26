@@ -6,12 +6,11 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:08 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/26 12:17:09 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/26 13:14:53 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h> //DEBUG
 
 char	*xminxmaj_conv(unsigned long x, t_option *option)
 {
@@ -22,8 +21,6 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 	char		*str_zero;
 
 	x = (unsigned int)x;
-	dprintf(2, "precision = %lu\n", option->precision); //DEBUG
-	dprintf(2, "width = %lu\n", option->width); //DEBUG
 	cpy_option.width = option->width;
 	cpy_option.precision = option->precision;
 	number = ft_ultoa_base(x, 16);
@@ -32,22 +29,14 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 	str_zero = NULL;
 	get_width_x(option, len);
 	get_precision_x(&cpy_option, option, len);
-	dprintf(2, "precision after = %lu\n", option->precision); //DEBUG
-	dprintf(2, "width after = %lu\n", option->width); //DEBUG
-	if (((cpy_option.precision == 0 && option->width == 0) || (cpy_option.precision == 0 && option->width == len) || (cpy_option.precision == 0 && option->width > cpy_option.precision)) && x == 0 && len == 1 && option->flag & MOD_DOT)
-	{
-		dprintf(2, "CA RENTRE LA ?\n"); //DEBUG --> PAS DE 0
-		str_zero = x_is_zero(option, &cpy_option); 
-	}
+	if (string_str_zero(option, &cpy_option, x, len) == TRUE)
+		str_zero = x_is_zero(option, &cpy_option);
 	else
 		new_str = (char *)malloc(sizeof(char) * (option->precision +
 					option->width + 1));
 	if (new_str != NULL)
-	{
-		dprintf(2, "CA RENTRE ICI ?\n"); //DEBUG
 		new_str = strjoin_xminxmaj_conversion(new_str, &cpy_option, option,
 				number);
-	}
 	free(number);
 	return (str_zero == NULL ? new_str : str_zero);
 }

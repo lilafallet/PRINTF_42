@@ -6,7 +6,7 @@
 #    By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 15:19:15 by lfallet           #+#    #+#              #
-#    Updated: 2020/02/15 12:10:50 by lfallet          ###   ########.fr        #
+#    Updated: 2020/02/26 13:35:16 by lfallet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRCS += utils_di_conversion.c
 SRCS += utils_p_conversion.c
 SRCS += utils_x_conversion.c
 SRCS += ft_ltoa_base_post.c
+SRCS += utils_number.c
 
 SRCS += ft_atoi.c
 SRCS += ft_bzero.c

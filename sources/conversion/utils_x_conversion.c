@@ -6,12 +6,21 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:08 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/15 20:30:20 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/26 13:28:36 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h> //DEBUG
+
+int		string_str_zero(t_option *option, t_option *cpy_option, unsigned int x,
+							long len)
+{
+	return ((((cpy_option->precision == 0 && option->width == 0) ||
+			(cpy_option->precision == 0 && option->width == len) ||
+			(cpy_option->precision == 0 &&
+			option->width > cpy_option->precision)) && x == 0 && len == 1 &&
+			option->flag & MOD_DOT) == TRUE ? TRUE : FALSE);
+}
 
 void	get_width_x(t_option *option, long len)
 {
@@ -49,7 +58,7 @@ char	*x_is_zero(t_option *option, t_option *cpy_option)
 			return (NULL);
 		}
 	}
-	option->len_conversion = cpy_option->width != 0 ? cpy_option->width : 0;		
+	option->len_conversion = cpy_option->width != 0 ? cpy_option->width : 0;
 	return (cpy_option->width != 0 ? ft_memset(new_str, ' ', cpy_option->width)
 				: '\0');
 }
