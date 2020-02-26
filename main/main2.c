@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 18:06:12 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/26 12:50:01 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/26 13:51:27 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	main(void)
 	ret = printf("%*.*i,%*.*d", 2, -2, 8, 2, -1,  0);
 	printf("\n");
  	printf("RET MY PRINTF : %d\n\n", rett);
-	printf("RET PRINTF : %d\n\n", ret);*/
+	printf("RET PRINTF : %d\n\n", ret);
 	
 	rett = ft_printf("%.*x,%.*X", 1, 0, 1, 0);
 	printf("\n");
@@ -265,6 +265,38 @@ int	main(void)
 	printf("\n");
 	printf("PRINTF 23 only x\n");
 	ret = printf("%0*x,%0*X %0*x %0*X", 3, 8, 3, 8, 3, 0, 3, 0);
+	printf("\n");
+ 	printf("RET MY PRINTF : %d\n\n", rett);
+	printf("RET PRINTF : %d\n\n", ret);*/
+	
+	rett = ft_printf("%014.1x", 428234525);
+	printf("\n");
+	printf("PRINTF 1\n");
+	ret = printf("%014.1x", 428234525);
+	printf("\n");
+ 	printf("RET MY PRINTF : %d\n\n", rett);
+	printf("RET PRINTF : %d\n\n", ret);
+	
+	rett = ft_printf("%020.2x", 313571901);
+	printf("\n");
+	printf("PRINTF 2\n");
+	ret = printf("%020.2x", 313571901);
+	printf("\n");
+ 	printf("RET MY PRINTF : %d\n\n", rett);
+	printf("RET PRINTF : %d\n\n", ret);
+	
+	rett = ft_printf("%014.1x", 323292131);
+	printf("\n");
+	printf("PRINTF 3\n");
+	ret = printf("%014.1x", 323292131);
+	printf("\n");
+ 	printf("RET MY PRINTF : %d\n\n", rett);
+	printf("RET PRINTF : %d\n\n", ret);
+	
+	rett = ft_printf("%018.5x", 473439060);
+	printf("\n");
+	printf("PRINTF 3\n");
+	ret = printf("%018.5x", 473439060);
 	printf("\n");
  	printf("RET MY PRINTF : %d\n\n", rett);
 	printf("RET PRINTF : %d\n\n", ret);
