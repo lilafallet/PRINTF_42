@@ -62,7 +62,7 @@ char	*p_conv(unsigned long p, t_option *option)
 		return (new_str);
 	}
 	new_str = (char *)malloc(sizeof(char) * (size_t)(option->precision +
-				option->width + 2 + 1));
+				option->width + 2 + 1)); // + 2 ??!!
 	if (new_str != NULL)
 		new_str = strjoin_p_conversion(new_str, &cpy_option, option, number);
 	free(number);

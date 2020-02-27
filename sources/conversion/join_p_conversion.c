@@ -30,7 +30,8 @@ static void	not_mod_minus_p(char **new_str, t_option *origin, t_option *option,
 	}
 	else
 	{
-		memjoin_free(&(*new_str), str_zerox, 0, 2);
+		memjoin_free(new_str, str_zerox, 0, //option->precision + option->width + 1,
+					 2);
 		i = 2;
 	}
 	ft_memset(*new_str + i, '0', (size_t)option->precision);
