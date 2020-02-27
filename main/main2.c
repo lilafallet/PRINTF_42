@@ -301,5 +301,5 @@ int	main(void)
  	printf("RET MY PRINTF : %d\n\n", rett);
 	printf("RET PRINTF : %d\n\n", ret);
 	
-	return (0);
+	return (ft_printf(""));
 }
