@@ -126,7 +126,8 @@ fclean : clean
 	$(MAKE) fclean -C $(LIBDIR)
 	$(RM) $(NAME)
 
-re : fclean all
+re : fclean
+	$(MAKE)
 
 .PHONY: all clean fclean re FORCE
 #.SILENT:

@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-static void	l_fill_str_post(char *str, long nb, size_t *size, int base)
+static void	l_fill_str_post(char *str, long nb, size_t *size, long base)
 {
 	if (nb < 0)
 		l_fill_str_post(str, nb * -1, size, base);
@@ -34,7 +34,7 @@ static void	l_fill_str_post(char *str, long nb, size_t *size, int base)
 	}
 }
 
-char		*ft_ltoa_base_post(long nb, int base)
+char		*ft_ltoa_base_post(long nb, long base)
 {
 	size_t				size;
 	long				tmp;

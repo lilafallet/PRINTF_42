@@ -72,24 +72,25 @@ enum				e_state
 
 typedef	struct	s_option
 {
-	int				flag;
 	long			width;
 	long			precision;
-	int				len_conversion;
-	int				post_negt;
 	long			cpy_width;
 	long			cpy_precision;
+	size_t			len_conversion;
+	int				flag;
+	int				post_negt;
 }				t_option;
 
 typedef struct	s_state_machine
 {
 	char			buffer[BUFFER_SIZE];
 	char			*out;
-	enum e_state	state;
 	size_t			len;
 	size_t			len_out;
 	struct s_option	option;
+	enum e_state	state;
 	char			char_error;
+	char			pad[3];
 }				t_state_machine;
 
 typedef	int		(*t_function)(char *, t_state_machine *, va_list *);
@@ -99,7 +100,8 @@ int				is_conversion(char c);
 void			ft_bzero(void *s, size_t n);
 int				is_flag(char c);
 void			fill_buffer(t_state_machine *machine, char c);
-void			memjoin_free(char **dest, char *src, int len_dest, int len_src);
+void			memjoin_free(char **dest, char *src, size_t len_dest,
+									size_t len_src);
 int				letter_function(char *str, t_state_machine *machine,
 									va_list *argptr);
 int				flag_function(char *str, t_state_machine *machine,
@@ -120,9 +122,9 @@ void			preset_flag(t_state_machine *machine);
 int				it_is_csp(int flag);
 char			*process_conversion(va_list *argptr, t_state_machine *machine);
 void			initialisation(t_state_machine *machine);
-char			*ft_ultoa_base(unsigned long nb, int base);
-char			*ft_ltoa_base(long nb, int base);
-char			*ft_ltoa_base_post(long nb, int base);
+char			*ft_ultoa_base(unsigned long nb, unsigned long base);
+char			*ft_ltoa_base(long nb, long base);
+char			*ft_ltoa_base_post(long nb, long base);
 char			*add_minus(char *new_str);
 char			*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 												t_option *option, char *number);

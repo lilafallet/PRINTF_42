@@ -26,36 +26,36 @@ int		len_width(int width)
 	return (i);
 }
 
-char	*strjoin_all(char *str, long len_str, t_option *option)
+static char	*strjoin_all(char *str, long len_str, t_option *option)
 {
 	char	*new_str;
 
-	new_str = (char *)malloc(sizeof(char) * (len_str + option->precision
+	new_str = (char *)malloc(sizeof(char) * (size_t)(len_str + option->precision
 				+ option->width + 1));
 	if (new_str != NULL)
 	{
 		if (option->flag & MOD_MINUS)
 		{
-			ft_memset(new_str, '0', option->precision);
-			ft_memcpy(new_str + option->precision, str, len_str);
+			ft_memset(new_str, '0', (size_t)option->precision);
+			ft_memcpy(new_str + option->precision, str, (size_t)len_str);
 			ft_memset(new_str + option->precision + len_str, ' ',
-						option->width);
+						(size_t)option->width);
 		}
 		else
 		{
 			ft_memset(new_str, option->flag & MOD_ZERO ? '0' : ' ',
-						option->width);
+						(size_t)option->width);
 			ft_memset(new_str + option->width, option->flag & CONV_C ?
-						' ' : '0', option->precision);
+						' ' : '0', (size_t)option->precision);
 			ft_memcpy(new_str + option->width + option->precision, str,
-						len_str);
+						(size_t)len_str);
 		}
 		new_str[len_str + option->precision + option->width] = '\0';
 	}
 	return (new_str);
 }
 
-char	*strjoin_width_precision(char *str, t_option *option, long len_str)
+static char	*strjoin_width_precision(char *str, t_option *option, long len_str)
 {
 	if (option->precision > len_str)
 		option->precision -= len_str;
@@ -82,10 +82,10 @@ char	*hub_strjoin_width_precision(char *str, t_option *option,
 			(((option->flag & CONV_D) == FALSE) ||
 			((option->flag & CONV_I) == FALSE)))
 	{
-		new_str = (char *)malloc(sizeof(char) * (len_str + 1));
+		new_str = (char *)malloc(sizeof(char) * (size_t)(len_str + 1));
 		if (new_str != NULL)
 		{
-			ft_memcpy(new_str, str, len_str);
+			ft_memcpy(new_str, str, (size_t)len_str);
 			new_str[len_str] = '\0';
 		}
 	}

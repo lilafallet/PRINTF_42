@@ -24,12 +24,12 @@ int	letter_function(char *str, t_state_machine *machine, va_list *argptr)
 	return (1);
 }
 
-int	precision_width(char *str, t_state_machine *machine,
+static int	precision_width(char *str, t_state_machine *machine,
 		va_list *argptr, int is_precision)
 {
 	long				nb;
 
-	nb = *str == STAR ? va_arg(*argptr, int) : atoul(str);
+	nb = *str == STAR ? (long)va_arg(*argptr, int) : (long)atoul(str);
 	if (nb < 0)
 	{
 		if (is_precision == TRUE)

@@ -47,7 +47,7 @@ char	*d_inferior_zero(long d, t_option *option)
 	if (option->width > 0)
 		option->width--;
 	len = ft_strlen(number);
-	new_str = hub_strjoin_width_precision(number, option, len);
+	new_str = hub_strjoin_width_precision(number, option, (long)len);
 	free(number);
 	tmp_number = new_str;
 	new_str = add_minus(new_str);

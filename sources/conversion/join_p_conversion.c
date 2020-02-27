@@ -13,7 +13,7 @@
 #include "libftprintf.h"
 #include <stdio.h>
 
-void	not_mod_minus_p(char **new_str, t_option *origin, t_option *option,
+static void	not_mod_minus_p(char **new_str, t_option *origin, t_option *option,
 							char *number)
 {
 	size_t			i;
@@ -24,18 +24,18 @@ void	not_mod_minus_p(char **new_str, t_option *origin, t_option *option,
 	if (origin->precision < origin->width || (option->precision == 0 &&
 			option->flag & MOD_DOT))
 	{
-		ft_memset(*new_str, ' ', option->width);
-		memjoin_free(&(*new_str), str_zerox, option->width, 2);
-		i = option->width + 2;
+		ft_memset(*new_str, ' ', (size_t)option->width);
+		memjoin_free(&(*new_str), str_zerox, (size_t)option->width, 2);
+		i = (size_t)option->width + 2;
 	}
 	else
 	{
 		memjoin_free(&(*new_str), str_zerox, 0, 2);
 		i = 2;
 	}
-	ft_memset(*new_str + i, '0', option->precision);
-	memjoin_free(&(*new_str), number, (option->width + option->precision + 2),
-					len_number);
+	ft_memset(*new_str + i, '0', (size_t)option->precision);
+	memjoin_free(&(*new_str), number,
+		(size_t)(option->width + option->precision + 2), (size_t)len_number);
 	ft_striter(*new_str, ft_tolower);
 	option->len_conversion = ft_strlen(*new_str);
 }
@@ -58,10 +58,11 @@ char	*strjoin_p_conversion(char *new_str, t_option *origin, t_option *option,
 			option->width = origin->width - (len_number + 2);
 		else
 			option->width = 0;
-		memjoin_free(&new_str, number, 2, len_number);
-		str_width = (char *)malloc(sizeof(char) * (option->width + 1));
-		ft_memset(str_width, ' ', option->width);
-		memjoin_free(&new_str, str_width, 2 + len_number, option->width);
+		memjoin_free(&new_str, number, 2, (size_t)len_number);
+		str_width = (char *)malloc(sizeof(char) * (size_t)(option->width + 1));
+		ft_memset(str_width, ' ', (size_t)option->width);
+		memjoin_free(&new_str, str_width, 2 + (size_t)len_number,
+				(size_t)option->width);
 		new_str[2 + option->width + len_number] = '\0';
 		ft_striter(new_str, ft_tolower);
 		option->len_conversion = ft_strlen(new_str);

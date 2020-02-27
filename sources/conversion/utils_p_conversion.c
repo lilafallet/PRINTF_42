@@ -21,7 +21,8 @@ char	*p_is_zero(t_option *option, t_option *cpy_option)
 	option->width = cpy_option->width - 2;
 	if (cpy_option->width != 0)
 	{
-		str_pzero = (char *)malloc(sizeof(char) * (cpy_option->width + 2));
+		str_pzero = (char *)malloc(sizeof(char) *
+			(size_t)(cpy_option->width + 2));
 		if (str_pzero == NULL)
 		{
 			option->len_conversion = 0;
@@ -29,12 +30,6 @@ char	*p_is_zero(t_option *option, t_option *cpy_option)
 		}
 		str_pzero = strjoin_p_conversion(str_pzero, cpy_option, option, "\0");
 		return (str_pzero);
-	}
-	str_pzero = (char *)malloc(sizeof(char) * (2 + 1));
-	if (str_pzero == NULL)
-	{
-		option->len_conversion = 0;
-		return (NULL);
 	}
 	option->len_conversion = 2;
 	return (ft_strdup(pre_string));

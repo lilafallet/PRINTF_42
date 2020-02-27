@@ -23,11 +23,11 @@ char	*c_conv(int c, t_option *option)
 		return (NULL);
 	option->precision = 0;
 	option->flag &= ~MOD_DOT;
-	convert_str[0] = c;
+	convert_str[0] = (char)c;
 	convert_str[1] = '\0';
 	new_str = NULL;
 	new_str = hub_strjoin_width_precision(convert_str, option, 1);
-	option->len_conversion = option->width + option->precision + 1;
+	option->len_conversion = (size_t)(option->width + option->precision + 1);
 	return (new_str);
 }
 
@@ -41,7 +41,7 @@ char	*s_conv(char *str, t_option *option)
 	if (str == NULL)
 		str = null;
 	if (option->flag & MOD_DOT)
-		str_out = ft_strndup(str, option->precision);
+		str_out = ft_strndup(str, (size_t)option->precision);
 	else
 		str_out = ft_strdup(str);
 	len = ft_strlen(str_out);
@@ -49,7 +49,7 @@ char	*s_conv(char *str, t_option *option)
 		option->width = 0;
 	option->precision = 0;
 	option->flag &= ~MOD_DOT;
-	new_str = hub_strjoin_width_precision(str, option, len);
+	new_str = hub_strjoin_width_precision(str, option, (long)len);
 	option->len_conversion = ft_strlen(new_str);
 	free(str_out);
 	return (new_str);
@@ -58,9 +58,7 @@ char	*s_conv(char *str, t_option *option)
 char	*di_conv(long d, t_option *option)
 {
 	char	*str;
-	int		count;
 
-	count = 0;
 	d = (int)d;
 	str = d >= 0 ? d_superior_zero(option, d) : d_inferior_zero(d, option);
 	if (str != NULL)

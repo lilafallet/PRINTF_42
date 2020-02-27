@@ -15,7 +15,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-static void	ul_fill_str(char *str, unsigned long nb, size_t *size, int base)
+static void	ul_fill_str(char *str, unsigned long nb, size_t *size,
+					unsigned long base)
 {
 	if (nb < (unsigned long)base)
 	{
@@ -32,7 +33,7 @@ static void	ul_fill_str(char *str, unsigned long nb, size_t *size, int base)
 	}
 }
 
-char		*ft_ultoa_base(unsigned long nb, int base)
+char		*ft_ultoa_base(unsigned long nb, unsigned long base)
 {
 	size_t				size;
 	unsigned long		tmp;

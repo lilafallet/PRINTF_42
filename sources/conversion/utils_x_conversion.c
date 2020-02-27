@@ -51,14 +51,16 @@ char	*x_is_zero(t_option *option, t_option *cpy_option)
 	new_str = NULL;
 	if (cpy_option->width != 0)
 	{
-		new_str = (char *)malloc(sizeof(char) * (cpy_option->width + 1));
+		new_str = (char *)malloc(sizeof(char)
+				* (size_t)(cpy_option->width + 1));
 		if (new_str == NULL)
 		{
 			option->len_conversion = 0;
 			return (NULL);
 		}
 	}
-	option->len_conversion = cpy_option->width != 0 ? cpy_option->width : 0;
-	return (cpy_option->width != 0 ? ft_memset(new_str, ' ', cpy_option->width)
-				: '\0');
+	option->len_conversion = (size_t)cpy_option->width != 0
+				? (size_t)cpy_option->width : 0;
+	return (cpy_option->width != 0 ? ft_memset(new_str, ' ',
+				(size_t)cpy_option->width) : '\0');
 }

@@ -29,10 +29,10 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 	str_zero = NULL;
 	get_width_x(option, len);
 	get_precision_x(&cpy_option, option, len);
-	if (string_str_zero(option, &cpy_option, x, len) == TRUE)
+	if (string_str_zero(option, &cpy_option, (unsigned int)x, (long)len) == TRUE)
 		str_zero = x_is_zero(option, &cpy_option);
 	else
-		new_str = (char *)malloc(sizeof(char) * (option->precision +
+		new_str = (char *)malloc(sizeof(char) * (size_t)(option->precision +
 					option->width + 1));
 	if (new_str != NULL)
 		new_str = strjoin_xminxmaj_conversion(new_str, &cpy_option, option,
@@ -61,7 +61,7 @@ char	*p_conv(unsigned long p, t_option *option)
 		new_str = p_is_zero(option, &cpy_option);
 		return (new_str);
 	}
-	new_str = (char *)malloc(sizeof(char) * (option->precision +
+	new_str = (char *)malloc(sizeof(char) * (size_t)(option->precision +
 				option->width + 2 + 1));
 	if (new_str != NULL)
 		new_str = strjoin_p_conversion(new_str, &cpy_option, option, number);
@@ -83,7 +83,7 @@ char	*u_conv(unsigned long u, t_option *option)
 		number = ft_ultoa_base(u, 10);
 		len = ft_strlen(number);
 	}
-	new_str = hub_strjoin_width_precision(number, option, len);
+	new_str = hub_strjoin_width_precision(number, option, (long)len);
 	free(number);
 	option->len_conversion = ft_strlen(new_str);
 	return (new_str);

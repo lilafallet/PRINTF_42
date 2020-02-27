@@ -27,7 +27,7 @@ unsigned long	atoul(const char *str)
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result = result * 10 + (str[i] - 48);
+		result = result * 10 + (unsigned long)(str[i] - 48);
 		i++;
 	}
 	return (result);

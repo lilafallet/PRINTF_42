@@ -30,7 +30,7 @@ void	preset_flag(t_state_machine *machine)
 		machine->option.flag &= ~MOD_ZERO;
 }
 
-int		do_conv(va_list *argptr, t_state_machine *machine)
+static int	do_conv(va_list *argptr, t_state_machine *machine)
 {
 	char	*output;
 
@@ -46,7 +46,7 @@ int		do_conv(va_list *argptr, t_state_machine *machine)
 	return (0);
 }
 
-int		parser(char *format, va_list *argptr, t_state_machine *machine)
+static int	parser(char *format, va_list *argptr, t_state_machine *machine)
 {
 	static	t_function	function[3] = {letter_function, flag_function,
 										conversion_function};
@@ -83,5 +83,5 @@ int		ft_printf(const char *format, ...)
 	machine.len_out += machine.len;
 	ret_printf = write(1, machine.out, machine.len_out);
 	free(machine.out);
-	return (ret != FAILURE ? ret_printf : FAILURE);
+	return (ret != FAILURE ? (int)ret_printf : FAILURE);
 }
