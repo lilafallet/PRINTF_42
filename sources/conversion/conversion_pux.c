@@ -6,12 +6,11 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:08 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/28 18:06:05 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/28 18:48:46 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h> //DEBUG
 
 char	*xminxmaj_conv(unsigned long x, t_option *option)
 {
@@ -30,7 +29,8 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 	str_zero = NULL;
 	get_width_x(option, len);
 	get_precision_x(&cpy_option, option, len);
-	if (string_str_zero(option, &cpy_option, (unsigned int)x, (long)len) == TRUE)
+	if (string_str_zero(option, &cpy_option, (unsigned int)x, (long)len)
+							== TRUE)
 		str_zero = x_is_zero(option, &cpy_option);
 	else
 		new_str = (char *)malloc(sizeof(char) * (size_t)(option->precision +
@@ -58,17 +58,20 @@ char	*p_conv(unsigned long p, t_option *option)
 			option->width = 0;
 	else
 		get_p_width(option, len);
-	if (p == 0 && cpy_option.width != 0 && len == 1 && (option->flag & MOD_ZERO))
+	if (p == 0 && cpy_option.width != 0 && len == 1 &&
+			(option->flag & MOD_ZERO))
 		option->precision = cpy_option.width - 2 - len;
 	else
-		option->precision = option->precision <= len ? 0 : option->precision - len;
+		option->precision = option->precision <= len ?
+								0 : option->precision - len;
 	if (option->precision == 0 && p == 0 && len == 1 && option->flag & MOD_DOT)
 	{
 		free(number);
 		new_str = p_is_zero(option, &cpy_option);
 		return (new_str);
 	}
-	new_str = (char *)malloc(sizeof(char) * (size_t)(option->precision + option->width + len + 1)); // + 2 ??!!
+	new_str = (char *)malloc(sizeof(char) * (size_t)(option->precision +
+				option->width + len + 1));
 	if (new_str != NULL)
 		new_str = strjoin_p_conversion(new_str, &cpy_option, option, number);
 	free(number);

@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/28 17:36:26 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/28 18:25:50 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int		ft_printf(const char *format, ...)
 	int					ret;
 	ssize_t				ret_printf;
 
+	if (format != NULL)
 	ft_bzero(&machine, sizeof(machine));
 	va_start(argptr, format);
 	ret = parser((char *)format, &argptr, &machine);

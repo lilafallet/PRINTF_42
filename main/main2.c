@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 18:06:12 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/28 16:55:14 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/28 18:25:58 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -349,5 +349,17 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 	
-	return (ft_printf(""));
+	printf("\033[31;01mNUMERO 29\033[00m\n"); //NUMERO 29
+  	ret = printf("%0j", NULL);
+	printf("||");
+	printf("\n");
+	printf("ret : %d\n");
+	printf("\033[32;01m");
+  	ret = ft_printf("%j", NULL); //MYPRINTF
+	printf("||");
+	printf("\n");
+	printf("ret : %d\n"); //RETMYPRINTF
+	printf("\033[00m");
+	
+	return (ft_printf(NULL));
 }

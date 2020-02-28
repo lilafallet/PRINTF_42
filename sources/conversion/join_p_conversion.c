@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 20:38:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/28 18:06:26 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/28 18:46:03 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ static void	not_mod_minus_p(char **new_str, t_option *origin, t_option *option,
 		i = 2;
 	}
 	ft_memset(*new_str + i, '0', (size_t)option->precision);
-	memjoin_free(new_str, number, (option->width + option->precision + option->len_src), len_number);
+	memjoin_free(new_str, number, (option->width + option->precision +
+									option->len_src), len_number);
 	ft_striter(*new_str, ft_tolower);
 	option->len_conversion = ft_strlen(*new_str);
 }
