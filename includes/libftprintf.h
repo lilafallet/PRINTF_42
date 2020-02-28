@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/26 13:33:47 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/28 16:29:11 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ typedef	struct	s_option
 	size_t			len_conversion;
 	int				flag;
 	int				post_negt;
+	size_t			len_dest;
+	size_t			len_src;
 }				t_option;
 
 typedef struct	s_state_machine
@@ -100,8 +102,9 @@ int				is_conversion(char c);
 void			ft_bzero(void *s, size_t n);
 int				is_flag(char c);
 void			fill_buffer(t_state_machine *machine, char c);
+void			memjoin_free_option(char **dest, char *src, t_option *option);
 void			memjoin_free(char **dest, char *src, size_t len_dest,
-									size_t len_src);
+								size_t len_src);
 int				letter_function(char *str, t_state_machine *machine,
 									va_list *argptr);
 int				flag_function(char *str, t_state_machine *machine,

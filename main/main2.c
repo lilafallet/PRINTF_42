@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 18:06:12 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/26 13:51:27 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/28 16:55:14 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -267,7 +267,7 @@ int	main(void)
 	ret = printf("%0*x,%0*X %0*x %0*X", 3, 8, 3, 8, 3, 0, 3, 0);
 	printf("\n");
  	printf("RET MY PRINTF : %d\n\n", rett);
-	printf("RET PRINTF : %d\n\n", ret);*/
+	printf("RET PRINTF : %d\n\n", ret);
 	
 	rett = ft_printf("%014.1x", 428234525);
 	printf("\n");
@@ -299,7 +299,55 @@ int	main(void)
 	ret = printf("%018.5x", 473439060);
 	printf("\n");
  	printf("RET MY PRINTF : %d\n\n", rett);
-	printf("RET PRINTF : %d\n\n", ret);
+	printf("RET PRINTF : %d\n\n", ret);*/
+	
+	printf("\033[31;01mNUMERO 19\033[00m\n"); //NUMERO 19
+  	ret = printf("%.12p", main);
+	printf("||");
+	printf("\n");
+	printf("ret : %d\n", ret);
+	printf("\033[32;01m");
+  	ret = ft_printf("%.12p", main); //MYPRINTF
+	printf("||");
+	printf("\n");
+	printf("ret : %d\n", ret); //RETMYPRINTF
+	printf("\033[00m");
+	
+	printf("\033[31;01mNUMERO 21\033[00m\n"); //NUMERO 21
+  	ret = printf("%12p", main);
+	printf("||");
+	printf("\n");
+	printf("ret : %d\n");
+	printf("\033[32;01m");
+  	ret = ft_printf("%12p", main); //MYPRINTF
+	printf("||");
+	printf("\n");
+	printf("ret : %d\n"); //RETMYPRINTF
+	printf("\033[00m");
+	
+	printf("\033[31;01mNUMERO 22\033[00m\n"); //NUMERO 22
+  	ret = printf("%012p", main);
+	printf("||");
+	printf("\n");
+	printf("ret : %d\n");
+	printf("\033[32;01m");
+  	ret = ft_printf("%012p", main); //MYPRINTF
+	printf("||");
+	printf("\n");
+	printf("ret : %d\n"); //RETMYPRINTF
+	printf("\033[00m");
+	
+	printf("\033[31;01mNUMERO 29\033[00m\n"); //NUMERO 29
+  	ret = printf("%012p", NULL);
+	printf("||");
+	printf("\n");
+	printf("ret : %d\n");
+	printf("\033[32;01m");
+  	ret = ft_printf("%012p", NULL); //MYPRINTF
+	printf("||");
+	printf("\n");
+	printf("ret : %d\n"); //RETMYPRINTF
+	printf("\033[00m");
 	
 	return (ft_printf(""));
 }

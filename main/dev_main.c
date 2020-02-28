@@ -5,7 +5,8 @@
 int	main(void)
 {
 	int	n = 42;
-	ssize_t	ret = 0;
+	int	ret;
+	int	rett;
 	char *str = "est-ce que ca marche ?";
 
 	//ENTIERS
@@ -16,12 +17,12 @@ int	main(void)
 	ret = printf("%d %d %d %d %d %d %d %d\n", 0, 1, 9, 10, 11, 9999, 10000, 100001);
 	printf("||");
 	printf("\n");
-	printf("ret : %d\n");
+	printf("ret : %d\n", ret);
 	printf("\033[32;01m");
 	ret = ft_printf("%d %d %d %d %d %d %d %d\n", 0, 1, 9, 10, 11, 9999, 10000, 100001); //MYPRINTF
 	printf("||");
 	printf("\n");
-	printf("ret : %d\n"); //RETMYPRINTF
+	printf("ret : %d\n", ret); //RETMYPRINTF
 	printf("\033[00m");
 
 	printf("\033[31;01mNUMERO 2\033[00m\n"); //NUMERO 2
@@ -60,7 +61,7 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 
-	printf("\033[31;01mNUMERO 6\033[00m\n"); //NUMERO 6
+	/*printf("\033[31;01mNUMERO 6\033[00m\n"); //NUMERO 6
 	ret = printf("% d\n", -12345);
 	printf("||");
 	printf("\n");
@@ -70,7 +71,7 @@ int	main(void)
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
+	printf("\033[00m");*/ /////////////////////////////////////////////////////////////////////////BONUS
 
 	printf("\033[31;01mNUMERO 7\033[00m\n"); //NUMERO 7
 	ret = printf("%3d %3d\n", 15, 3);
@@ -456,7 +457,7 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 
-	printf("\033[31;01mNUMERO 40\033[00m\n"); //NUMERO 40
+	/*printf("\033[31;01mNUMERO 40\033[00m\n"); //NUMERO 40
 	ret = printf("%d %hd %d", 7, 7, 7);
 	printf("||");
 	printf("\n");
@@ -466,7 +467,7 @@ int	main(void)
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
+	printf("\033[00m");*/ ////////////////////////////////////////////////////////////////////////////BONUS
 
 	printf("\033[31;01mNUMERO 41\033[00m\n"); //NUMERO 41
 	ret = printf("%000012x", 3735928559U);
@@ -1012,7 +1013,7 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 
-	printf("\033[31;01mNUMERO 14\033[00m\n"); //NUMERO 14
+	/*printf("\033[31;01mNUMERO 14\033[00m\n"); //NUMERO 14
   	ret = printf("%.1d %.0d %.1u %.0u %.1o %.0o %.1x %.0x\n", 0, 0, 0, 0, 0, 0, 0, 0);
 	printf("||");
 	printf("\n");
@@ -1022,7 +1023,7 @@ int	main(void)
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
+	printf("\033[00m");*/ ////////////////////////////////////////////////////////////////////////////////////BONUS ?
 
 	printf("\033[31;01mNUMERO 15\033[00m\n"); //NUMERO 15
   	ret = printf("%.5d\n", -17);
@@ -1137,7 +1138,7 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 
-	printf("\033[31;01mNUMERO 3\033[00m\n"); //NUMERO 3
+	/*printf("\033[31;01mNUMERO 3\033[00m\n"); //NUMERO 3
   	ret = printf("%#s %0s", "ABC", "ABC");
 	printf("||");
 	printf("\n");
@@ -1147,7 +1148,7 @@ int	main(void)
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
+	printf("\033[00m");*/ //////////////////////////////////////////////////////////////////////BONUS
 
 	printf("\033[31;01mNUMERO 4\033[00m\n"); //NUMERO 4
   	ret = printf("-%%-%-%-%0%-%1%-%2%-%.2%-%.%-%-2%-");
@@ -1378,7 +1379,7 @@ int	main(void)
 	printf("ret : %d\n"); //RETMYPRINTF
 	printf("\033[00m");
 
-	printf("\033[31;01mNUMERO 23\033[00m\n"); //NUMERO 23
+	/*printf("\033[31;01mNUMERO 23\033[00m\n"); //NUMERO 23
   	ret = printf("% 12p", main);
 	printf("||");
 	printf("\n");
@@ -1388,7 +1389,7 @@ int	main(void)
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
+	printf("\033[00m");*/ //////////////////////////////////////////////////////////////BONUS
 
 	printf("\033[31;01mNUMERO 24\033[00m\n"); //NUMERO 24
   	ret = printf("%-12p", main);
@@ -1529,18 +1530,6 @@ int	main(void)
 	printf("ret : %d\n");
 	printf("\033[32;01m");
   	ret = ft_printf("%.6s", NULL); //MYPRINTF
-	printf("||");
-	printf("\n");
-	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
-
-	printf("\033[31;01mNUMERO 36\033[00m\n"); //NUMERO 36
-  	ret = printf("%zy");
-	printf("||");
-	printf("\n");
-	printf("ret : %d\n");
-	printf("\033[32;01m");
-  	ret = ft_printf("%zy"); //MYPRINTF
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
