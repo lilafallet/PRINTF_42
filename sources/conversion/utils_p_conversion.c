@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/28 17:42:00 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/28 18:08:15 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ char	*p_is_zero(t_option *option, t_option *cpy_option)
 	const char	*pre_string = "0x";
 
 	option->width = cpy_option->width - 2;
-	dprintf(2,"width after after == %lu\n", option->width); //DEBUG
 	if (cpy_option->width != 0)
 	{
 		str_pzero = (char *)malloc(sizeof(char) *

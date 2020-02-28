@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 20:38:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/28 17:54:34 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/28 18:06:26 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,15 @@ static void	not_mod_minus_p(char **new_str, t_option *origin, t_option *option,
 	len_number = (long)ft_strlen(number);
 	option->len_dest = option->width + option->precision + len_number;
 	option->len_src = 2;
-	//dprintf(2,"len number == %lu\n", len_number); //DEBUG
-	//dprintf(2,"precision == %lu\n", option->precision); //DEBUG
-	//dprintf(2,"width == %lu\n", option->width); //DEBUG
-//	dprintf(2,"origin precision == %lu\n", origin->precision); //DEBUG
-	//dprintf(2,"origin width == %lu\n", origin->width); //DEBUG
 	if (origin->precision < origin->width || (option->precision == 0 &&
 			option->flag & MOD_DOT))
 	{
-		//dprintf(2, "OU LA\n"); //DEBUG
 		ft_memset(*new_str, ' ', (size_t)option->width);
 		memjoin_free_option(&(*new_str), str_zerox, option);
 		i = (size_t)option->width + option->len_src;
 	}
 	else
 	{
-		//dprintf(2, "CA VA LA\n"); //DEBUG
 		memjoin_free_option(&(*new_str), str_zerox, option);
 		i = 2;
 	}

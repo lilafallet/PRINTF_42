@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:08 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/28 17:55:05 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/02/28 18:06:05 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,6 @@ char	*p_conv(unsigned long p, t_option *option)
 	t_option	cpy_option;
 	long		len;
 
-	//dprintf(2,"p == %lu\n", p); //DEBUG
-	//dprintf(2,"precision == %lu\n", option->precision); //DEBUG
-	//dprintf(2,"width == %lu\n", option->width); //DEBUG
 	cpy_option.flag = option->flag;
 	cpy_option.precision = option->precision;
 	cpy_option.width = option->width;
@@ -62,24 +59,15 @@ char	*p_conv(unsigned long p, t_option *option)
 	else
 		get_p_width(option, len);
 	if (p == 0 && cpy_option.width != 0 && len == 1 && (option->flag & MOD_ZERO))
-	{
-		//dprintf(2, "PREMIERE CONDITION\n"); //DEBUG
 		option->precision = cpy_option.width - 2 - len;
-	}
 	else
 		option->precision = option->precision <= len ? 0 : option->precision - len;
-	//dprintf(2,"number == %s\n", number); //DEBUG
-	//dprintf(2,"len == %lu\n", len); //DEBUG
-	//dprintf(2,"precision after == %lu\n", option->precision); //DEBUG
-	//dprintf(2,"width after == %lu\n", option->width); //DEBUG
 	if (option->precision == 0 && p == 0 && len == 1 && option->flag & MOD_DOT)
 	{
-		//dprintf(2, "DEUXIEME CONDITION\n"); //DEBUG
 		free(number);
 		new_str = p_is_zero(option, &cpy_option);
 		return (new_str);
 	}
-	//dprintf(2, "taille new_str = %lu\n", option->precision + option->width + len + 1); //DEBUG
 	new_str = (char *)malloc(sizeof(char) * (size_t)(option->precision + option->width + len + 1)); // + 2 ??!!
 	if (new_str != NULL)
 		new_str = strjoin_p_conversion(new_str, &cpy_option, option, number);
