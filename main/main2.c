@@ -301,7 +301,8 @@ int	main(void)
  	printf("RET MY PRINTF : %d\n\n", rett);
 	printf("RET PRINTF : %d\n\n", ret);*/
 	
-	printf("\033[31;01mNUMERO 19\033[00m\n"); //NUMERO 19
+	//////FIRST
+	/*printf("\033[31;01mNUMERO 19\033[00m\n"); //NUMERO 19
   	ret = printf("%.12p", main);
 	printf("||");
 	printf("\n");
@@ -347,19 +348,19 @@ int	main(void)
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n"); //RETMYPRINTF
-	printf("\033[00m");
-	
-	printf("\033[31;01mNUMERO 29\033[00m\n"); //NUMERO 29
-  	ret = printf("%0j", NULL);
+	printf("\033[00m");*/
+  	
+	printf("\033[31;01mNUMERO 01\033[00m\n"); //NUMERO 29
+  	ret = printf("%p, %x, %p, %x, %p, %x, %p, %x", 5);
 	printf("||");
 	printf("\n");
-	printf("ret : %d\n");
-	printf("\033[32;01m");
-  	ret = ft_printf("%j", NULL); //MYPRINTF
+	printf("ret : %d\n", ret);
+  	ret = ft_printf("%p, %x, %p, %x, %p, %x, %p, %x", 5);
 	printf("||");
 	printf("\n");
-	printf("ret : %d\n"); //RETMYPRINTF
+	printf("ret : %d\n", ret); //RETMYPRINTF
 	printf("\033[00m");
 	
-	return (ft_printf(NULL));
+	
+	return (0);
 }

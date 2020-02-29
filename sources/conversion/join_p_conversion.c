@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
 static void	not_mod_minus_p(char **new_str, t_option *origin, t_option *option,
 							char *number)

@@ -12,6 +12,7 @@
 
 #include "libftprintf.h"
 #include "libft.h"
+#include <stdio.h> //DEBUG
 
 int		len_width(int width)
 {

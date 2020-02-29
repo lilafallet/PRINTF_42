@@ -1463,7 +1463,7 @@ int	main(void)
 	printf("ret : %d\n", ret); //RETMYPRINTF
 	printf("\033[00m");
 
-	printf("\033[31;01mNUMERO 30\033[00m\n"); //NUMERO 30
+	/*printf("\033[31;01mNUMERO 30\033[00m\n"); //NUMERO 30
   	ret = printf("% 12p", NULL);
 	printf("||");
 	printf("\n");
@@ -1473,7 +1473,7 @@ int	main(void)
 	printf("||");
 	printf("\n");
 	printf("ret : %d\n", ret); //RETMYPRINTF
-	printf("\033[00m");
+	printf("\033[00m");*/ //////////////////////////////////////////////////////////////BONUS
 
 	printf("\033[31;01mNUMERO 31\033[00m\n"); //NUMERO 31
   	ret = printf("%-12p", NULL);

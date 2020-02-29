@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h> //DEBUG
 
 char	*xminxmaj_conv(unsigned long x, t_option *option)
 {

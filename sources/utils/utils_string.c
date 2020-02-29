@@ -41,8 +41,6 @@ void	memjoin_free(char **dest, char *src, size_t len_dest, size_t len_src)
 		if (str != NULL)
 		{
 			ft_memcpy(str, *dest, len_dest);
-			if (ft_strncmp(src, "0X", 2) == SUCCESS)
-				len_dest = 0;
 			ft_memcpy(str + len_dest, src, len_src);
 			str[len_str] = '\0';
 		}

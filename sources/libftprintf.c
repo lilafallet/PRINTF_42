@@ -14,6 +14,7 @@
 #include <stdarg.h>
 #include "libftprintf.h"
 #include "libft.h"
+#include <stdio.h> //DEBUG
 
 void	preset_flag(t_state_machine *machine)
 {
@@ -75,7 +76,6 @@ int		ft_printf(const char *format, ...)
 	int					ret;
 	ssize_t				ret_printf;
 
-	if (format != NULL)
 	ft_bzero(&machine, sizeof(machine));
 	va_start(argptr, format);
 	ret = parser((char *)format, &argptr, &machine);
