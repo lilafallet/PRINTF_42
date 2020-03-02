@@ -69,29 +69,35 @@ void	fill_buffer(t_state_machine *machine, char c)
 	}
 }
 
-int		is_flag(char c)
+int		is_flag(const char c)
 {
-	int	i;
+	const char	str_mod[] = STR_MOD;
+	size_t		nb_mod;
+	size_t		i;
 
 	i = 0;
-	while (STR_MOD[i] != '\0')
+	nb_mod = sizeof(str_mod) / sizeof(char);
+	while (i < nb_mod)
 	{
-		if (c == STR_MOD[i])
-			return (i);
+		if (c == str_mod[i])
+			return ((int)i);
 		i++;
 	}
 	return (-1);
 }
 
-int		is_conversion(char c)
+int		is_conversion(const char c)
 {
-	int	i;
+	const char	str_conv[] = STR_CONV;
+	size_t	i;
+	size_t	nb_conv;
 
 	i = 0;
-	while (STR_CONV[i] != '\0')
+	nb_conv = sizeof(str_conv) / sizeof(char);
+	while (i < nb_conv)
 	{
-		if (c == STR_CONV[i])
-			return (i);
+		if (c == str_conv[i])
+			return ((int)i);
 		i++;
 	}
 	return (-1);

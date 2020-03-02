@@ -47,7 +47,7 @@ char	*d_inferior_zero(long d, t_option *option)
 	if (option->width > 0)
 		option->width--;
 	len = ft_strlen(number);
-	new_str = hub_strjoin_width_precision(number, option, (long)len);
+	new_str = hub_strjoin_width_precision(number, option, len);
 	free(number);
 	tmp_number = new_str;
 	new_str = add_minus(new_str);
@@ -59,7 +59,7 @@ char	*d_superior_zero(t_option *option, long d)
 {
 	char	*new_str;
 	char	*number;
-	long	len;
+	size_t	len;
 
 	number = NULL;
 	len = 0;
@@ -71,7 +71,7 @@ char	*d_superior_zero(t_option *option, long d)
 	if (d > 0 || (d == 0 && (option->flag & MOD_DOT) == FALSE))
 	{
 		number = ft_ltoa_base(d, 10);
-		len = (long)ft_strlen(number);
+		len = ft_strlen(number);
 	}
 	new_str = hub_strjoin_width_precision(number, option, len);
 	free(number);

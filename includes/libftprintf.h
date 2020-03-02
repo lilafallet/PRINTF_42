@@ -57,8 +57,6 @@
 # define FREE_S1 1
 # define FREE_S2 2
 
-# include <stdlib.h>
-# include <unistd.h>
 # include "libft.h"
 # include <stdarg.h>
 
@@ -72,10 +70,10 @@ enum				e_state
 
 typedef	struct	s_option
 {
-	long			width;
-	long			precision;
-	long			cpy_width;
-	long			cpy_precision;
+	size_t			width;
+	size_t			precision;
+	size_t			cpy_width;
+	size_t			cpy_precision;
 	size_t			len_conversion;
 	int				flag;
 	int				post_negt;
@@ -98,9 +96,9 @@ typedef struct	s_state_machine
 typedef	int		(*t_function)(char *, t_state_machine *, va_list *);
 
 int				ft_printf(const char *format, ...);
-int				is_conversion(char c);
+int				is_conversion(const char c);
 void			ft_bzero(void *s, size_t n);
-int				is_flag(char c);
+int				is_flag(const char c);
 void			fill_buffer(t_state_machine *machine, char c);
 void			memjoin_free_option(char **dest, char *src, t_option *option);
 void			memjoin_free(char **dest, char *src, size_t len_dest,
@@ -118,9 +116,9 @@ char			*p_conv(unsigned long p, t_option *option);
 char			*u_conv(unsigned long u, t_option *option);
 char			*di_conv(long d, t_option *option);
 char			*puxxmaj_conv(unsigned long diux, t_option *option);
-int				len_width(int width);
+size_t			len_width(size_t width);
 char			*hub_strjoin_width_precision(char *str, t_option *option,
-												long len_str);
+												size_t len_str);
 void			preset_flag(t_state_machine *machine);
 int				it_is_csp(int flag);
 char			*process_conversion(va_list *argptr, t_state_machine *machine);
@@ -134,27 +132,27 @@ char			*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 char			*strjoin_p_conversion(char *new_str, t_option *origin,
 										t_option *option, char *number);
 unsigned long	atoul(const char *str);
-void			get_p_width(t_option *option, long len);
+void			get_p_width(t_option *option, size_t len);
 char			*p_is_zero(t_option *option, t_option *cpy_option);
 char			*d_inferior_zero(long d, t_option *option);
 char			*d_superior_zero(t_option *option, long d);
-void			get_width_x(t_option *option, long len);
+void			get_width_x(t_option *option, size_t len);
 void			get_precision_x(t_option *cpy_option, t_option *option,
-									long len);
+									size_t len);
 char			*x_is_zero(t_option *option, t_option *cpy_option);
 int				string_str_zero(t_option *option, t_option *cpy_option,
-									unsigned int x, long len);
-int				get_size_of_nb(char *s);
+									unsigned int x, size_t len);
+size_t			get_size_of_nb(char *s);
 int				is_number(char *str);
-long			initialisation_x_conversion(t_option *option,
+size_t			initialisation_x_conversion(t_option *option,
 												t_option *cpy_option,
-												char **number, unsigned int x);
-long			initialisation_p_conversion(t_option *option,
+												char **number, unsigned long x);
+size_t			initialisation_p_conversion(t_option *option,
 												t_option *cpy_option,
 												char **number, unsigned long p);
 void			initialisation_wipre_p_conversion(t_option *option,
 													t_option *cpy_option,
-													long len, unsigned long p);
+													size_t len, unsigned long p);
 void			*ft_memdup(void *s, size_t len);
 
 #endif

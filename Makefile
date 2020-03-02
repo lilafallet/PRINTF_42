@@ -16,14 +16,34 @@ LIB = $(LIBDIR)libft.a
 
 CFLAGS += -Wall
 CFLAGS += -Wextra
-CFLAGS += -Werror
-#CFLAGS += -Weverything
-CFLAGS += -Wpadded
-CFLAGS += -pedantic
-CFLAGS += -ansi
-ifeq ($(debug), 1)
+ifeq ($(debug), 0)
+	CFLAGS += -g3
+else ifeq ($(debug), 1)
 	CFLAGS += -fsanitize=address,undefined
 	CFLAGS += -g3
+else ifeq ($(debug), 2)
+	CFLAGS += -fsanitize=address,undefined
+	CFLAGS += -g3
+	CFLAGS += -pedantic
+	CFLAGS += -ansi
+else ifeq ($(debug), 3)
+	CFLAGS += -fsanitize=address,undefined
+	CFLAGS += -g3
+	CFLAGS += -pedantic
+	CFLAGS += -ansi
+	CFLAGS += -Wpadded
+else ifeq ($(debug), 4)
+	CFLAGS += -fsanitize=address,undefined
+	CFLAGS += -g3
+	CFLAGS += -pedantic
+	CFLAGS += -ansi
+	CFLAGS += -Wpadded
+	CFLAGS += -Weverything
+endif
+ifeq ($(err), 0)
+	CFLAGS += -g3
+else
+	CFLAGS += -Werror
 endif
 
 CC = clang

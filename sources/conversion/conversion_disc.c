@@ -27,7 +27,7 @@ char	*c_conv(int c, t_option *option)
 	convert_str[1] = '\0';
 	new_str = NULL;
 	new_str = hub_strjoin_width_precision(convert_str, option, 1);
-	option->len_conversion = (size_t)(option->width + option->precision + 1);
+	option->len_conversion = (option->width + option->precision + 1);
 	return (new_str);
 }
 
@@ -41,15 +41,15 @@ char	*s_conv(char *str, t_option *option)
 	if (str == NULL)
 		str = null;
 	if (option->flag & MOD_DOT)
-		str_out = ft_strndup(str, (size_t)option->precision);
+		str_out = ft_strndup(str, option->precision);
 	else
 		str_out = ft_strdup(str);
 	len = ft_strlen(str_out);
-	if (option->width < (long)len)
+	if (option->width < len)
 		option->width = 0;
 	option->precision = 0;
 	option->flag &= ~MOD_DOT;
-	new_str = hub_strjoin_width_precision(str, option, (long)len);
+	new_str = hub_strjoin_width_precision(str, option, len);
 	option->len_conversion = ft_strlen(new_str);
 	free(str_out);
 	return (new_str);

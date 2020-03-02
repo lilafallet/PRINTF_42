@@ -10,10 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdarg.h>
 #include "libftprintf.h"
-#include "libft.h"
+#include <unistd.h>
 
 void	preset_flag(t_state_machine *machine)
 {
@@ -21,10 +19,6 @@ void	preset_flag(t_state_machine *machine)
 		machine->option.flag &= ~MOD_ZERO;
 	if (machine->option.flag & CONV_U && machine->option.flag & MOD_DOT)
 		machine->option.flag &= ~MOD_ZERO;
-	if (machine->option.precision < 0)
-		machine->option.precision = 0;
-	if (machine->option.width < 0)
-		machine->option.width = 0;
 	if ((machine->option.flag & MOD_DOT) && (machine->option.flag & CONV_D ||
 			machine->option.flag & CONV_I))
 		machine->option.flag &= ~MOD_ZERO;
@@ -81,7 +75,7 @@ int		ft_printf(const char *format, ...)
 	va_end(argptr);
 	memjoin_free(&machine.out, machine.buffer, machine.len_out, machine.len);
 	machine.len_out += machine.len;
-	ret_printf = write(1, machine.out, machine.len_out);
+	ret_printf = write(STDOUT_FILENO, machine.out, machine.len_out);
 	free(machine.out);
 	return (ret != FAILURE ? (int)ret_printf : FAILURE);
 }

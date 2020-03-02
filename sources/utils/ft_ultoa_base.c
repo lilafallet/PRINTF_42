@@ -18,7 +18,7 @@
 static void	ul_fill_str(char *str, unsigned long nb, size_t *size,
 					unsigned long base)
 {
-	if (nb < (unsigned long)base)
+	if (nb < base)
 	{
 		if (nb < 10)
 			str[*size] = (char)nb + '0';

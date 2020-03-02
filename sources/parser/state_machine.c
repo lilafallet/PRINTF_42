@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libftprintf.h"
-#include "libft.h"
 
 int	letter_function(char *str, t_state_machine *machine, va_list *argptr)
 {
@@ -42,10 +40,10 @@ static int	precision_width(char *str, t_state_machine *machine,
 		machine->option.flag |= MOD_MINUS;
 	}
 	if (is_precision == TRUE)
-		machine->option.precision = nb;
+		machine->option.precision = (size_t)nb;
 	else
-		machine->option.width = nb;
-	return (get_size_of_nb(str) + is_precision);
+		machine->option.width = (size_t)nb;
+	return ((int)get_size_of_nb(str) + is_precision);
 }
 
 int	flag_function(char *str, t_state_machine *machine, va_list *argptr)

@@ -14,9 +14,9 @@
 #include "libftprintf.h"
 #include "libft.h"
 
-int	get_size_of_nb(char *s)
+size_t	get_size_of_nb(char *s)
 {
-	int		i;
+	size_t		i;
 
 	i = 0;
 	if (*s == '*')

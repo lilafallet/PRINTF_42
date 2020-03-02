@@ -13,7 +13,7 @@
 #include "libftprintf.h"
 #include <stdlib.h>
 
-void	get_p_width(t_option *option, long len)
+void	get_p_width(t_option *option, size_t len)
 {
 	if (option->width > len && option->width > option->precision)
 	{
@@ -28,7 +28,7 @@ void	get_p_width(t_option *option, long len)
 }
 
 void	initialisation_wipre_p_conversion(t_option *option,
-											t_option *cpy_option, long len,
+											t_option *cpy_option, size_t len,
 											unsigned long p)
 {
 	if ((option->flag & MOD_ZERO))
@@ -43,14 +43,14 @@ void	initialisation_wipre_p_conversion(t_option *option,
 								0 : option->precision - len;
 }
 
-long	initialisation_p_conversion(t_option *option, t_option *cpy_option,
+size_t	initialisation_p_conversion(t_option *option, t_option *cpy_option,
 										char **number, unsigned long p)
 {
 	cpy_option->flag = option->flag;
 	cpy_option->precision = option->precision;
 	cpy_option->width = option->width;
 	*number = ft_ultoa_base(p, 16);
-	return ((long)ft_strlen(*number));
+	return (ft_strlen(*number));
 }
 
 char	*p_is_zero(t_option *option, t_option *cpy_option)
@@ -61,8 +61,7 @@ char	*p_is_zero(t_option *option, t_option *cpy_option)
 	option->width = cpy_option->width - 2;
 	if (cpy_option->width != 0)
 	{
-		str_pzero = (char *)malloc(sizeof(char) *
-			(size_t)(cpy_option->width + 2));
+		str_pzero = (char *)malloc(sizeof(char) * (cpy_option->width + 2));
 		if (str_pzero == NULL)
 		{
 			option->len_conversion = 0;

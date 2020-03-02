@@ -27,7 +27,7 @@ void	memjoin_free_option(char **dest, char *src, t_option *option)
 		{
 			ft_memcpy(str, *dest, option->len_dest);
 			if (ft_strncmp(src, "0X", 2) == SUCCESS)
-				option->len_dest = (size_t)option->width;
+				option->len_dest = option->width;
 			ft_memcpy(str + option->len_dest, src, option->len_src);
 			str[len_str] = '\0';
 		}
@@ -40,43 +40,45 @@ void	memjoin_free_option(char **dest, char *src, t_option *option)
 	*dest = str;
 }
 
-void	initialisation_not_min(long *len_number, t_option *option, char *number)
+static size_t	initialisation_not_min(t_option *option, char *number)
 {
-	*len_number = (long)ft_strlen(number);
-	option->len_dest = (size_t)option->width + (size_t)option->precision +
-							(size_t)*len_number;
+	size_t	len_number;
+
+	len_number = ft_strlen(number);
+	option->len_dest = option->width + option->precision + len_number;
 	option->len_src = 2;
+	return (len_number);
 }
 
 static void	not_mod_minus_p(char **new_str, t_option *origin, t_option *option,
 		char *number)
 {
 	size_t			i;
-	long			len_number;
+	size_t			len_number;
 	static char		*str_zerox = "0X";
 
-	initialisation_not_min(&len_number, option, number);
+	
+	len_number = initialisation_not_min(option, number);
 	if (origin->precision < origin->width || (option->precision == 0 &&
 				option->flag & MOD_DOT))
 	{
-		ft_memset(*new_str, ' ', (size_t)option->width);
-		memjoin_free_option(&(*new_str), str_zerox, option);
-		i = (size_t)option->width + option->len_src;
+		ft_memset(*new_str, ' ', option->width);
+		memjoin_free_option(new_str, str_zerox, option);
+		i = option->width + option->len_src;
 	}
 	else
 	{
-		memjoin_free_option(&(*new_str), str_zerox, option);
+		memjoin_free_option(new_str, str_zerox, option);
 		i = 2;
 	}
-	ft_memset(*new_str + i, '0', (size_t)option->precision);
-	memjoin_free(new_str, number, ((size_t)option->width +
-					(size_t)option->precision + option->len_src),
-					(size_t)len_number);
+	ft_memset(*new_str + i, '0', option->precision);
+	memjoin_free(new_str, number, (option->width +
+					option->precision + option->len_src), len_number);
 	ft_striter(*new_str, ft_tolower);
 	option->len_conversion = ft_strlen(*new_str);
 }
 
-void	new_p_width(t_option *option, t_option *origin, long len_number)
+static void	new_p_width(t_option *option, t_option *origin, size_t len_number)
 {
 	if (origin->width - 1 > len_number && origin->width >
 			(origin->width - (len_number + 2)))
@@ -90,23 +92,27 @@ char	*strjoin_p_conversion(char *new_str, t_option *origin, t_option *option,
 {
 	static char		*str_zerox = "0X";
 	char			*str_width;
-	long			len_number;
+	size_t			len_number;
 
-	len_number = (long)ft_strlen(number);
+	len_number = ft_strlen(number);
 	if ((option->flag & MOD_MINUS) == FALSE)
 		not_mod_minus_p(&new_str, origin, option, number);
 	else
 	{
-		memjoin_free(&new_str, str_zerox, 0, 2);
-		new_p_width(option, origin, len_number);
-		memjoin_free(&new_str, number, 2, (size_t)len_number);
-		str_width = (char *)malloc(sizeof(char) * (size_t)(option->width + 1));
-		ft_memset(str_width, ' ', (size_t)option->width);
-		memjoin_free(&new_str, str_width, 2 + (size_t)len_number,
-				(size_t)option->width);
-		new_str[2 + option->width + len_number] = '\0';
-		ft_striter(new_str, ft_tolower);
-		option->len_conversion = ft_strlen(new_str);
+		free(new_str);
+		new_str = NULL;
+		str_width = (char *)malloc(sizeof(char) * (option->width + 1));
+		if (str_width != NULL)
+		{
+			new_str = ft_strdup(str_zerox);
+			new_p_width(option, origin, len_number);
+			memjoin_free(&new_str, number, 2, len_number);
+			ft_memset(str_width, ' ', option->width);
+			memjoin_free(&new_str, str_width, 2 + len_number, option->width);
+			free(str_width);
+			ft_striter(new_str, ft_tolower);
+			option->len_conversion = ft_strlen(new_str);
+		}
 	}
 	return (new_str);
 }
