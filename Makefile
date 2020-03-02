@@ -17,6 +17,10 @@ LIB = $(LIBDIR)libft.a
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
+#CFLAGS += -Weverything
+CFLAGS += -Wpadded
+CFLAGS += -pedantic
+CFLAGS += -ansi
 ifeq ($(debug), 1)
 	CFLAGS += -fsanitize=address,undefined
 	CFLAGS += -g3

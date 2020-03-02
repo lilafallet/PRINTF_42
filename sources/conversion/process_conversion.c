@@ -14,7 +14,6 @@
 #include <stdarg.h>
 #include "libftprintf.h"
 #include "libft.h"
-#include <stdio.h> //DEBUG
 
 void	initialisation(t_state_machine *machine)
 {

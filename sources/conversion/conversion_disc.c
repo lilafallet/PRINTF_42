@@ -12,7 +12,6 @@
 
 #include "libftprintf.h"
 #include <stdlib.h>
-#include <stdio.h> //DEBUG
 
 char	*c_conv(int c, t_option *option)
 {

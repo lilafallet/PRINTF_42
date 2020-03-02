@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h> //DEBUG
 
 static char	*not_mod_minus_x(char *new_str, t_option *origin, t_option *option,
 							char *number)

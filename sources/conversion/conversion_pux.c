@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h> //DEBUG
 
 char	*xminxmaj_conv(unsigned long x, t_option *option)
 {
@@ -22,10 +21,7 @@ char	*xminxmaj_conv(unsigned long x, t_option *option)
 	char		*str_zero;
 
 	x = (unsigned int)x;
-	cpy_option.width = option->width;
-	cpy_option.precision = option->precision;
-	number = ft_ultoa_base(x, 16);
-	len = (long)ft_strlen(number);
+	len = initialisation_x_conversion(option, &cpy_option, &number, x);
 	new_str = NULL;
 	str_zero = NULL;
 	get_width_x(option, len);
@@ -50,21 +46,8 @@ char	*p_conv(unsigned long p, t_option *option)
 	t_option	cpy_option;
 	long		len;
 
-	cpy_option.flag = option->flag;
-	cpy_option.precision = option->precision;
-	cpy_option.width = option->width;
-	number = ft_ultoa_base(p, 16);
-	len = (long)ft_strlen(number);
-	if ((option->flag & MOD_ZERO))
-			option->width = 0;
-	else
-		get_p_width(option, len);
-	if (p == 0 && cpy_option.width != 0 && len == 1 &&
-			(option->flag & MOD_ZERO))
-		option->precision = cpy_option.width - 2 - len;
-	else
-		option->precision = option->precision <= len ?
-								0 : option->precision - len;
+	len = initialisation_p_conversion(option, &cpy_option, &number, p);
+	initialisation_wipre_p_conversion(option, &cpy_option, len, p);
 	if (option->precision == 0 && p == 0 && len == 1 && option->flag & MOD_DOT)
 	{
 		free(number);

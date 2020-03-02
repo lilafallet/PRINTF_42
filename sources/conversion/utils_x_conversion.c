@@ -12,6 +12,15 @@
 
 #include "libftprintf.h"
 
+long	initialisation_x_conversion(t_option *option, t_option *cpy_option,
+										char **number, unsigned int x)
+{
+	cpy_option->width = option->width;
+	cpy_option->precision = option->precision;
+	*number = ft_ultoa_base(x, 16);
+	return ((long)ft_strlen(*number));
+}
+
 int		string_str_zero(t_option *option, t_option *cpy_option, unsigned int x,
 							long len)
 {

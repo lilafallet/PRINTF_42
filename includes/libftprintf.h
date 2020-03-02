@@ -146,5 +146,15 @@ int				string_str_zero(t_option *option, t_option *cpy_option,
 									unsigned int x, long len);
 int				get_size_of_nb(char *s);
 int				is_number(char *str);
+long			initialisation_x_conversion(t_option *option,
+												t_option *cpy_option,
+												char **number, unsigned int x);
+long			initialisation_p_conversion(t_option *option,
+												t_option *cpy_option,
+												char **number, unsigned long p);
+void			initialisation_wipre_p_conversion(t_option *option,
+													t_option *cpy_option,
+													long len, unsigned long p);
+void			*ft_memdup(void *s, size_t len);
 
 #endif
