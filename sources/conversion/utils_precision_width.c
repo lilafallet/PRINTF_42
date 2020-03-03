@@ -6,13 +6,13 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:14:22 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/26 13:26:08 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 13:58:53 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-size_t	len_width(size_t width)
+size_t		len_width(size_t width)
 {
 	size_t	i;
 
@@ -71,7 +71,7 @@ static char	*strjoin_width_precision(char *str, t_option *option,
 	return (strjoin_all(str, len_str, option));
 }
 
-char	*hub_strjoin_width_precision(char *str, t_option *option,
+char		*hub_strjoin_width_precision(char *str, t_option *option,
 										size_t len_str)
 {
 	char	*new_str;
@@ -90,6 +90,10 @@ char	*hub_strjoin_width_precision(char *str, t_option *option,
 		}
 	}
 	else
+	{
 		new_str = strjoin_width_precision(str, option, len_str);
+		if (new_str == NULL)
+			return (NULL);
+	}
 	return (new_str);
 }

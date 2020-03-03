@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:20 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/28 16:29:11 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 13:38:08 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,8 @@ size_t			initialisation_p_conversion(t_option *option,
 												char **number, unsigned long p);
 void			initialisation_wipre_p_conversion(t_option *option,
 													t_option *cpy_option,
-													size_t len, unsigned long p);
+													size_t len,
+													unsigned long p);
 void			*ft_memdup(void *s, size_t len);
 
 #endif

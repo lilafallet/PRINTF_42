@@ -6,7 +6,7 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 13:32:24 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/26 13:32:54 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 14:01:12 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	get_size_of_nb(char *s)
 	return (i);
 }
 
-int	is_number(char *str)
+int		is_number(char *str)
 {
 	return (ft_isdigit(str[0]) || str[0] == '*');
 }

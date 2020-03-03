@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:12:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/28 18:08:15 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 13:58:11 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	initialisation_wipre_p_conversion(t_option *option,
 											unsigned long p)
 {
 	if ((option->flag & MOD_ZERO))
-			option->width = 0;
+		option->width = 0;
 	else
 		get_p_width(option, len);
 	if (p == 0 && cpy_option->width != 0 && len == 1 &&
@@ -68,9 +68,11 @@ char	*p_is_zero(t_option *option, t_option *cpy_option)
 			return (NULL);
 		}
 		str_pzero = strjoin_p_conversion(str_pzero, cpy_option, option, "\0");
-		return (str_pzero);
+		if (str_pzero == NULL)
+			return (NULL);
+		else
+			return (str_pzero);
 	}
 	option->len_conversion = 2;
 	return (ft_strdup(pre_string));
 }
-

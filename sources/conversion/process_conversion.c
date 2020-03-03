@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:18 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 14:19:28 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 13:07:04 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ char	*process_conversion(va_list *argptr, t_state_machine *machine)
 		new_str = c_conv('%', &machine->option);
 	else if (machine->option.flag & CONV_ERROR)
 		new_str = c_conv(machine->char_error, &machine->option);
+	if (new_str == NULL)
+		return (NULL);
 	return (new_str);
 }

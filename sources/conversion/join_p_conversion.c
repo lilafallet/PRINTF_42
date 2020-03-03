@@ -6,14 +6,14 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 20:38:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/28 18:46:03 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 13:45:35 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft.h"
 
-void	memjoin_free_option(char **dest, char *src, t_option *option)
+void			memjoin_free_option(char **dest, char *src, t_option *option)
 {
 	char	*str;
 	size_t	len_str;
@@ -50,14 +50,13 @@ static size_t	initialisation_not_min(t_option *option, char *number)
 	return (len_number);
 }
 
-static void	not_mod_minus_p(char **new_str, t_option *origin, t_option *option,
-		char *number)
+static void		not_mod_minus_p(char **new_str, t_option *origin,
+									t_option *option, char *number)
 {
 	size_t			i;
 	size_t			len_number;
 	static char		*str_zerox = "0X";
 
-	
 	len_number = initialisation_not_min(option, number);
 	if (origin->precision < origin->width || (option->precision == 0 &&
 				option->flag & MOD_DOT))
@@ -78,7 +77,8 @@ static void	not_mod_minus_p(char **new_str, t_option *origin, t_option *option,
 	option->len_conversion = ft_strlen(*new_str);
 }
 
-static void	new_p_width(t_option *option, t_option *origin, size_t len_number)
+static void		new_p_width(t_option *option, t_option *origin,
+								size_t len_number)
 {
 	if (origin->width - 1 > len_number && origin->width >
 			(origin->width - (len_number + 2)))
@@ -87,8 +87,8 @@ static void	new_p_width(t_option *option, t_option *origin, size_t len_number)
 		option->width = 0;
 }
 
-char	*strjoin_p_conversion(char *new_str, t_option *origin, t_option *option,
-		char *number)
+char			*strjoin_p_conversion(char *new_str, t_option *origin,
+										t_option *option, char *number)
 {
 	static char		*str_zerox = "0X";
 	char			*str_width;

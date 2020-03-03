@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 17:53:11 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/26 13:24:09 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 13:32:05 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,19 @@ char	*d_inferior_zero(long d, t_option *option)
 	size_t	len;
 
 	number = ft_ltoa_base_post(d, 10);
+	if (number == NULL)
+		return (NULL);
 	if (option->width > 0)
 		option->width--;
 	len = ft_strlen(number);
 	new_str = hub_strjoin_width_precision(number, option, len);
+	if (new_str == NULL)
+		return (NULL);
 	free(number);
 	tmp_number = new_str;
 	new_str = add_minus(new_str);
+	if (new_str == NULL)
+		return (NULL);
 	free(tmp_number);
 	return (new_str);
 }
@@ -71,6 +77,8 @@ char	*d_superior_zero(t_option *option, long d)
 	if (d > 0 || (d == 0 && (option->flag & MOD_DOT) == FALSE))
 	{
 		number = ft_ltoa_base(d, 10);
+		if (number == NULL)
+			return (NULL);
 		len = ft_strlen(number);
 	}
 	new_str = hub_strjoin_width_precision(number, option, len);

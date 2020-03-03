@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 18:35:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/28 18:09:09 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 14:01:42 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ int		is_flag(const char c)
 int		is_conversion(const char c)
 {
 	const char	str_conv[] = STR_CONV;
-	size_t	i;
-	size_t	nb_conv;
+	size_t		i;
+	size_t		nb_conv;
 
 	i = 0;
 	nb_conv = sizeof(str_conv) / sizeof(char);

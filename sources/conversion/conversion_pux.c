@@ -6,7 +6,7 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:08 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/28 18:48:46 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 13:43:35 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,18 @@ char	*p_conv(unsigned long p, t_option *option)
 	len = initialisation_p_conversion(option, &cpy_option, &number, p);
 	initialisation_wipre_p_conversion(option, &cpy_option, len, p);
 	if (option->precision == 0 && p == 0 && len == 1 && option->flag & MOD_DOT)
+	{
 		new_str = p_is_zero(option, &cpy_option);
+		if (new_str == NULL)
+			return (NULL);
+	}
 	else
 	{
 		new_str = (char *)malloc(sizeof(char) * (option->precision +
 					option->width + len + 1));
 		if (new_str != NULL)
-			new_str = strjoin_p_conversion(new_str, &cpy_option, option, number);
+			new_str = strjoin_p_conversion(new_str, &cpy_option, option,
+											number);
 	}
 	free(number);
 	return (new_str);

@@ -6,14 +6,14 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 20:38:54 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/26 14:39:51 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 13:56:37 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static char	*not_mod_minus_x(char *new_str, t_option *origin, t_option *option,
-							char *number)
+static char		*not_mod_minus_x(char *new_str, t_option *origin,
+									t_option *option, char *number)
 {
 	size_t	len;
 	size_t	i;
@@ -40,7 +40,7 @@ static char	*not_mod_minus_x(char *new_str, t_option *origin, t_option *option,
 	return (new_str);
 }
 
-static char	*mod_minus_x(char *new_str, t_option *option, char *number)
+static char		*mod_minus_x(char *new_str, t_option *option, char *number)
 {
 	size_t	len;
 	char	*str_width;
@@ -58,8 +58,19 @@ static char	*mod_minus_x(char *new_str, t_option *option, char *number)
 	return (new_str);
 }
 
-char	*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
-		t_option *option, char *number)
+static size_t	xmin_and_len(t_option *option, int not_minus,
+								char *str_not_minus, char *str_minus)
+{
+	if (option->flag & CONV_XMIN)
+		ft_striter(not_minus == 1 ? str_not_minus : str_minus, ft_tolower);
+	if (not_minus == 1 || not_minus == 0)
+		return (ft_strlen(not_minus == 1 ? str_not_minus : str_minus));
+	else
+		return (1);
+}
+
+char			*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
+											t_option *option, char *number)
 {
 	char	*str_not_minus;
 	char	*str_minus;
@@ -74,13 +85,12 @@ char	*strjoin_xminxmaj_conversion(char *new_str, t_option *origin,
 		not_minus++;
 	}
 	else
+	{
 		str_minus = mod_minus_x(new_str, option, number);
-	if (option->flag & CONV_XMIN)
-		ft_striter(not_minus == 1 ? str_not_minus : str_minus, ft_tolower);
-	if (not_minus == 1 || not_minus == 0)
-		option->len_conversion = ft_strlen(not_minus == 1 ?
-				str_not_minus : str_minus);
-	else
-		option->len_conversion = 1;
+		if (str_minus == NULL)
+			return (NULL);
+	}
+	option->len_conversion = xmin_and_len(option, not_minus, str_not_minus,
+											str_minus);
 	return (not_minus == 1 ? str_not_minus : str_minus);
 }

@@ -6,13 +6,14 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:44 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/26 13:36:41 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 14:00:07 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	letter_function(char *str, t_state_machine *machine, va_list *argptr)
+int			letter_function(char *str, t_state_machine *machine,
+								va_list *argptr)
 {
 	(void)argptr;
 	if (*str == '%')
@@ -23,7 +24,7 @@ int	letter_function(char *str, t_state_machine *machine, va_list *argptr)
 }
 
 static int	precision_width(char *str, t_state_machine *machine,
-		va_list *argptr, int is_precision)
+								va_list *argptr, int is_precision)
 {
 	long				nb;
 
@@ -46,7 +47,7 @@ static int	precision_width(char *str, t_state_machine *machine,
 	return ((int)get_size_of_nb(str) + is_precision);
 }
 
-int	flag_function(char *str, t_state_machine *machine, va_list *argptr)
+int			flag_function(char *str, t_state_machine *machine, va_list *argptr)
 {
 	int					what_flag;
 
@@ -64,7 +65,8 @@ int	flag_function(char *str, t_state_machine *machine, va_list *argptr)
 	return (0);
 }
 
-int	conversion_function(char *str, t_state_machine *machine, va_list *argptr)
+int			conversion_function(char *str, t_state_machine *machine,
+									va_list *argptr)
 {
 	int		what_conv;
 

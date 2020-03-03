@@ -6,14 +6,14 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:26:59 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/28 18:25:50 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 14:00:40 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <unistd.h>
 
-void	preset_flag(t_state_machine *machine)
+void		preset_flag(t_state_machine *machine)
 {
 	if (machine->option.flag & MOD_MINUS)
 		machine->option.flag &= ~MOD_ZERO;
@@ -62,7 +62,7 @@ static int	parser(char *format, va_list *argptr, t_state_machine *machine)
 	return (ret == FAILURE ? FAILURE : SUCCESS);
 }
 
-int		ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	t_state_machine		machine;
 	va_list				argptr;
