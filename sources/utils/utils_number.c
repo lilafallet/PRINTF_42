@@ -6,13 +6,11 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 13:32:24 by lfallet           #+#    #+#             */
-/*   Updated: 2020/03/03 14:01:12 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 15:07:08 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libftprintf.h"
-#include "libft.h"
 
 size_t	get_size_of_nb(char *s)
 {

@@ -6,14 +6,11 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 18:30:01 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/10 18:30:06 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 15:06:48 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libftprintf.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 static void	l_fill_str_post(char *str, long nb, size_t *size, long base)
 {

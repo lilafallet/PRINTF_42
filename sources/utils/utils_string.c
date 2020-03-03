@@ -6,12 +6,11 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 18:35:50 by lfallet           #+#    #+#             */
-/*   Updated: 2020/03/03 14:01:42 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 15:05:45 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include "libft.h"
 
 void	*ft_memdup(void *s, size_t len)
 {

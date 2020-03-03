@@ -6,13 +6,11 @@
 /*   By: lfallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 14:00:47 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/12 14:05:16 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 15:06:08 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libftprintf.h"
-#include "libft.h"
 
 unsigned long	atoul(const char *str)
 {

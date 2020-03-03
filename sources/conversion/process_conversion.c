@@ -6,14 +6,12 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:13:18 by lfallet           #+#    #+#             */
-/*   Updated: 2020/03/03 13:07:04 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 15:05:32 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdarg.h>
 #include "libftprintf.h"
-#include "libft.h"
 
 void	initialisation(t_state_machine *machine)
 {

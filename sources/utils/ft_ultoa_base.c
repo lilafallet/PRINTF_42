@@ -6,14 +6,11 @@
 /*   By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 18:27:25 by lfallet           #+#    #+#             */
-/*   Updated: 2020/02/10 18:27:54 by lfallet          ###   ########.fr       */
+/*   Updated: 2020/03/03 15:06:59 by lfallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libftprintf.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 static void	ul_fill_str(char *str, unsigned long nb, size_t *size,
 					unsigned long base)
