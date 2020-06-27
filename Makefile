@@ -6,7 +6,7 @@
 #    By: lfallet <lfallet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 15:19:15 by lfallet           #+#    #+#              #
-#    Updated: 2020/02/26 13:35:16 by lfallet          ###   ########.fr        #
+#    Updated: 2020/06/27 21:18:01 by lfallet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ LIB = $(LIBDIR)libft.a
 
 CFLAGS += -Wall
 CFLAGS += -Wextra
+CFLAGS += -fPIC
 ifeq ($(debug), 0)
 	CFLAGS += -g3
 else ifeq ($(debug), 1)
@@ -49,8 +50,10 @@ endif
 CC = clang
 
 INCLUDES = ./includes/
+INCLUDES_BONUS = ./includes_bonus/
 
 HEADER = $(INCLUDES)libftprintf.h
+HEADER_BONUS = $(INCLUDES_BONUS)libftprintf_bonus.h
 
 SRCS += libftprintf.c
 SRCS += state_machine.c
@@ -70,51 +73,69 @@ SRCS += utils_x_conversion.c
 SRCS += ft_ltoa_base_post.c
 SRCS += utils_number.c
 
-SRCS += ft_atoi.c
-SRCS += ft_bzero.c
-SRCS += ft_calloc.c
-SRCS += ft_isalnum.c
-SRCS += ft_isalpha.c
-SRCS += ft_isascii.c
-SRCS += ft_isdigit.c
-SRCS += ft_isprint.c
-SRCS += ft_itoa.c
-SRCS += ft_memccpy.c
-SRCS += ft_memchr.c
-SRCS += ft_memcmp.c
-SRCS += ft_memcpy.c
-SRCS += ft_memmove.c
-SRCS += ft_memset.c
-SRCS += ft_putchar_fd.c
-SRCS += ft_putendl_fd.c
-SRCS += ft_putnbr_fd.c
-SRCS += ft_putstr_fd.c
-SRCS += ft_split.c
-SRCS += ft_strchr.c
-SRCS += ft_strdup.c
-SRCS += ft_strndup.c
-SRCS += ft_strjoin.c
-SRCS += ft_strlcat.c
-SRCS += ft_strlcpy.c
-SRCS += ft_strlen.c
-SRCS += ft_strmapi.c
-SRCS += ft_strncmp.c
-SRCS += ft_strnstr.c
-SRCS += ft_strrchr.c
-SRCS += ft_strtrim.c
-SRCS += ft_striter.c
-SRCS += ft_substr.c
-SRCS += ft_tolower.c
-SRCS += ft_toupper.c
-SRCS += ft_lstadd_back.c
-SRCS += ft_lstadd_front.c
-SRCS += ft_lstclear.c
-SRCS += ft_lstdelone.c
-SRCS += ft_lstiter.c
-SRCS += ft_lstlast.c
-SRCS += ft_lstmap.c
-SRCS += ft_lstnew.c
-SRCS += ft_lstsize.c
+SRCS_LIB += ft_atoi.c
+SRCS_LIB += ft_bzero.c
+SRCS_LIB += ft_calloc.c
+SRCS_LIB += ft_isalnum.c
+SRCS_LIB += ft_isalpha.c
+SRCS_LIB += ft_isascii.c
+SRCS_LIB += ft_isdigit.c
+SRCS_LIB += ft_isprint.c
+SRCS_LIB += ft_itoa.c
+SRCS_LIB += ft_memccpy.c
+SRCS_LIB += ft_memchr.c
+SRCS_LIB += ft_memcmp.c
+SRCS_LIB += ft_memcpy.c
+SRCS_LIB += ft_memmove.c
+SRCS_LIB += ft_memset.c
+SRCS_LIB += ft_putchar_fd.c
+SRCS_LIB += ft_putendl_fd.c
+SRCS_LIB += ft_putnbr_fd.c
+SRCS_LIB += ft_putstr_fd.c
+SRCS_LIB += ft_split.c
+SRCS_LIB += ft_strchr.c
+SRCS_LIB += ft_strdup.c
+SRCS_LIB += ft_strndup.c
+SRCS_LIB += ft_strjoin.c
+SRCS_LIB += ft_strlcat.c
+SRCS_LIB += ft_strlcpy.c
+SRCS_LIB += ft_strlen.c
+SRCS_LIB += ft_strmapi.c
+SRCS_LIB += ft_strncmp.c
+SRCS_LIB += ft_strnstr.c
+SRCS_LIB += ft_strrchr.c
+SRCS_LIB += ft_strtrim.c
+SRCS_LIB += ft_striter.c
+SRCS_LIB += ft_substr.c
+SRCS_LIB += ft_tolower.c
+SRCS_LIB += ft_toupper.c
+SRCS_LIB += ft_lstadd_back.c
+SRCS_LIB += ft_lstadd_front.c
+SRCS_LIB += ft_lstclear.c
+SRCS_LIB += ft_lstdelone.c
+SRCS_LIB += ft_lstiter.c
+SRCS_LIB += ft_lstlast.c
+SRCS_LIB += ft_lstmap.c
+SRCS_LIB += ft_lstnew.c
+SRCS_LIB += ft_lstsize.c
+
+SRCS_BONUS += libftprintf_bonus.c
+SRCS_BONUS += state_machine_bonus.c
+SRCS_BONUS += atoul_bonus.c
+SRCS_BONUS += ft_ltoa_base_bonus.c
+SRCS_BONUS += ft_ultoa_base_bonus.c
+SRCS_BONUS += utils_precision_width_bonus.c
+SRCS_BONUS += utils_string_bonus.c
+SRCS_BONUS += conversion_disc_bonus.c
+SRCS_BONUS += conversion_pux_bonus.c
+SRCS_BONUS += join_p_conversion_bonus.c
+SRCS_BONUS += join_x_conversion_bonus.c
+SRCS_BONUS += process_conversion_bonus.c
+SRCS_BONUS += utils_di_conversion_bonus.c
+SRCS_BONUS += utils_p_conversion_bonus.c
+SRCS_BONUS += utils_x_conversion_bonus.c
+SRCS_BONUS += ft_ltoa_base_post_bonus.c
+SRCS_BONUS += utils_number_bonus.c
 
 OBJ_DIR = ./objs/
 
@@ -122,36 +143,46 @@ vpath %.c sources/
 vpath %.c sources/conversion/
 vpath %.c sources/utils/
 vpath %.c sources/parser/
+
+vpath %.c sources_bonus/
+vpath %.c sources_bonus/conversion_bonus
+vpath %.c sources_bonus/utils_bonus/
+vpath %.c sources_bonus/parser_bonus/
+
 vpath %.c libft/
 
 OBJS = $(patsubst %.c, $(OBJ_DIR)%.o, $(SRCS))
+OBJS_BONUS = $(patsubst %.c, $(OBJ_DIR)%.o, $(SRCS_BONUS))
+OBJS_LIB = $(patsubst %.c, $(OBJ_DIR)%.o, $(SRCS_LIB))
 
 all : $(OBJ_DIR) $(NAME)
 
-$(OBJS): $(OBJ_DIR)%.o: %.c $(HEADER) Makefile
+$(OBJS_LIB): $(OBJ_DIR)%.o: %.c libft/libft.h
+	$(CC) $(CFLAGS) -c $<  -I $(LIBDIR) -o $@
+
+$(OBJS): $(OBJ_DIR)%.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $<  -I $(INCLUDES) -I $(LIBDIR) -o $@
 
-$(NAME): $(OBJS)
-	ar rcs $@ $(OBJS)
+$(OBJS_BONUS): $(OBJ_DIR)%.o: %.c $(HEADER_BONUS)
+	$(CC) $(CFLAGS) -c $<  -I $(INCLUDES_BONUS) -I $(LIBDIR) -o $@
+
+$(NAME): $(OBJS_LIB) $(OBJS) 
+	ar rcs $@ $^
+
+bonus: $(OBJ_DIR) $(OBJS_LIB) $(OBJS_BONUS)
+	ar rcs $(NAME) $(OBJS_LIB) $(OBJS_BONUS)
 
 $(OBJ_DIR):
 	mkdir $@
 
-$(LIB) : FORCE
-	$(MAKE) -C $(LIBDIR)
-
-FORCE :
-
 clean :
-	$(MAKE) clean -C $(LIBDIR)
 	$(RM) -R $(OBJ_DIR)
 
 fclean : clean
-	$(MAKE) fclean -C $(LIBDIR)
 	$(RM) $(NAME)
 
 re : fclean
 	$(MAKE)
 
-.PHONY: all clean fclean re FORCE
+.PHONY: all clean fclean re FORCE bonus
 #.SILENT:
