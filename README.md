@@ -1,10 +1,10 @@
 # PRINTF
 
-This project is about to recreate the function printf and learn to use variadic arguments.
+This project is about how to recreate the function printf and how to learn using variadic arguments.
 > Mandatory part : 
 * manage any combination of the following conversions : cspdiuxX%
 * manage any combination of the following flags : -0.*
-* and minimum field width with all conversions
+* manage minimum field width with all conversions
 > Bonus part :
 * conversions : n
 * flags : l ll h hh
